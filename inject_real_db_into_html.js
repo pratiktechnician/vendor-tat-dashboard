@@ -7,14 +7,20 @@ let indexHtml = fs.readFileSync('index.html', 'utf8');
 // Replace database object in index.html
 const dbString = `const database = ${JSON.stringify(scratchDb)};\n    let currentVendor = 'all';`;
 
+const allCount = scratchDb.all ? scratchDb.all.totalRecords : 0;
+const pnsCount = scratchDb.pns ? scratchDb.pns.totalRecords : 0;
+const saeshaCount = scratchDb.saesha ? scratchDb.saesha.totalRecords : 0;
+const riplCount = scratchDb.ripl ? scratchDb.ripl.totalRecords : 0;
+const malfonicCount = scratchDb.malfonic ? scratchDb.malfonic.totalRecords : 0;
+
 // Update vendor selector dropdown options
 const dropdownOptions = `
       <select class="vendor-switcher-dropdown" id="vendor-selector" onchange="switchVendor(this.value)">
-        <option value="all" selected>🏢 All Vendors Combined (1,230 Sites)</option>
-        <option value="pns">📡 PNS Telecom (278 Sites)</option>
-        <option value="saesha">⚡ Saesha Power (716 Sites)</option>
-        <option value="ripl">🔧 RIPL (101 Sites)</option>
-        <option value="malfonic">📶 Malfonic (135 Sites)</option>
+        <option value="all" selected>🏢 All Vendors Combined (${allCount.toLocaleString()} Sites)</option>
+        <option value="pns">📡 PNS Telecom (${pnsCount.toLocaleString()} Sites)</option>
+        <option value="saesha">⚡ Saesha Power (${saeshaCount.toLocaleString()} Sites)</option>
+        <option value="ripl">🔧 RIPL (${riplCount.toLocaleString()} Sites)</option>
+        <option value="malfonic">📶 Malfonic (${malfonicCount.toLocaleString()} Sites)</option>
       </select>
 `;
 
@@ -37,4 +43,4 @@ const switchVendorCode = `
 indexHtml = indexHtml.replace(/function switchVendor\(vendorKey\)[\s\S]*?updateDashboard\(\);\s*\}/, switchVendorCode.trim());
 
 fs.writeFileSync('index.html', indexHtml, 'utf8');
-console.log('Successfully injected real 1,230 database & All Vendors tab into index.html!');
+console.log(`Successfully injected real ${allCount.toLocaleString()} database & All Vendors tab into index.html!`);
