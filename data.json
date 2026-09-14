@@ -1,5 +1,5 @@
 {
-  "lastRefresh": "2026-09-14T06:24:38.236Z",
+  "lastRefresh": "2026-09-14T07:40:36.752Z",
   "overall": {
     "totalRecords": 1230,
     "completed": 1114,
@@ -17430,7 +17430,7 @@
           "tat": 2,
           "tclTat": 5,
           "status": "AT WIP",
-          "remarks": "GPS Issue, Need to Replace",
+          "remarks": "Need MV",
           "state": "Jharkhand",
           "region": "East",
           "vendor": "Saesha Power",
@@ -39657,7 +39657,7 @@
       "tat": 2,
       "tclTat": 5,
       "status": "AT WIP",
-      "remarks": "GPS Issue, Need to Replace",
+      "remarks": "Need MV",
       "state": "Jharkhand",
       "region": "East",
       "vendor": "Saesha Power",
