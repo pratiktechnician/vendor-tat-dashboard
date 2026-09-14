@@ -987,10 +987,24 @@ const htmlContent = `<!DOCTYPE html>
       }
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      initCharts();
-      updateDashboard();
-    });
+    function initDashboardApp() {
+      try {
+        initCharts();
+      } catch (e) {
+        console.warn('initCharts warning:', e);
+      }
+      try {
+        updateDashboard();
+      } catch (e) {
+        console.warn('updateDashboard warning:', e);
+      }
+    }
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(initDashboardApp, 1);
+    } else {
+      window.addEventListener('DOMContentLoaded', initDashboardApp);
+    }
   </script>
 </body>
 </html>
