@@ -1,0 +1,70 @@
+{
+  "sheets": [
+    {
+      "name": "Summary",
+      "totalRows": 16,
+      "numCols": 4,
+      "sampleHeaders": [
+        "",
+        "",
+        "",
+        "42"
+      ]
+    },
+    {
+      "name": "TAT Summary",
+      "totalRows": 1000,
+      "numCols": 0,
+      "sampleHeaders": []
+    },
+    {
+      "name": "Main Data",
+      "totalRows": 1203,
+      "numCols": 20,
+      "sampleHeaders": [
+        "Region",
+        "State",
+        "Project Name",
+        "Delivery Track",
+        "BTS / Customer",
+        "Site id",
+        "Site Name",
+        "Loading date from wi team",
+        "Permission Required Date",
+        "Complete date",
+        "TAT",
+        "Aging",
+        "WI TAT",
+        "TAT Remarks",
+        "Pending/YTS",
+        "Remarks",
+        "Another Remarks if Required",
+        "Work Order Status",
+        "Work Order (WO) Remarks"
+      ]
+    },
+    {
+      "name": "WI TAT",
+      "totalRows": 1000,
+      "numCols": 3,
+      "sampleHeaders": [
+        "Track",
+        "Sub track type",
+        "Physical Installation & Commissioning for SI Partner"
+      ]
+    },
+    {
+      "name": "Man Power",
+      "totalRows": 11,
+      "numCols": 6,
+      "sampleHeaders": [
+        "S/L No.",
+        "Name",
+        "Trained(Yes/No)",
+        "Designation",
+        "State",
+        "POA"
+      ]
+    }
+  ]
+}

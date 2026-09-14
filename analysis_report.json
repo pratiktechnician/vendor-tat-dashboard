@@ -1,0 +1,514 @@
+{
+  "totalRecords": 692,
+  "overallAvgTAT": "152.90",
+  "trackStats": {
+    "BTS Dismantle": 116,
+    "BTS Survey": 68,
+    "UBR BH Dismantle": 10,
+    "PMP Customer Installation": 32,
+    "UBR BH Survey": 41,
+    "Customer Survey": 102,
+    "BTS Installation": 72,
+    "UBR BH Installation": 16,
+    "WAN survey": 2,
+    "PE Activity": 16,
+    "Switch Installation": 9,
+    "Customer Dismantle": 27,
+    "CX-2 survey": 1,
+    "UBR Dismental": 14,
+    "Sector Dismental": 1,
+    "Cx2 Survey": 1,
+    "Cx2 Installation": 1,
+    "Cx2 Imigration": 1,
+    "Customer Installation": 27,
+    "Customer Migration": 40,
+    "UBR BH Device Survey": 2,
+    "UBR Installation": 18,
+    "BTS + UBR Survey": 1,
+    "PE": 3,
+    "Customer Installation P2P": 2,
+    "Customer LOS Survey": 18,
+    "Customer Installation ": 15,
+    "Customer Visit": 1,
+    "PE ": 2,
+    "UBR P2P Survey": 1,
+    "Customer P2P Survey": 26,
+    "Customer Dismental": 4,
+    "Customer Allignment": 1,
+    "Customer P2P Installation": 1
+  },
+  "trackTATAverages": {
+    "BTS Dismantle": {
+      "avgTAT": "426.66",
+      "count": 110,
+      "min": 0,
+      "max": 46252
+    },
+    "BTS Survey": {
+      "avgTAT": "1.98",
+      "count": 66,
+      "min": 0,
+      "max": 11
+    },
+    "UBR BH Dismantle": {
+      "avgTAT": "4.40",
+      "count": 10,
+      "min": 1,
+      "max": 14
+    },
+    "PMP Customer Installation": {
+      "avgTAT": "4.44",
+      "count": 32,
+      "min": 2,
+      "max": 10
+    },
+    "UBR BH Survey": {
+      "avgTAT": "2.33",
+      "count": 39,
+      "min": 0,
+      "max": 9
+    },
+    "Customer Survey": {
+      "avgTAT": "2.03",
+      "count": 87,
+      "min": 0,
+      "max": 28
+    },
+    "BTS Installation": {
+      "avgTAT": "7.99",
+      "count": 71,
+      "min": 1,
+      "max": 28
+    },
+    "UBR BH Installation": {
+      "avgTAT": "13.13",
+      "count": 16,
+      "min": 1,
+      "max": 31
+    },
+    "WAN survey": {
+      "avgTAT": "1.00",
+      "count": 2,
+      "min": 1,
+      "max": 1
+    },
+    "PE Activity": {
+      "avgTAT": "1.50",
+      "count": 16,
+      "min": 1,
+      "max": 2
+    },
+    "Switch Installation": {
+      "avgTAT": "2.38",
+      "count": 8,
+      "min": 1,
+      "max": 5
+    },
+    "Customer Dismantle": {
+      "avgTAT": "8.38",
+      "count": 26,
+      "min": 1,
+      "max": 21
+    },
+    "CX-2 survey": {
+      "avgTAT": "9.00",
+      "count": 1,
+      "min": 9,
+      "max": 9
+    },
+    "UBR Dismental": {
+      "avgTAT": "3859.33",
+      "count": 12,
+      "min": 0,
+      "max": 46252
+    },
+    "Sector Dismental": {
+      "avgTAT": "3.00",
+      "count": 1,
+      "min": 3,
+      "max": 3
+    },
+    "Cx2 Survey": {
+      "avgTAT": "1.00",
+      "count": 1,
+      "min": 1,
+      "max": 1
+    },
+    "Cx2 Installation": {
+      "avgTAT": "1.00",
+      "count": 1,
+      "min": 1,
+      "max": 1
+    },
+    "Cx2 Imigration": {
+      "avgTAT": "1.00",
+      "count": 1,
+      "min": 1,
+      "max": 1
+    },
+    "Customer Installation": {
+      "avgTAT": "3.38",
+      "count": 13,
+      "min": 0,
+      "max": 19
+    },
+    "Customer Migration": {
+      "avgTAT": "0.80",
+      "count": 20,
+      "min": 0,
+      "max": 3
+    },
+    "UBR BH Device Survey": {
+      "avgTAT": "2.50",
+      "count": 2,
+      "min": 2,
+      "max": 3
+    },
+    "UBR Installation": {
+      "avgTAT": "4.00",
+      "count": 17,
+      "min": -44,
+      "max": 18
+    },
+    "BTS + UBR Survey": {
+      "avgTAT": "1.00",
+      "count": 1,
+      "min": 1,
+      "max": 1
+    },
+    "PE": {
+      "avgTAT": "0.33",
+      "count": 3,
+      "min": 0,
+      "max": 1
+    },
+    "Customer Installation P2P": {
+      "avgTAT": "12.00",
+      "count": 2,
+      "min": 8,
+      "max": 16
+    },
+    "Customer LOS Survey": {
+      "avgTAT": "0.78",
+      "count": 18,
+      "min": 0,
+      "max": 4
+    },
+    "Customer Installation ": {
+      "avgTAT": "1.07",
+      "count": 14,
+      "min": 0,
+      "max": 7
+    },
+    "Customer Visit": {
+      "avgTAT": "0.00",
+      "count": 1,
+      "min": 0,
+      "max": 0
+    },
+    "PE ": {
+      "avgTAT": "0.00",
+      "count": 2,
+      "min": 0,
+      "max": 0
+    },
+    "UBR P2P Survey": {
+      "avgTAT": "1.00",
+      "count": 1,
+      "min": 1,
+      "max": 1
+    },
+    "Customer P2P Survey": {
+      "avgTAT": "1.00",
+      "count": 22,
+      "min": 1,
+      "max": 1
+    },
+    "Customer Dismental": {
+      "avgTAT": "1.00",
+      "count": 4,
+      "min": 1,
+      "max": 1
+    },
+    "Customer Allignment": {
+      "avgTAT": "0.00",
+      "count": 1,
+      "min": 0,
+      "max": 0
+    },
+    "Customer P2P Installation": {
+      "avgTAT": "1.00",
+      "count": 1,
+      "min": 1,
+      "max": 1
+    }
+  },
+  "tatRemarksStats": {
+    "66": 1,
+    "456": 1,
+    "Outside TAT": 100,
+    "In TAT": 251,
+    "Unspecified": 339
+  },
+  "stateStats": {
+    "West Bengal": 211,
+    "Bihar": 41,
+    "Orissa": 206,
+    "Assam": 91,
+    "Jharkhand": 115,
+    "Meghalaya": 2,
+    "Nagaland": 3,
+    "Sikkim": 2,
+    "Manipur": 3,
+    "Tripura": 18
+  },
+  "projectStats": {
+    "Zero customer sector dismantling": 12,
+    "Emergency Relocation": 119,
+    "BH Augmentation - BAU-UBR BH FY25": 2,
+    "CX4 to Conventional BH FY 25 Project": 5,
+    "PTP to PMP Phase-II Extn. Customer Migration": 9,
+    "Top 34 Accounts": 20,
+    "BH migration from TTSL to alternate FY25": 20,
+    "CX4 to Conventional BH FY 25": 80,
+    "BS Augment: UBR Backhaul to Direct FY24": 39,
+    "L1-L2 improvement FY24 Ph-2, 80 sites": 6,
+    "Platform Migration-Ph4 PTP To PMP": 6,
+    "L1-L2 Improvement- 40 Sites": 12,
+    "BH Augmentation - FY25_105": 11,
+    "RF Capacity augmentation 65 BS 100 to 45": 8,
+    "Low Potential BS dismantling–38 BS": 2,
+    "Non Performing BS Optimization FY 24": 9,
+    "Low Potential BS dismantling–50 BS": 2,
+    "Capacity Augmentation - UBR-Q2 FY 24": 4,
+    "Capacity Diminution FY25": 2,
+    "Non Performing BS Optimization Ph-10A": 4,
+    "BAU Dismantling - FY 26": 2,
+    "Low Potential Sector dismantling – 349 Sectors": 24,
+    "under TTL rollback project": 2,
+    "Low Potential BS dismantling 50 BS": 4,
+    "under BS Augment: UBR Backhaul to Direct FY24 termination": 2,
+    "Non-Performing BS Optimization Ph-10B": 8,
+    "TTL Roll back": 2,
+    "BAU Dismantle": 4,
+    "TTL rollback": 4,
+    "T34P-Switch replacement FY25": 10,
+    "RF platform migration: Cambium 100 to 45": 20,
+    "Top 34 Scope-BTS Optimization": 2,
+    "UBR BH Augmentation FY25_26": 1,
+    "ZTS Relocation FY 24": 13,
+    "TTL Rollback": 2,
+    "PTP to PMP Conversion 5": 58,
+    "RF platform migration: Cambium 100 to 450": 8,
+    "ZTS Relocation FY26": 27,
+    "Low Potential TTL BS Dismantling 67": 3,
+    "CX4 to Conventional BH FY 26": 2,
+    "RF Capacity augmentation 65 BS 100 to 450": 1,
+    "Emergency Relocation - FY 26": 3,
+    "Multicast customer migration from PMP to P2P": 1,
+    "Emergency Relocation\r\n\r\n": 1,
+    "Emergency Relocation Project": 13,
+    "Multicast customer migration": 2,
+    "UBR BH cap aug 48 BS FY26": 8,
+    "CX4 BH Con. BH Migr 17 BS FY26": 26,
+    "BH Optimization PH-11": 2,
+    "Emergency relocation project": 7,
+    "P2P to PMP Phase 6": 18,
+    "Low Potential BS & Sector Dismantling 70": 2,
+    "High Colo Opex BTS & ZTS relocation": 18,
+    "CX4 to conventional backhaul PH 3": 5,
+    "BS Augment: UBR Backhaul to Direct FY27": 6,
+    "BH Optimization PH-12": 2,
+    "Top 34 Account": 2,
+    "Low Potential BS & Sector Dismantling": 1,
+    "UBR to Direct": 4
+  },
+  "woStatusStats": {
+    "Unspecified": 615,
+    "Release": 26,
+    "NA": 30,
+    "Dropped": 12,
+    "Not Release": 9
+  },
+  "wiTatList": [
+    {
+      "track": "Implementation at BS end",
+      "subTrack": "BTS Installation",
+      "targetDays": "5.0"
+    },
+    {
+      "track": "Implementation at BS end",
+      "subTrack": "UBR BH Installation",
+      "targetDays": "5.0"
+    },
+    {
+      "track": "Implementation at BS end",
+      "subTrack": "Switch Installation",
+      "targetDays": "5.0"
+    },
+    {
+      "track": "Implementation at BS end",
+      "subTrack": "WAN Aggr. Implementation",
+      "targetDays": "5.0"
+    },
+    {
+      "track": "Priority Site & Emergency Relocation Site",
+      "subTrack": "P Customer Survey ",
+      "targetDays": "2.0"
+    },
+    {
+      "track": "Priority Site & Emergency Relocation Site",
+      "subTrack": "P. BTS Survey ",
+      "targetDays": "2.0"
+    },
+    {
+      "track": "Priority Site & Emergency Relocation Site",
+      "subTrack": "P. Customer Installation",
+      "targetDays": "3.0"
+    },
+    {
+      "track": "Priority Site & Emergency Relocation Site",
+      "subTrack": "P.BTS Installation",
+      "targetDays": "3.0"
+    },
+    {
+      "track": "Implementation at Customer end",
+      "subTrack": "P2P Customer Installation",
+      "targetDays": "5.0"
+    },
+    {
+      "track": "Implementation at Customer end",
+      "subTrack": "PMP Customer Installation",
+      "targetDays": "5.0"
+    },
+    {
+      "track": "Dismantle activity at BS & Customer End",
+      "subTrack": "BTS Dismantle",
+      "targetDays": "7.0"
+    },
+    {
+      "track": "Dismantle activity at BS & Customer End",
+      "subTrack": "UBR BH Dismantle",
+      "targetDays": "7.0"
+    },
+    {
+      "track": "Dismantle activity at BS & Customer End",
+      "subTrack": "Customer P2P Dismantling",
+      "targetDays": "7.0"
+    },
+    {
+      "track": "Dismantle activity at BS & Customer End",
+      "subTrack": "Customer PMP Dismantling",
+      "targetDays": "7.0"
+    },
+    {
+      "track": "Dismantle activity at BS & Customer End",
+      "subTrack": "Dismantle - WAN",
+      "targetDays": "7.0"
+    },
+    {
+      "track": "Survey activity for all scenerio",
+      "subTrack": "BTS Survey",
+      "targetDays": "3.0"
+    },
+    {
+      "track": "Survey activity for all scenerio",
+      "subTrack": "UBR BH Survey",
+      "targetDays": "3.0"
+    },
+    {
+      "track": "Survey activity for all scenerio",
+      "subTrack": "UBR BH Survey with Device",
+      "targetDays": "3.0"
+    },
+    {
+      "track": "Survey activity for all scenerio",
+      "subTrack": "Customer Survey",
+      "targetDays": "3.0"
+    },
+    {
+      "track": "Survey activity for all scenerio",
+      "subTrack": "Customer Survey with Device",
+      "targetDays": "3.0"
+    },
+    {
+      "track": "Survey activity for all scenerio",
+      "subTrack": "WAN Survey",
+      "targetDays": "3.0"
+    }
+  ],
+  "manPowerList": [
+    {
+      "slNo": "1.0",
+      "name": "Nerav Baishya",
+      "trained": "Yes",
+      "designation": "Technician",
+      "state": "NESA",
+      "poa": "Working"
+    },
+    {
+      "slNo": "2.0",
+      "name": "Banjit Dutta",
+      "trained": "Yes",
+      "designation": "Technician",
+      "state": "NESA",
+      "poa": "Working"
+    },
+    {
+      "slNo": "3.0",
+      "name": "Niraj Kumar",
+      "trained": "Yes",
+      "designation": "Technician",
+      "state": "Bihar",
+      "poa": "Working"
+    },
+    {
+      "slNo": "4.0",
+      "name": "Himanshu Kumar",
+      "trained": "Yes",
+      "designation": "Engineer",
+      "state": "Bihar",
+      "poa": "Working"
+    },
+    {
+      "slNo": "5.0",
+      "name": "Mrinal Maity",
+      "trained": "Yes",
+      "designation": "Engineer",
+      "state": "Jharkhand",
+      "poa": "Working"
+    },
+    {
+      "slNo": "6.0",
+      "name": "Surajit Samanta",
+      "trained": "Yes",
+      "designation": "Engineer",
+      "state": "Jharkhand",
+      "poa": "Working"
+    },
+    {
+      "slNo": "7.0",
+      "name": "Srikanta Maity",
+      "trained": "Yes",
+      "designation": "Engineer",
+      "state": "WB",
+      "poa": "Working"
+    },
+    {
+      "slNo": "8.0",
+      "name": "Aziz Sahana",
+      "trained": "Yes",
+      "designation": "Engineer",
+      "state": "WB",
+      "poa": "Working"
+    },
+    {
+      "slNo": "9.0",
+      "name": "Shubhodip Bose",
+      "trained": "Yes",
+      "designation": "Technician",
+      "state": "WB",
+      "poa": "Working"
+    }
+  ]
+}
