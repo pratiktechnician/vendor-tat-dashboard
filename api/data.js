@@ -3,53 +3,73 @@ const path = require('path');
 const https = require('https');
 
 const supabaseUrl = process.env.SUPABASE_URL || 'https://fnvtruvkmaafvsrjfdkp.supabase.co';
-const supabaseKey = process.env.SUPABASE_KEY || process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZudnRydXZrbWFhZnZzcmpmZGtwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzMwOTcsImV4cCI6MjEwNDkzOTA5N30.DmHMy7lb_hNuXv6dEVSK6BnZkAyJD43QwuQ4QCnjr5k';
+const supabaseKey = process.env.SUPABASE_KEY || process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZudnRydXZrbWFhZnZzcmpmZGtwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzNjMwOTcsImV4cCI6MjEwNDkzOTA5N30.DmHMy7lb_hNuXv6dEVSK6BnZkAyJD43QwuQ4QCnjr5k';
 
-function fetchFromSupabase() {
-  return new Promise((resolve, reject) => {
-    if (!supabaseUrl || !supabaseKey) return reject(new Error('No Supabase credentials'));
+async function fetchFromSupabase() {
+  if (!supabaseUrl || !supabaseKey) throw new Error('No Supabase credentials');
 
-    const url = `${supabaseUrl}/rest/v1/vendor_surveys?select=*&limit=5000`;
-    const req = https.get(url, {
-      headers: {
-        'apikey': supabaseKey,
-        'Authorization': `Bearer ${supabaseKey}`
-      }
-    }, (res) => {
-      let body = '';
-      res.on('data', chunk => body += chunk);
-      res.on('end', () => {
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          try {
-            const rows = JSON.parse(body);
-            const rawRecords = rows.map(r => ({
-              siteId: r.site_id || '',
-              siteName: r.site_name || '',
-              project: r.project || '',
-              activity: r.activity || '',
-              assignedDate: r.assigned_date || '',
-              permDate: r.perm_date || '',
-              completedDate: r.completed_date || '',
-              tat: r.tat,
-              tclTat: r.tcl_tat,
-              status: r.status || '',
-              remarks: r.remarks || '',
-              state: r.state || '',
-              region: r.region || '',
-              vendor: r.vendor || ''
-            }));
-            resolve({ rawRecords });
-          } catch (e) {
-            reject(e);
-          }
-        } else {
-          reject(new Error(`HTTP ${res.statusCode}: ${body}`));
+  let allRows = [];
+  let offset = 0;
+  const limit = 1000;
+  let hasMore = true;
+
+  while (hasMore) {
+    const rows = await new Promise((resolve, reject) => {
+      const url = `${supabaseUrl}/rest/v1/vendor_surveys?select=*`;
+      const req = https.get(url, {
+        headers: {
+          'apikey': supabaseKey,
+          'Authorization': `Bearer ${supabaseKey}`,
+          'Range': `${offset}-${offset + limit - 1}`
         }
+      }, (res) => {
+        let body = '';
+        res.on('data', chunk => body += chunk);
+        res.on('end', () => {
+          if (res.statusCode >= 200 && res.statusCode < 300) {
+            try {
+              resolve(JSON.parse(body));
+            } catch (e) {
+              reject(e);
+            }
+          } else {
+            reject(new Error(`HTTP ${res.statusCode}: ${body}`));
+          }
+        });
       });
+      req.on('error', reject);
     });
 
-    req.on('error', reject);
-  });
+    if (rows && rows.length > 0) {
+      allRows = allRows.concat(rows);
+      if (rows.length < limit) {
+        hasMore = false;
+      } else {
+        offset += limit;
+      }
+    } else {
+      hasMore = false;
+    }
+  }
+
+  const rawRecords = allRows.map(r => ({
+    siteId: r.site_id || '',
+    siteName: r.site_name || '',
+    project: r.project || '',
+    activity: r.activity || '',
+    assignedDate: r.assigned_date || '',
+    permDate: r.perm_date || '',
+    completedDate: r.completed_date || '',
+    tat: r.tat,
+    tclTat: r.tcl_tat,
+    status: r.status || '',
+    remarks: r.remarks || '',
+    state: r.state || '',
+    region: r.region || '',
+    vendor: r.vendor || ''
+  }));
+
+  return { rawRecords };
 }
 
 module.exports = async (req, res) => {
