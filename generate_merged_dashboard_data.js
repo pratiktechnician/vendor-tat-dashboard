@@ -998,6 +998,11 @@ const htmlContent = `<!DOCTYPE html>
       } catch (e) {
         console.warn('updateDashboard warning:', e);
       }
+      try {
+        if (typeof renderWoDashboard === 'function') renderWoDashboard();
+      } catch (e) {
+        console.warn('renderWoDashboard warning:', e);
+      }
     }
 
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
