@@ -11,8 +11,16 @@ if (fs.existsSync('all_3000_records.json')) {
   historicalRecords = histData.rawRecords || [];
 }
 
+// 3. Read real vendor team details from teams_compliance.json
+let allTeams = [];
+if (fs.existsSync('teams_compliance.json')) {
+  allTeams = JSON.parse(fs.readFileSync('teams_compliance.json', 'utf8'))
+    .filter(t => t.name && t.name !== 'FE Name' && t.name !== 'Name');
+}
+
 console.log(`Loaded ${liveRecords.length} live records from data.json`);
 console.log(`Loaded ${historicalRecords.length} historical baseline records from all_3000_records.json`);
+console.log(`Loaded ${allTeams.length} vendor team members from teams_compliance.json`);
 
 function getWoPendingStatusHelper(record) {
   if (!record) return 'not_released';
@@ -88,11 +96,13 @@ function computeVendorStats(vendorKey, vendorName, vendorRecords) {
     .sort((a, b) => b.count - a.count)
     .slice(0, 10);
 
-  const team = [
-    { name: 'Rakesh Sharma', role: 'Field Project Manager', loc: 'West Bengal & Odisha' },
-    { name: 'Amit Kumar', role: 'Lead Survey Coordinator', loc: 'Bihar & Jharkhand' },
-    { name: 'Sanjay Verma', role: 'Installation Specialist', loc: 'Assam & NE Circle' }
-  ];
+  // Assign real extracted vendor team members
+  let vendorTeams = [];
+  if (vendorKey === 'all' || vendorKey === 'historical') {
+    vendorTeams = allTeams;
+  } else {
+    vendorTeams = allTeams.filter(t => (t.vendor || '').toLowerCase().includes(vendorName.toLowerCase()));
+  }
 
   return {
     vendorKey,
@@ -110,7 +120,7 @@ function computeVendorStats(vendorKey, vendorName, vendorRecords) {
     stateDist,
     activities,
     julyTimeline: { "Jul 01": Math.round(totalRecords * 0.1), "Jul 07": Math.round(totalRecords * 0.2), "Jul 14": Math.round(totalRecords * 0.35), "Jul 21": Math.round(totalRecords * 0.6), "Jul 28": Math.round(totalRecords * 0.85), "Jul 31": totalRecords },
-    team,
+    team: vendorTeams,
     rawRecords: vendorRecords.map(r => ({
       siteId: r.siteId || '—',
       siteName: r.siteName || '—',
@@ -139,13 +149,12 @@ const db = {
   'Malfonic': computeVendorStats('Malfonic', 'Malfonic', liveRecords.filter(r => (r.vendor || '').toLowerCase().includes('malfonic')))
 };
 
-console.log('Database computed (Exact Binary Released vs Not Released):');
-console.log(`- Live All: ${db.all.totalRecords} sites (${db.all.completed} Released, ${db.all.pending} Not Released)`);
-console.log(`- Historical Old Data: ${db.historical.totalRecords} sites`);
-console.log(`- PNS: ${db['PNS Telecom'].totalRecords} sites (${db['PNS Telecom'].completed} Released, ${db['PNS Telecom'].pending} Not Released)`);
-console.log(`- Saesha: ${db['Saesha Power'].totalRecords} sites (${db['Saesha Power'].completed} Released, ${db['Saesha Power'].pending} Not Released)`);
-console.log(`- RIPL: ${db['RIPL'].totalRecords} sites (${db['RIPL'].completed} Released, ${db['RIPL'].pending} Not Released)`);
-console.log(`- Malfonic: ${db['Malfonic'].totalRecords} sites (${db['Malfonic'].completed} Released, ${db['Malfonic'].pending} Not Released)`);
+console.log('Database computed with Real Vendor Team Details:');
+console.log(`- All Combined Team: ${db.all.team.length} members`);
+console.log(`- PNS Team: ${db['PNS Telecom'].team.length} members`);
+console.log(`- Saesha Team: ${db['Saesha Power'].team.length} members`);
+console.log(`- RIPL Team: ${db['RIPL'].team.length} members`);
+console.log(`- Malfonic Team: ${db['Malfonic'].team.length} members`);
 
 let html = fs.readFileSync('index.html', 'utf8');
 
@@ -187,82 +196,40 @@ if (!html.includes('.mode-toggle-btn.active')) {
   html = html.replace('</style>', `${extraCss}\n  </style>`);
 }
 
-// Check if Historical Baseline section exists right inside .container
-const historicalBannerHtml = `
-    <!-- HISTORICAL BASELINE (OLD DATA) & LIVE COMPARATIVE BANNER AT BEGINNING OF DASHBOARD -->
-    <div class="card" style="margin-bottom: 24px; background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 16px; padding: 20px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+// Update the Field Staff & Technical Roster card HTML in index.html to include interactive Vendor Team Dropdown
+const updatedTeamCardHtml = `
+    <div class="card" style="margin-bottom: 32px;">
+      <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
         <div>
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 1.3rem;">📜</span>
-            <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0;">Historical Baseline Dataset (Old Data) & Performance Benchmark</h3>
-            <span style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.4); padding: 3px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 600;">Archive Benchmark</span>
+          <div class="card-title" style="font-size: 1.1rem; font-weight: 700; color: #fff;">👷 Deployed Field Staff & Technical Roster</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+            Active field engineers, technicians, and survey staff deployed per vendor circle
           </div>
-          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
-            Comparing initial baseline old records (1,231 sites) with real-time live Google Sheets (1,305 sites)
-          </p>
         </div>
 
-        <!-- Mode Selector Buttons -->
-        <div style="display: flex; gap: 10px; align-items: center;">
-          <button id="btn-mode-live" class="mode-toggle-btn active" onclick="setDashboardMode('live')" style="background: var(--primary); border: 1px solid var(--primary); color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 0.8rem; cursor: pointer; font-weight: 600;">
-            🌐 Live Sheets Data (1,305 Sites)
-          </button>
-          <button id="btn-mode-historical" class="mode-toggle-btn" onclick="setDashboardMode('historical')" style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15); color: var(--text-muted); padding: 8px 16px; border-radius: 8px; font-size: 0.8rem; cursor: pointer; font-weight: 600;">
-            📜 View Old Data (1,231 Sites)
-          </button>
+        <!-- Vendor Roster Filter Dropdown -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <select id="team-vendor-filter" onchange="filterTeamByVendor(this.value)" style="background:#0d1117; border:1px solid #30363d; color:#e2e8f0; padding:6px 12px; border-radius:8px; font-size:0.78rem; cursor:pointer; font-weight:600;">
+            <option value="all">🏢 All Vendors (39 Personnel)</option>
+            <option value="PNS Telecom">📡 PNS Telecom (7 Personnel)</option>
+            <option value="Saesha Power">⚡ Saesha Power (9 Personnel)</option>
+            <option value="RIPL">🔧 RIPL (16 Personnel)</option>
+            <option value="Malfonic">📶 Malfonic (7 Personnel)</option>
+          </select>
         </div>
       </div>
 
-      <!-- Historical Baseline Snapshot Quick Cards -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px;">
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); padding: 12px 16px; border-radius: 10px;">
-          <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Old Baseline Dataset</div>
-          <div style="font-size: 1.35rem; font-weight: 700; color: #fff; margin-top: 2px;" id="old-baseline-total">1,231 Sites</div>
-          <div style="font-size: 0.72rem; color: #10b981; margin-top: 2px;">✓ Baseline Archive Snapshot</div>
-        </div>
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); padding: 12px 16px; border-radius: 10px;">
-          <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Old Baseline Breakdown</div>
-          <div style="font-size: 0.78rem; color: #e2e8f0; margin-top: 4px; line-height: 1.4;">
-            ⚡ Saesha: <b>716</b> &bull; 📡 PNS: <b>279</b><br>
-            📶 Malfonic: <b>135</b> &bull; 🔧 RIPL: <b>101</b>
-          </div>
-        </div>
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); padding: 12px 16px; border-radius: 10px;">
-          <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Old Baseline Performance</div>
-          <div style="font-size: 1.35rem; font-weight: 700; color: #38bdf8; margin-top: 2px;">94.8% SLA</div>
-          <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 2px;">Avg TAT: 2.31 Days</div>
-        </div>
-        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); padding: 12px 16px; border-radius: 10px;">
-          <div style="font-size: 0.72rem; color: #10b981; font-weight: 600; text-transform: uppercase;">Live Expansion Growth</div>
-          <div style="font-size: 1.35rem; font-weight: 700; color: #34d399; margin-top: 2px;">+74 New Sites</div>
-          <div style="font-size: 0.72rem; color: #a7f3d0; margin-top: 2px;">1,305 Live Sites Tracked Now</div>
-        </div>
-      </div>
+      <div class="team-grid" id="team-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 16px;"></div>
     </div>
 `;
 
-if (!html.includes('id="btn-mode-historical"')) {
-  html = html.replace('<div class="container">', `<div class="container">\n${historicalBannerHtml}`);
+if (html.includes('<div class="card" style="margin-bottom: 32px;">')) {
+  html = html.replace(/<div class="card" style="margin-bottom: 32px;">[\s\S]*?<\/div>\s*<\/div>/, updatedTeamCardHtml.trim());
+} else if (html.includes('Deployed Field Staff & Technical Roster')) {
+  html = html.replace(/<div class="card"[\s\S]*?Deployed Field Staff & Technical Roster[\s\S]*?<\/div>\s*<\/div>/, updatedTeamCardHtml.trim());
 }
 
-// Update header vendor switcher dropdown options to include Old Data Baseline
-const headerDropdownSnippet = `
-      <select class="vendor-switcher-dropdown" id="vendor-selector" onchange="switchVendor(this.value)">
-        <option value="all" selected>🏢 Live: All Vendors Combined (1,305 Sites)</option>
-        <option value="historical">📜 Old Data Baseline Snapshot (1,231 Sites)</option>
-        <option value="pns">📡 PNS Telecom (283 Sites)</option>
-        <option value="saesha">⚡ Saesha Power (737 Sites)</option>
-        <option value="ripl">🔧 RIPL (149 Sites)</option>
-        <option value="malfonic">📶 Malfonic (136 Sites)</option>
-      </select>
-`;
-
-if (html.includes('<select class="vendor-switcher-dropdown"')) {
-  html = html.replace(/<select class="vendor-switcher-dropdown"[\s\S]*?<\/select>/, headerDropdownSnippet.trim());
-}
-
-// Build the full complete JavaScript code with BINARY WO STATUS (Released vs Not Released)
+// Build the full complete JavaScript code
 const completeScriptContent = `
     const database = ${JSON.stringify(db)};
     let currentVendor = 'all';
@@ -375,8 +342,54 @@ const completeScriptContent = `
       const selectHeader = document.getElementById('vendor-selector');
       if (selectHeader) selectHeader.value = vendorKey === 'PNS Telecom' ? 'pns' : vendorKey === 'Saesha Power' ? 'saesha' : vendorKey === 'RIPL' ? 'ripl' : vendorKey === 'Malfonic' ? 'malfonic' : vendorKey;
 
+      const teamSelect = document.getElementById('team-vendor-filter');
+      if (teamSelect) teamSelect.value = vendorKey === 'historical' ? 'all' : vendorKey;
+
       updateDashboard();
       if (typeof renderWoDashboard === 'function') renderWoDashboard();
+    }
+
+    function filterTeamByVendor(vendorVal) {
+      const teamContainer = document.getElementById('team-container');
+      if (!teamContainer) return;
+
+      let teamList = [];
+      if (vendorVal === 'all' || vendorVal === 'historical') {
+        teamList = (database && database.all && database.all.team) ? database.all.team : [];
+      } else if (database && database[vendorVal] && database[vendorVal].team) {
+        teamList = database[vendorVal].team;
+      } else if (database && database.all && database.all.team) {
+        teamList = database.all.team.filter(t => (t.vendor || '').toLowerCase().includes(vendorVal.toLowerCase()));
+      }
+
+      if (!teamList || teamList.length === 0) {
+        teamContainer.innerHTML = '<div style="color:var(--text-muted); padding:16px;">No personnel records found for selected vendor.</div>';
+        return;
+      }
+
+      const vendorBadges = {
+        'PNS Telecom': { bg: 'rgba(99, 102, 241, 0.15)', color: '#818cf8', border: 'rgba(99, 102, 241, 0.3)' },
+        'Saesha Power': { bg: 'rgba(16, 185, 129, 0.15)', color: '#34d399', border: 'rgba(16, 185, 129, 0.3)' },
+        'RIPL': { bg: 'rgba(245, 158, 11, 0.15)', color: '#fbbf24', border: 'rgba(245, 158, 11, 0.3)' },
+        'Malfonic': { bg: 'rgba(6, 182, 212, 0.15)', color: '#22d3ee', border: 'rgba(6, 182, 212, 0.3)' }
+      };
+
+      teamContainer.innerHTML = teamList.map(t => {
+        const vMeta = vendorBadges[t.vendor] || { bg: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: 'rgba(255,255,255,0.1)' };
+        return \`
+          <div class="team-card" style="background:rgba(255,255,255,0.03); border:1px solid var(--border-color); padding:16px; border-radius:12px; display:flex; align-items:center; gap:14px; transition:transform 0.2s ease;">
+            <div class="avatar" style="width:42px; height:42px; border-radius:50%; background:var(--primary-gradient); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:1.1rem; flex-shrink:0;">\${(t.name || 'T').charAt(0)}</div>
+            <div class="team-info" style="flex:1; overflow:hidden;">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:6px;">
+                <h5 style="margin:0; font-size:0.92rem; color:#fff; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">\${t.name}</h5>
+                <span style="background:\${vMeta.bg}; color:\${vMeta.color}; border:1px solid \${vMeta.border}; font-size:0.65rem; padding:2px 8px; border-radius:10px; font-weight:600; flex-shrink:0;">\${t.vendor || 'Vendor'}</span>
+              </div>
+              <p style="margin:3px 0 0 0; font-size:0.75rem; color:var(--text-muted);">\${t.role || 'Field Engineer'} &bull; \${t.location || t.loc || 'Circle'}</p>
+              <div style="font-size:0.68rem; color:#10b981; margin-top:4px;">\${t.status || '🟢 Active Daily Updates'}</div>
+            </div>
+          </div>
+        \`;
+      }).join('');
     }
 
     function updateDashboard() {
@@ -471,19 +484,8 @@ const completeScriptContent = `
         chartStates.update();
       }
 
-      // 7. Field Team Roster
-      const teamContainer = document.getElementById('team-container');
-      if (teamContainer && data.team) {
-        teamContainer.innerHTML = data.team.map(t => \`
-          <div class="team-card" style="background:rgba(255,255,255,0.03); border:1px solid var(--border-color); padding:16px; border-radius:12px; display:flex; align-items:center; gap:12px;">
-            <div class="avatar" style="width:38px; height:38px; border-radius:50%; background:var(--primary-gradient); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff;">\${t.name.charAt(0)}</div>
-            <div class="team-info">
-              <h5 style="margin:0; font-size:0.9rem; color:#fff;">\${t.name}</h5>
-              <p style="margin:0; font-size:0.75rem; color:var(--text-muted);">\${t.role} &bull; \${t.loc}</p>
-            </div>
-          </div>
-        \`).join('');
-      }
+      // 7. Render Field Team Roster vendor-wise
+      filterTeamByVendor(currentVendor);
 
       // 8. Filter Granular Site Table
       filteredTableData = data.rawRecords || [];
@@ -566,7 +568,6 @@ const completeScriptContent = `
       return new Date(2026, 8, 14);
     }
 
-    // Binary Classification: ONLY 'released' OR 'not_released'
     function getWoPendingStatus(record) {
       if (!record) return 'not_released';
       const woLower = (record.rawWoStatus || '').toString().toLowerCase().trim();
@@ -704,7 +705,6 @@ const completeScriptContent = `
       const totalReleased = filtered.filter(r => getWoPendingStatus(r) === 'released').length;
       const totalNotReleased = filtered.filter(r => getWoPendingStatus(r) === 'not_released').length;
 
-      // Render ONLY Released and Not Released Summary Pills (WIP removed completely)
       const pillsContainer = document.getElementById('wo-summary-pills');
       if (pillsContainer) {
         pillsContainer.innerHTML = \`
@@ -714,7 +714,6 @@ const completeScriptContent = `
         \`;
       }
 
-      // Render ONLY Released and Not Released Chart (WIP removed completely)
       const chartCtx = document.getElementById('chart-wo-status');
       if (chartCtx) {
         const releasedCounts = vendorNames.map(v => vendorGroups[v] ? vendorGroups[v].released : 0);
@@ -800,7 +799,6 @@ const completeScriptContent = `
         }
       }
 
-      // Render per-vendor cards showing ONLY Released and Not Released (WIP removed)
       const cardsGrid = document.getElementById('wo-vendor-cards');
       if (cardsGrid) {
         const vendorMeta = {
@@ -832,7 +830,6 @@ const completeScriptContent = `
         cardsGrid.innerHTML = cardsHtml || '<div style="color:#94a3b8;">No vendor data.</div>';
       }
 
-      // Render table rows showing ONLY Released vs Not Released badge
       const tbody = document.getElementById('wo-detail-tbody');
       if (tbody) {
         let tableRecords = [];
@@ -1055,7 +1052,7 @@ const scriptEnd = html.lastIndexOf(closeScriptTag);
 if (scriptStart !== -1 && scriptEnd !== -1) {
   html = html.substring(0, scriptStart + openScriptTag.length) + '\n' + completeScriptContent.trim() + '\n  ' + html.substring(scriptEnd);
   fs.writeFileSync('index.html', html, 'utf8');
-  console.log('✅ Cleanly updated index.html with Binary Released vs Not Released numbers ONLY!');
+  console.log('✅ Cleanly updated index.html with Real Vendor Team Details & Interactive Vendor Selector!');
 } else {
   console.error('❌ Could not find <script> tags in index.html');
 }
