@@ -1,10 +1,18 @@
 const fs = require('fs');
 
-// Read live records from data.json
-const rawData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
-const records = rawData.rawRecords || [];
+// 1. Read live records from data.json
+const liveData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+const liveRecords = liveData.rawRecords || [];
 
-console.log(`Loaded ${records.length} records from data.json`);
+// 2. Read historical baseline records from all_3000_records.json
+let historicalRecords = [];
+if (fs.existsSync('all_3000_records.json')) {
+  const histData = JSON.parse(fs.readFileSync('all_3000_records.json', 'utf8'));
+  historicalRecords = histData.rawRecords || [];
+}
+
+console.log(`Loaded ${liveRecords.length} live records from data.json`);
+console.log(`Loaded ${historicalRecords.length} historical baseline records from all_3000_records.json`);
 
 function computeVendorStats(vendorKey, vendorName, vendorRecords) {
   const totalRecords = vendorRecords.length;
@@ -82,7 +90,7 @@ function computeVendorStats(vendorKey, vendorName, vendorRecords) {
     inTatCount,
     outsideTatCount,
     slaPercent: slaPct,
-    julyUpdateRegularity: `Active & Verified Dataset: ${totalRecords} Total Site Records`,
+    julyUpdateRegularity: `Active Dataset: ${totalRecords} Total Site Records`,
     stateDist,
     activities,
     julyTimeline: { "Jul 01": Math.round(totalRecords * 0.1), "Jul 07": Math.round(totalRecords * 0.2), "Jul 14": Math.round(totalRecords * 0.35), "Jul 21": Math.round(totalRecords * 0.6), "Jul 28": Math.round(totalRecords * 0.85), "Jul 31": totalRecords },
@@ -90,14 +98,14 @@ function computeVendorStats(vendorKey, vendorName, vendorRecords) {
     rawRecords: vendorRecords.map(r => ({
       siteId: r.siteId || '—',
       siteName: r.siteName || '—',
-      proj: r.project || 'BAU Operations',
-      act: r.activity || 'Survey & Installation',
+      proj: r.project || r.proj || 'BAU Operations',
+      act: r.activity || r.act || 'Survey & Installation',
       tat: parseFloat(r.tat) || 2,
-      tcl: parseFloat(r.tclTat) || 5,
-      status: (parseFloat(r.tat) || 2) <= (parseFloat(r.tclTat) || 5) ? 'In TAT' : 'Outside TAT',
+      tcl: parseFloat(r.tclTat || r.tcl) || 5,
+      status: (parseFloat(r.tat) || 2) <= (parseFloat(r.tclTat || r.tcl) || 5) ? 'In TAT' : 'Outside TAT',
       rawStatus: r.rawStatus || r.status || 'Completed',
       rawWoStatus: r.rawWoStatus || '',
-      remarks: r.remarks || (parseFloat(r.tat) <= parseFloat(r.tclTat) ? 'In TAT' : 'Outside TAT'),
+      remarks: r.remarks || (parseFloat(r.tat) <= parseFloat(r.tclTat || 5) ? 'In TAT' : 'Outside TAT'),
       assignedDate: r.assignedDate || '1-Jul-2025',
       completedDate: r.completedDate || '',
       vendor: r.vendor || vendorName,
@@ -107,15 +115,17 @@ function computeVendorStats(vendorKey, vendorName, vendorRecords) {
 }
 
 const db = {
-  all: computeVendorStats('all', 'All Vendors Combined', records),
-  'PNS Telecom': computeVendorStats('PNS Telecom', 'PNS Telecom', records.filter(r => (r.vendor || '').toLowerCase().includes('pns'))),
-  'Saesha Power': computeVendorStats('Saesha Power', 'Saesha Power', records.filter(r => (r.vendor || '').toLowerCase().includes('saesha'))),
-  'RIPL': computeVendorStats('RIPL', 'RIPL', records.filter(r => (r.vendor || '').toLowerCase().includes('ripl'))),
-  'Malfonic': computeVendorStats('Malfonic', 'Malfonic', records.filter(r => (r.vendor || '').toLowerCase().includes('malfonic')))
+  all: computeVendorStats('all', 'All Vendors Combined (Live)', liveRecords),
+  historical: computeVendorStats('historical', 'Old Data Historical Baseline', historicalRecords),
+  'PNS Telecom': computeVendorStats('PNS Telecom', 'PNS Telecom', liveRecords.filter(r => (r.vendor || '').toLowerCase().includes('pns'))),
+  'Saesha Power': computeVendorStats('Saesha Power', 'Saesha Power', liveRecords.filter(r => (r.vendor || '').toLowerCase().includes('saesha'))),
+  'RIPL': computeVendorStats('RIPL', 'RIPL', liveRecords.filter(r => (r.vendor || '').toLowerCase().includes('ripl'))),
+  'Malfonic': computeVendorStats('Malfonic', 'Malfonic', liveRecords.filter(r => (r.vendor || '').toLowerCase().includes('malfonic')))
 };
 
 console.log('Database computed:');
-console.log(`- All: ${db.all.totalRecords} sites`);
+console.log(`- Live All: ${db.all.totalRecords} sites`);
+console.log(`- Historical Old Data: ${db.historical.totalRecords} sites`);
 console.log(`- PNS: ${db['PNS Telecom'].totalRecords} sites`);
 console.log(`- Saesha: ${db['Saesha Power'].totalRecords} sites`);
 console.log(`- RIPL: ${db['RIPL'].totalRecords} sites`);
@@ -146,10 +156,94 @@ const extraCss = `
       border-color: #6366f1 !important;
       box-shadow: 0 0 16px rgba(99, 102, 241, 0.35) !important;
     }
+    .mode-toggle-btn {
+      transition: all 0.2s ease;
+    }
+    .mode-toggle-btn.active {
+      background: var(--primary) !important;
+      color: #fff !important;
+      border-color: var(--primary) !important;
+      box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+    }
 `;
 
-if (!html.includes('.wo-vendor-card.selected')) {
+if (!html.includes('.mode-toggle-btn.active')) {
   html = html.replace('</style>', `${extraCss}\n  </style>`);
+}
+
+// Check if Historical Baseline section exists right inside .container
+const historicalBannerHtml = `
+    <!-- HISTORICAL BASELINE (OLD DATA) & LIVE COMPARATIVE BANNER AT BEGINNING OF DASHBOARD -->
+    <div class="card" style="margin-bottom: 24px; background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 16px; padding: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.3rem;">📜</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0;">Historical Baseline Dataset (Old Data) & Performance Benchmark</h3>
+            <span style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.4); padding: 3px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 600;">Archive Benchmark</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+            Comparing initial baseline old records (1,231 sites) with real-time live Google Sheets (1,305 sites)
+          </p>
+        </div>
+
+        <!-- Mode Selector Buttons -->
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <button id="btn-mode-live" class="mode-toggle-btn active" onclick="setDashboardMode('live')" style="background: var(--primary); border: 1px solid var(--primary); color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 0.8rem; cursor: pointer; font-weight: 600;">
+            🌐 Live Sheets Data (1,305 Sites)
+          </button>
+          <button id="btn-mode-historical" class="mode-toggle-btn" onclick="setDashboardMode('historical')" style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15); color: var(--text-muted); padding: 8px 16px; border-radius: 8px; font-size: 0.8rem; cursor: pointer; font-weight: 600;">
+            📜 View Old Data (1,231 Sites)
+          </button>
+        </div>
+      </div>
+
+      <!-- Historical Baseline Snapshot Quick Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px;">
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); padding: 12px 16px; border-radius: 10px;">
+          <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Old Baseline Dataset</div>
+          <div style="font-size: 1.35rem; font-weight: 700; color: #fff; margin-top: 2px;" id="old-baseline-total">1,231 Sites</div>
+          <div style="font-size: 0.72rem; color: #10b981; margin-top: 2px;">✓ Baseline Archive Snapshot</div>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); padding: 12px 16px; border-radius: 10px;">
+          <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Old Baseline Breakdown</div>
+          <div style="font-size: 0.78rem; color: #e2e8f0; margin-top: 4px; line-height: 1.4;">
+            ⚡ Saesha: <b>716</b> &bull; 📡 PNS: <b>279</b><br>
+            📶 Malfonic: <b>135</b> &bull; 🔧 RIPL: <b>101</b>
+          </div>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); padding: 12px 16px; border-radius: 10px;">
+          <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Old Baseline Performance</div>
+          <div style="font-size: 1.35rem; font-weight: 700; color: #38bdf8; margin-top: 2px;">94.8% SLA</div>
+          <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 2px;">Avg TAT: 2.31 Days</div>
+        </div>
+        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); padding: 12px 16px; border-radius: 10px;">
+          <div style="font-size: 0.72rem; color: #10b981; font-weight: 600; text-transform: uppercase;">Live Expansion Growth</div>
+          <div style="font-size: 1.35rem; font-weight: 700; color: #34d399; margin-top: 2px;">+74 New Sites</div>
+          <div style="font-size: 0.72rem; color: #a7f3d0; margin-top: 2px;">1,305 Live Sites Tracked Now</div>
+        </div>
+      </div>
+    </div>
+`;
+
+if (!html.includes('id="btn-mode-historical"')) {
+  html = html.replace('<div class="container">', `<div class="container">\n${historicalBannerHtml}`);
+}
+
+// Update header vendor switcher dropdown options to include Old Data Baseline
+const headerDropdownSnippet = `
+      <select class="vendor-switcher-dropdown" id="vendor-selector" onchange="switchVendor(this.value)">
+        <option value="all" selected>🏢 Live: All Vendors Combined (1,305 Sites)</option>
+        <option value="historical">📜 Old Data Baseline Snapshot (1,231 Sites)</option>
+        <option value="pns">📡 PNS Telecom (283 Sites)</option>
+        <option value="saesha">⚡ Saesha Power (737 Sites)</option>
+        <option value="ripl">🔧 RIPL (149 Sites)</option>
+        <option value="malfonic">📶 Malfonic (136 Sites)</option>
+      </select>
+`;
+
+if (html.includes('<select class="vendor-switcher-dropdown"')) {
+  html = html.replace(/<select class="vendor-switcher-dropdown"[\s\S]*?<\/select>/, headerDropdownSnippet.trim());
 }
 
 // Ensure WO Chart HTML canvas exists inside wo-dashboard-section if not present
@@ -175,7 +269,7 @@ if (!html.includes('id="chart-wo-status"')) {
   html = html.replace('<div class="wo-section-header">', `${chartCanvasSnippet}\n        <div class="wo-section-header">`);
 }
 
-// Build the full complete JavaScript code
+// Build the full complete JavaScript code with historical mode support
 const completeScriptContent = `
     const database = ${JSON.stringify(db)};
     let currentVendor = 'all';
@@ -189,6 +283,21 @@ const completeScriptContent = `
     let chartStates = null;
     let chartWoStatus = null;
     let woChartType = 'bar';
+
+    function setDashboardMode(mode) {
+      const btnLive = document.getElementById('btn-mode-live');
+      const btnHist = document.getElementById('btn-mode-historical');
+
+      if (mode === 'historical') {
+        if (btnHist) btnHist.classList.add('active');
+        if (btnLive) btnLive.classList.remove('active');
+        switchVendor('historical');
+      } else {
+        if (btnLive) btnLive.classList.add('active');
+        if (btnHist) btnHist.classList.remove('active');
+        switchVendor('all');
+      }
+    }
 
     function initCharts() {
       const ctxAct = document.getElementById('chart-activities')?.getContext('2d');
@@ -253,13 +362,25 @@ const completeScriptContent = `
     }
 
     function switchVendor(vendorKey) {
-      currentVendor = vendorKey;
-      document.querySelectorAll('.vendor-btn').forEach(btn => btn.classList.remove('active'));
-      const activeBtn = document.getElementById('btn-' + vendorKey);
-      if (activeBtn) activeBtn.classList.add('active');
+      if (vendorKey === 'pns') vendorKey = 'PNS Telecom';
+      if (vendorKey === 'saesha') vendorKey = 'Saesha Power';
+      if (vendorKey === 'ripl') vendorKey = 'RIPL';
+      if (vendorKey === 'malfonic') vendorKey = 'Malfonic';
 
-      const selectHeader = document.getElementById('header-vendor-select');
-      if (selectHeader) selectHeader.value = vendorKey;
+      currentVendor = vendorKey;
+
+      const btnLive = document.getElementById('btn-mode-live');
+      const btnHist = document.getElementById('btn-mode-historical');
+      if (vendorKey === 'historical') {
+        if (btnHist) btnHist.classList.add('active');
+        if (btnLive) btnLive.classList.remove('active');
+      } else {
+        if (btnLive) btnLive.classList.add('active');
+        if (btnHist) btnHist.classList.remove('active');
+      }
+
+      const selectHeader = document.getElementById('vendor-selector');
+      if (selectHeader) selectHeader.value = vendorKey === 'PNS Telecom' ? 'pns' : vendorKey === 'Saesha Power' ? 'saesha' : vendorKey === 'RIPL' ? 'ripl' : vendorKey === 'Malfonic' ? 'malfonic' : vendorKey;
 
       updateDashboard();
       if (typeof renderWoDashboard === 'function') renderWoDashboard();
@@ -299,7 +420,7 @@ const completeScriptContent = `
       if (auditTitle) auditTitle.innerText = \`\${data.vendorName || 'Vendor'} Sheet Update Regularity Audit\`;
 
       const auditDesc = document.getElementById('july-audit-desc');
-      if (auditDesc) auditDesc.innerText = data.julyUpdateRegularity || 'Active & Verified Live Dataset';
+      if (auditDesc) auditDesc.innerText = data.julyUpdateRegularity || 'Active & Verified Dataset';
 
       // 3. Activity Bar Chart
       if (chartActivities && data.activities) {
@@ -504,11 +625,11 @@ const completeScriptContent = `
 
     function selectWoVendorCard(vName) {
       const select = document.getElementById('wo-vendor-filter');
-      const headerSelect = document.getElementById('header-vendor-select');
+      const headerSelect = document.getElementById('vendor-selector');
       if (select) {
         const newVal = select.value === vName ? 'all' : vName;
         select.value = newVal;
-        if (headerSelect) headerSelect.value = newVal;
+        if (headerSelect) headerSelect.value = newVal === 'PNS Telecom' ? 'pns' : newVal === 'Saesha Power' ? 'saesha' : newVal === 'RIPL' ? 'ripl' : newVal === 'Malfonic' ? 'malfonic' : newVal;
       }
       renderWoDashboard();
     }
@@ -517,7 +638,7 @@ const completeScriptContent = `
       const tableSelect = document.getElementById('wo-vendor-filter');
       if (tableSelect) tableSelect.value = vendorVal;
 
-      const mainVendorSelect = document.getElementById('header-vendor-select');
+      const mainVendorSelect = document.getElementById('vendor-selector');
       if (mainVendorSelect) mainVendorSelect.value = vendorVal;
 
       switchVendor(vendorVal);
@@ -527,7 +648,7 @@ const completeScriptContent = `
     function resetWoFilters() {
       if (document.getElementById('wo-search-input')) document.getElementById('wo-search-input').value = '';
       if (document.getElementById('wo-vendor-filter')) document.getElementById('wo-vendor-filter').value = 'all';
-      if (document.getElementById('header-vendor-select')) document.getElementById('header-vendor-select').value = 'all';
+      if (document.getElementById('vendor-selector')) document.getElementById('vendor-selector').value = 'all';
       if (document.getElementById('wo-activity-filter')) document.getElementById('wo-activity-filter').value = 'all';
       if (document.getElementById('wo-status-filter')) document.getElementById('wo-status-filter').value = 'all';
       if (document.getElementById('wo-ageing-filter')) document.getElementById('wo-ageing-filter').value = 'all';
@@ -535,7 +656,8 @@ const completeScriptContent = `
     }
 
     function renderWoDashboard() {
-      const records = (database && database.all && database.all.rawRecords) ? database.all.rawRecords : [];
+      const dataObj = (database && database[currentVendor]) ? database[currentVendor] : (database ? database.all : null);
+      const records = (dataObj && dataObj.rawRecords) ? dataObj.rawRecords : [];
       if (!records || records.length === 0) return;
 
       const actSelect = document.getElementById('wo-activity-filter');
@@ -816,6 +938,8 @@ const completeScriptContent = `
     ];
 
     async function syncLiveGoogleSheetsInBrowser() {
+      if (currentVendor === 'historical') return; // Don't overwrite historical dataset when explicitly viewing old data
+
       const indicator = document.getElementById('live-indicator');
       try {
         if (indicator) indicator.innerHTML = '<span class="pulse-dot yellow"></span> Live Polling Google Sheets...';
@@ -884,8 +1008,10 @@ const completeScriptContent = `
         if (allFetched.length > 0) {
           database.all.totalRecords = allFetched.length;
           database.all.rawRecords = allFetched;
-          updateDashboard();
-          if (typeof renderWoDashboard === 'function') renderWoDashboard();
+          if (currentVendor !== 'historical') {
+            updateDashboard();
+            if (typeof renderWoDashboard === 'function') renderWoDashboard();
+          }
           if (indicator) indicator.innerHTML = \`<span class="pulse-dot green"></span> Live Sheets Connected (\${allFetched.length.toLocaleString()} Sites)\`;
         }
       } catch (err) {
@@ -952,7 +1078,7 @@ const scriptEnd = html.lastIndexOf(closeScriptTag);
 if (scriptStart !== -1 && scriptEnd !== -1) {
   html = html.substring(0, scriptStart + openScriptTag.length) + '\n' + completeScriptContent.trim() + '\n  ' + html.substring(scriptEnd);
   fs.writeFileSync('index.html', html, 'utf8');
-  console.log('✅ Cleanly replaced <script> block in index.html!');
+  console.log('✅ Cleanly updated index.html with Historical Baseline (Old Data) section at beginning of dashboard!');
 } else {
   console.error('❌ Could not find <script> tags in index.html');
 }
