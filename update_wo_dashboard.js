@@ -58,7 +58,7 @@ if (!html.includes('chart-wo-status')) {
   html = html.replace('<div class="wo-section-header">', newWoHeaderSnippet.trim());
 }
 
-// 3. Complete JavaScript Engine for WO Pictorial Dashboard & Interactive Filtering
+// 3. Complete JavaScript Engine for WO Pictorial Dashboard & Real-Time Polling
 const jsEngineCode = `
     // =========================================================================
     // WORK ORDER (WO) PICTORIAL DASHBOARD & INTERACTIVE ENGINE
@@ -72,17 +72,31 @@ const jsEngineCode = `
 
     function getWoPendingStatus(record) {
       if (!record) return 'not_released';
-      const s = (record.rawStatus || record.status || '').toString().toLowerCase();
-      const remarks = (record.remarks || '').toString().toLowerCase();
-      const hasCompletedDate = !!(record.completedDate && record.completedDate !== '' && record.completedDate !== '—');
+      const woLower = (record.rawWoStatus || '').toString().toLowerCase().trim();
+      const rawLower = (record.rawStatus || record.status || '').toString().toLowerCase().trim();
+      const remLower = (record.remarks || '').toString().toLowerCase().trim();
+      const hasCompDate = !!(record.completedDate && record.completedDate !== '' && record.completedDate !== '—');
 
-      if (hasCompletedDate || s.includes('complete') || s.includes('done') || s.includes('migrat') || s.includes('i&c complete') || s.includes('pe done') || s.includes('released') || s.includes('receive')) {
-        return 'released'; // WO Released / Received
-      } else if (s.includes('wip') || s.includes('progress') || s.includes('yts') || s.includes('process') || remarks.includes('wip')) {
-        return 'wip'; // WIP / In Progress
-      } else {
-        return 'not_released'; // WO Not Released / Pending
+      // Precedence 1: Explicit Work Order Status column from Google Sheets
+      if (woLower === 'not release' || woLower === 'not released' || woLower === 'pending' || woLower === 'not received') {
+        return 'not_released';
       }
+      if (woLower === 'release' || woLower === 'released' || woLower === 'not required' || woLower === 'dropped' || woLower === 'received') {
+        return 'released';
+      }
+      if (woLower === 'wip' || woLower === 'hold' || woLower === 'yts') {
+        return 'wip';
+      }
+
+      // Precedence 2: Completion dates & activity status
+      if (hasCompDate || rawLower.includes('complete') || rawLower.includes('done') || rawLower.includes('migrat') || rawLower.includes('pe done')) {
+        return 'released';
+      }
+      if (rawLower.includes('wip') || rawLower.includes('progress') || rawLower.includes('yts') || remLower.includes('wip')) {
+        return 'wip';
+      }
+
+      return 'not_released';
     }
 
     function setWoChartType(type) {
@@ -417,7 +431,7 @@ const jsEngineCode = `
             <td style="font-size:0.72rem;">\${r.act || r.activity || '—'}</td>
             <td>\${r.assignedDate || r.assigned_date || '—'}</td>
             <td>\${woBadge}</td>
-            <td style="font-size:0.72rem; color:#94a3b8;">\${r.rawStatus || r.status || '—'}</td>
+            <td style="font-size:0.72rem; color:#94a3b8;">\${r.rawWoStatus || r.rawStatus || r.status || '—'}</td>
             <td style="font-weight:700; color:\${ageColor};">\${age}d</td>
           </tr>\`;
         }).join('');
@@ -426,19 +440,146 @@ const jsEngineCode = `
         if (footer) footer.innerText = \`Showing \${shown.length} of \${tableRecords.length} records\`;
       }
     }
+
+    // =========================================================================
+    // REALTIME LIVE GOOGLE SHEETS BROWSER POLLER (15s AUTO-SYNC)
+    // =========================================================================
+    const GOOGLE_SHEET_SOURCES = [
+      { name: 'Saesha Power', id: '1aeC42-OHdS_aAb_65GXuaEUfjBhqA-Jydb-HjiZtA-8', gid: '802337370' },
+      { name: 'PNS Telecom', id: '1Yvowk4tAm_Z0lKFqsIJ-RFMaOduwfBzlbKc7nSq1qMA', gid: '723949951' },
+      { name: 'RIPL', id: '1Fa3lKVvWxL3WIWxnIhm-TpcgWm1gKWYLoGZHyvFU18c', gid: '880649132' },
+      { name: 'Malfonic', id: '15Ka8mS44lxKD9pg0e8bWOebmpsibFC29J0z73skMkr8', gid: '1494733568' }
+    ];
+
+    async function syncLiveGoogleSheetsInBrowser() {
+      const indicator = document.getElementById('live-indicator');
+      try {
+        if (indicator) indicator.innerHTML = '<span class="pulse-dot yellow"></span> Live Polling Google Sheets...';
+        
+        const allFetched = [];
+        for (const src of GOOGLE_SHEET_SOURCES) {
+          const url = \`https://docs.google.com/spreadsheets/d/\${src.id}/export?format=csv&gid=\${src.gid}\`;
+          const res = await fetch(url);
+          if (!res.ok) continue;
+          const csvText = await res.text();
+          const matrix = parseCsvSimpleBrowser(csvText);
+          if (matrix.length < 2) continue;
+
+          const header = matrix[0].map(h => (h || '').toString().toLowerCase().trim());
+          let siteIdIdx = header.findIndex(h => h.includes('site id') || h.includes('siteid') || h.includes('lsi'));
+          if (siteIdIdx === -1) siteIdIdx = 0;
+
+          let siteNameIdx = header.findIndex(h => h.includes('site name') || h.includes('sitename') || h.includes('customer name') || h.includes('bts/customer name'));
+          if (siteNameIdx === -1) siteNameIdx = 1;
+
+          let projIdx = header.findIndex(h => h.includes('project') || h.includes('site scope'));
+          let actIdx = header.findIndex(h => h === 'activity' || h.includes('activity name') || h.includes('activity') || h.includes('delivery track') || h.includes('site scope'));
+          let assignedDateIdx = header.findIndex(h => h.includes('loading date') || h.includes('assigned') || h.includes('receive date') || h.includes('activity receive'));
+          let completedDateIdx = header.findIndex(h => h.includes('complete date') || h.includes('completed date') || h.includes('activity done date') || h.includes('completed'));
+          let tatIdx = header.findIndex(h => h.includes('actual tat') || h.includes('pns tat') || (h.includes('tat') && !h.includes('wi tat') && !h.includes('tcl') && !h.includes('remarks')));
+          let tclTatIdx = header.findIndex(h => h.includes('tcl standard') || h.includes('wi tat') || h.includes('tcl'));
+          let statusIdx = header.findIndex(h => h === 'status' || h.includes('installatio wip') || h.includes('wip'));
+          let woStatusIdx = header.findIndex(h => h.includes('work order status') || h.includes('work order (wo)') || h.includes('wo status'));
+          let remarksIdx = header.findIndex(h => h.includes('remark'));
+          let stateIdx = header.findIndex(h => h.includes('state') || h.includes('circle'));
+
+          for (let i = 1; i < matrix.length; i++) {
+            const row = matrix[i];
+            if (!row || row.length === 0) continue;
+            const siteId = (row[siteIdIdx] || '').trim();
+            const siteName = (row[siteNameIdx] || '').trim();
+            if (!siteId && !siteName) continue;
+
+            const tatVal = tatIdx !== -1 && row[tatIdx] ? parseFloat(row[tatIdx]) : NaN;
+            const tclVal = tclTatIdx !== -1 && row[tclTatIdx] ? parseFloat(row[tclTatIdx]) : 5;
+            const rawStatus = statusIdx !== -1 && row[statusIdx] ? row[statusIdx].trim() : 'Completed';
+            const rawWoStatus = woStatusIdx !== -1 && row[woStatusIdx] ? row[woStatusIdx].trim() : '';
+            const compDate = completedDateIdx !== -1 ? parseDateStrBrowser(row[completedDateIdx]) : '';
+
+            allFetched.push({
+              siteId: siteId || \`\${src.name.substring(0,3).toUpperCase()}_SITE_\${i}\`,
+              siteName: siteName || \`Site #\${i}\`,
+              project: projIdx !== -1 && row[projIdx] ? row[projIdx].trim() : \`\${src.name} Project\`,
+              activity: actIdx !== -1 && row[actIdx] ? row[actIdx].trim() : 'Survey & Installation',
+              assignedDate: assignedDateIdx !== -1 ? parseDateStrBrowser(row[assignedDateIdx]) : '2025-07-01',
+              permDate: '',
+              completedDate: compDate,
+              tat: !isNaN(tatVal) ? tatVal : 2,
+              tclTat: !isNaN(tclVal) ? tclVal : 5,
+              status: rawStatus,
+              rawStatus: rawStatus,
+              rawWoStatus: rawWoStatus,
+              remarks: remarksIdx !== -1 && row[remarksIdx] ? row[remarksIdx].trim() : 'Standard Operation',
+              state: stateIdx !== -1 && row[stateIdx] ? row[stateIdx].trim() : 'East',
+              region: 'East',
+              vendor: src.name
+            });
+          }
+        }
+
+        if (allFetched.length > 0) {
+          rebuildDatabaseFromRecords(allFetched);
+          updateDashboard();
+          if (typeof renderWoDashboard === 'function') renderWoDashboard();
+          if (indicator) indicator.innerHTML = \`<span class="pulse-dot green"></span> Live Sheets Connected (\${allFetched.length.toLocaleString()} Sites)\`;
+        }
+      } catch (err) {
+        console.warn('Browser Google Sheets live polling notice:', err);
+      }
+    }
+
+    function parseCsvSimpleBrowser(text) {
+      const lines = text.split(/\\r?\\n/).filter(l => l.trim());
+      return lines.map(line => {
+        const res = [];
+        let cur = '';
+        let inQ = false;
+        for (let i = 0; i < line.length; i++) {
+          const c = line[i];
+          if (c === '"') { inQ = !inQ; }
+          else if (c === ',' && !inQ) { res.push(cur.trim()); cur = ''; }
+          else { cur += c; }
+        }
+        res.push(cur.trim());
+        return res;
+      });
+    }
+
+    function parseDateStrBrowser(val) {
+      if (!val) return '';
+      val = val.toString().trim();
+      if (/^\\d{4}-\\d{2}-\\d{2}/.test(val)) return val.substring(0, 10);
+      if (/^\\d{1,2}[\\/\\-]\\d{1,2}[\\/\\-]\\d{2,4}/.test(val)) {
+        const parts = val.split(/[\\/\\-]/);
+        if (parts.length === 3) {
+          let y = parts[2];
+          if (y.length === 2) y = '20' + y;
+          let m = parts[1].padStart(2, '0');
+          let d = parts[0].padStart(2, '0');
+          return \`\${y}-\${m}-\${d}\`;
+        }
+      }
+      return val;
+    }
+
+    // Auto-sync live Google Sheets every 15 seconds in client browser
+    setInterval(syncLiveGoogleSheetsInBrowser, 15000);
 `;
 
 // Replace existing WO engine code block in index.html
-const startMarker = '// WORK ORDER (WO) DASHBOARD ENGINE';
+const startMarker = '// WORK ORDER (WO) PICTORIAL DASHBOARD & INTERACTIVE ENGINE';
+const altStartMarker = '// WORK ORDER (WO) DASHBOARD ENGINE';
 const endMarker = 'function renderTable()';
 
-const startIdx = html.indexOf(startMarker);
+let startIdx = html.indexOf(startMarker);
+if (startIdx === -1) startIdx = html.indexOf(altStartMarker);
+
 const endIdx = html.indexOf(endMarker);
 
 if (startIdx !== -1 && endIdx !== -1) {
   html = html.substring(0, startIdx) + jsEngineCode.trim() + '\n\n    ' + html.substring(endIdx);
   fs.writeFileSync('index.html', html, 'utf8');
-  console.log('✅ Successfully updated index.html with interactive pictorial WO dashboard engine!');
+  console.log('✅ Successfully updated index.html with interactive pictorial WO dashboard engine and 15s browser poller!');
 } else {
   console.error('❌ Could not locate JS markers in index.html');
 }

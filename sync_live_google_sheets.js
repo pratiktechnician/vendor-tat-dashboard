@@ -7,6 +7,9 @@ const { execSync } = require('child_process');
 function fetchUrl(url) {
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        return resolve(fetchUrl(res.headers.location));
+      }
       let body = '';
       res.on('data', chunk => body += chunk);
       res.on('end', () => {
@@ -55,49 +58,48 @@ function parseDateStr(val) {
 }
 
 const sources = [
-  { name: 'Saesha Power', id: '1aeC42-OHdS_aAb_65GXuaEUfjBhqA-Jydb-HjiZtA-8', sheetName: 'Main Data' },
-  { name: 'PNS Telecom', id: '1Yvowk4tAm_Z0lKFqsIJ-RFMaOduwfBzlbKc7nSq1qMA' },
-  { name: 'RIPL', id: '1Fa3lKVvWxL3WIWxnIhm-TpcgWm1gKWYLoGZHyvFU18c' },
-  { name: 'Malfonic', id: '15Ka8mS44lxKD9pg0e8bWOebmpsibFC29J0z73skMkr8' }
+  { name: 'Saesha Power', id: '1aeC42-OHdS_aAb_65GXuaEUfjBhqA-Jydb-HjiZtA-8', gid: '802337370' },
+  { name: 'PNS Telecom', id: '1Yvowk4tAm_Z0lKFqsIJ-RFMaOduwfBzlbKc7nSq1qMA', gid: '723949951' },
+  { name: 'RIPL', id: '1Fa3lKVvWxL3WIWxnIhm-TpcgWm1gKWYLoGZHyvFU18c', gid: '880649132' },
+  { name: 'Malfonic', id: '15Ka8mS44lxKD9pg0e8bWOebmpsibFC29J0z73skMkr8', gid: '1494733568' }
 ];
 
 async function syncLiveSheets() {
   console.log(`\n=================================================`);
-  console.log(`🚀 FETCHING LIVE DATA FROM ALL 4 GOOGLE SHEETS...`);
+  console.log(`🚀 FETCHING LIVE DATA FROM ALL 4 GOOGLE SHEETS (EXACT GIDs)...`);
   console.log(`=================================================\n`);
 
   const allRecords = [];
   const breakdown = {};
 
   for (const src of sources) {
-    let url = `https://docs.google.com/spreadsheets/d/${src.id}/gviz/tq?tqx=out:csv`;
-    if (src.sheetName) url += `&sheet=${encodeURIComponent(src.sheetName)}`;
+    const url = `https://docs.google.com/spreadsheets/d/${src.id}/export?format=csv&gid=${src.gid}`;
 
     try {
-      console.log(`📡 Fetching ${src.name} via Google Sheets gviz API...`);
+      console.log(`📡 Fetching ${src.name} (gid=${src.gid})...`);
       const csvText = await fetchUrl(url);
       const matrix = parseCsvSimple(csvText);
 
       if (matrix.length < 2) continue;
 
       const header = matrix[0].map(h => (h || '').toString().toLowerCase().trim());
-      
+
       let siteIdIdx = header.findIndex(h => h.includes('site id') || h.includes('siteid') || h.includes('lsi'));
       if (siteIdIdx === -1) siteIdIdx = 0;
 
       let siteNameIdx = header.findIndex(h => h.includes('site name') || h.includes('sitename') || h.includes('customer name') || h.includes('bts/customer name'));
       if (siteNameIdx === -1) siteNameIdx = 1;
 
-      let projIdx = header.findIndex(h => h.includes('project'));
-      let actIdx = header.findIndex(h => h.includes('activity') || h.includes('delivery track') || h.includes('site scope'));
-      let assignedDateIdx = header.findIndex(h => h.includes('assigned') || h.includes('loading') || h.includes('receive date'));
-      let completedDateIdx = header.findIndex(h => h.includes('completed') || h.includes('complete date') || h.includes('done date'));
-      let tatIdx = header.findIndex(h => h.includes('tat') && !h.includes('wi tat') && !h.includes('tcl'));
-      let tclTatIdx = header.findIndex(h => h.includes('tcl') || h.includes('wi tat'));
-      let statusIdx = header.findIndex(h => h === 'status' || h.includes('status'));
+      let projIdx = header.findIndex(h => h.includes('project') || h.includes('site scope'));
+      let actIdx = header.findIndex(h => h === 'activity' || h.includes('activity name') || h.includes('activity') || h.includes('delivery track') || h.includes('site scope'));
+      let assignedDateIdx = header.findIndex(h => h.includes('loading date') || h.includes('assigned') || h.includes('receive date') || h.includes('activity receive'));
+      let completedDateIdx = header.findIndex(h => h.includes('complete date') || h.includes('completed date') || h.includes('activity done date') || h.includes('completed'));
+      let tatIdx = header.findIndex(h => h.includes('actual tat') || h.includes('pns tat') || (h.includes('tat') && !h.includes('wi tat') && !h.includes('tcl') && !h.includes('remarks')));
+      let tclTatIdx = header.findIndex(h => h.includes('tcl standard') || h.includes('wi tat') || h.includes('tcl'));
+      let statusIdx = header.findIndex(h => h === 'status' || h.includes('installatio wip') || h.includes('wip'));
+      let woStatusIdx = header.findIndex(h => h.includes('work order status') || h.includes('work order (wo)') || h.includes('wo status'));
       let remarksIdx = header.findIndex(h => h.includes('remark'));
       let stateIdx = header.findIndex(h => h.includes('state') || h.includes('circle'));
-      let regionIdx = header.findIndex(h => h.includes('region'));
 
       let count = 0;
       for (let i = 1; i < matrix.length; i++) {
@@ -109,6 +111,9 @@ async function syncLiveSheets() {
 
         const tatVal = tatIdx !== -1 && row[tatIdx] ? parseFloat(row[tatIdx]) : NaN;
         const tclVal = tclTatIdx !== -1 && row[tclTatIdx] ? parseFloat(row[tclTatIdx]) : 5;
+        const rawStatus = statusIdx !== -1 && row[statusIdx] ? row[statusIdx].trim() : 'Completed';
+        const rawWoStatus = woStatusIdx !== -1 && row[woStatusIdx] ? row[woStatusIdx].trim() : '';
+        const compDate = completedDateIdx !== -1 ? parseDateStr(row[completedDateIdx]) : '';
 
         allRecords.push({
           siteId: siteId || `${src.name.substring(0,3).toUpperCase()}_SITE_${i}`,
@@ -117,13 +122,15 @@ async function syncLiveSheets() {
           activity: actIdx !== -1 && row[actIdx] ? row[actIdx].trim() : 'Survey & Installation',
           assignedDate: assignedDateIdx !== -1 ? parseDateStr(row[assignedDateIdx]) : '2025-07-01',
           permDate: '',
-          completedDate: completedDateIdx !== -1 ? parseDateStr(row[completedDateIdx]) : '',
+          completedDate: compDate,
           tat: !isNaN(tatVal) ? tatVal : 2,
           tclTat: !isNaN(tclVal) ? tclVal : 5,
-          status: statusIdx !== -1 && row[statusIdx] ? row[statusIdx].trim() : 'Completed',
+          status: rawStatus,
+          rawStatus: rawStatus,
+          rawWoStatus: rawWoStatus,
           remarks: remarksIdx !== -1 && row[remarksIdx] ? row[remarksIdx].trim() : 'Standard Operation',
           state: stateIdx !== -1 && row[stateIdx] ? row[stateIdx].trim() : 'East',
-          region: regionIdx !== -1 && row[regionIdx] ? row[regionIdx].trim() : 'East',
+          region: 'East',
           vendor: src.name
         });
         count++;
@@ -161,6 +168,7 @@ async function syncLiveSheets() {
     execSync('node build_real_1230_dashboard.js', { stdio: 'inherit' });
     execSync('node inject_real_db_into_html.js', { stdio: 'inherit' });
     execSync('node add_vendor_dropdown_to_wo_header.js', { stdio: 'inherit' });
+    execSync('node update_wo_dashboard.js', { stdio: 'inherit' });
   } catch (err) {
     console.error('Error executing dashboard scripts:', err.message);
   }
