@@ -1,31 +1,31 @@
 {
-  "lastRefresh": "2026-09-18T18:15:18.187Z",
+  "lastRefresh": "2026-09-22T07:11:28.975Z",
   "overall": {
-    "totalRecords": 1255,
-    "completed": 1117,
-    "wip": 38,
-    "pending": 100,
-    "avgTat": "4.87"
+    "totalRecords": 1257,
+    "completed": 1120,
+    "wip": 36,
+    "pending": 101,
+    "avgTat": "4.78"
   },
   "vendors": {
     "pns": {
       "vendorKey": "pns",
       "vendorName": "PNS Telecom",
-      "totalRecords": 281,
-      "completed": 266,
-      "wip": 17,
+      "totalRecords": 283,
+      "completed": 268,
+      "wip": 15,
       "pending": 15,
       "avgPnsTat": "2.70",
       "medianTat": "2.00",
       "avgTargetTat": "3.80",
-      "inTatCount": 219,
-      "outsideTatCount": 47,
-      "slaPercent": "82.3%",
+      "inTatCount": 220,
+      "outsideTatCount": 48,
+      "slaPercent": "82.1%",
       "julyUpdateRegularity": "Regular updates logged in July (18 entries)",
       "stateDist": {
         "Bihar": 36,
         "West Bengal": 31,
-        "Odisha": 204,
+        "Odisha": 206,
         "Jharkhand": 10
       },
       "activities": [
@@ -115,6 +115,11 @@
           "tat": "2.67"
         },
         {
+          "name": "Customer Migration",
+          "count": 3,
+          "tat": "1.00"
+        },
+        {
           "name": "Sector Dismantle",
           "count": 3,
           "tat": "2.67"
@@ -165,6 +170,11 @@
           "tat": "1.00"
         },
         {
+          "name": "Sector Installation",
+          "count": 2,
+          "tat": "4.50"
+        },
+        {
           "name": "BTS survey",
           "count": 1,
           "tat": "24.00"
@@ -198,11 +208,6 @@
           "name": "Survey Task Closed",
           "count": 1,
           "tat": "2.00"
-        },
-        {
-          "name": "Customer Migration",
-          "count": 1,
-          "tat": "1.00"
         },
         {
           "name": "Customer P2P Survey With device",
@@ -255,19 +260,9 @@
           "tat": "7.00"
         },
         {
-          "name": "Sector Installation",
-          "count": 1,
-          "tat": "3.00"
-        },
-        {
           "name": "UBR BH migration",
           "count": 1,
           "tat": "1.00"
-        },
-        {
-          "name": "Swctor Installation",
-          "count": 1,
-          "tat": "2.00"
         }
       ],
       "julyTimeline": {
@@ -314,7 +309,7 @@
           "loc": "Eastern Circle"
         }
       ],
-      "daysSinceUpdate": 8,
+      "daysSinceUpdate": 12,
       "complianceStatus": "Critical",
       "lastUpdatedDate": "2026-09-10",
       "rawRecords": [
@@ -324,7 +319,7 @@
           "project": "RF Capacity augmentation 65 BS 100 to 45",
           "activity": "BTS dismantling",
           "assignedDate": "2025-07-07",
-          "permDate": "2025-08-07",
+          "permDate": "2025-07-08",
           "completedDate": "2025-10-07",
           "tat": 2,
           "tclTat": 5,
@@ -341,7 +336,7 @@
           "project": "RF Capacity augmentation 65 BS 100 to 45",
           "activity": "BTS dismantling",
           "assignedDate": "2025-07-07",
-          "permDate": "2025-09-07",
+          "permDate": "2025-07-09",
           "completedDate": "2025-11-07",
           "tat": 2,
           "tclTat": 5,
@@ -358,7 +353,7 @@
           "project": "Low Potential Sector dismantling – 349 Sectors",
           "activity": "BTS dismantling",
           "assignedDate": "16-07-2025",
-          "permDate": "2025-09-07",
+          "permDate": "2025-07-09",
           "completedDate": "2025-11-07",
           "tat": 2,
           "tclTat": 5,
@@ -374,8 +369,8 @@
           "siteName": "Salt Lake BG Block",
           "project": "Emergency Relocation",
           "activity": "BTS dismantling",
-          "assignedDate": "2025-10-07",
-          "permDate": "2025-11-07",
+          "assignedDate": "2025-07-10",
+          "permDate": "2025-07-11",
           "completedDate": "2025-12-07",
           "tat": 1,
           "tclTat": 5,
@@ -392,7 +387,7 @@
           "project": "TTL Roll back",
           "activity": "BTS dismantling",
           "assignedDate": "2025-07-07",
-          "permDate": "2025-11-07",
+          "permDate": "2025-07-11",
           "completedDate": "2025-12-07",
           "tat": 1,
           "tclTat": 5,
@@ -443,7 +438,7 @@
           "project": "TTL Roll back",
           "activity": "P2P link dismantling",
           "assignedDate": "2025-07-07",
-          "permDate": "2025-11-07",
+          "permDate": "2025-07-11",
           "completedDate": "2025-12-07",
           "tat": 1,
           "tclTat": 5,
@@ -459,8 +454,8 @@
           "siteName": "R.P.S COLONY",
           "project": "L1-L2 improvement FY24 Ph-2, 80 sites",
           "activity": "BTS installation",
-          "assignedDate": "2025-10-07",
-          "permDate": "2025-11-07",
+          "assignedDate": "2025-07-10",
+          "permDate": "2025-07-11",
           "completedDate": "2025-12-07",
           "tat": 1,
           "tclTat": 5,
@@ -477,7 +472,7 @@
           "project": "ORCO POC",
           "activity": "BTS installation",
           "assignedDate": "2025-07-07",
-          "permDate": "2025-12-07",
+          "permDate": "2025-07-12",
           "completedDate": "14-07-2025",
           "tat": 2,
           "tclTat": 5,
@@ -527,7 +522,7 @@
           "siteName": "Kaliaganj",
           "project": "Low Potential Sector dismantling – 349 Sectors",
           "activity": "BTS dismantling",
-          "assignedDate": "2025-03-07",
+          "assignedDate": "2025-07-03",
           "permDate": "15-07-2025",
           "completedDate": "17-07-2025",
           "tat": 2,
@@ -647,7 +642,7 @@
           "project": "BS Augment: UBR Backhaul to Direct FY24",
           "activity": "Customer PMP Installation",
           "assignedDate": "16-06-2025",
-          "permDate": "2025-09-08",
+          "permDate": "2025-08-09",
           "completedDate": "14-08-2025",
           "tat": 4,
           "tclTat": 5,
@@ -715,7 +710,7 @@
           "project": "ORCO POC",
           "activity": "Survey Customer",
           "assignedDate": "28-07-2025",
-          "permDate": "2025-01-08",
+          "permDate": "2025-08-01",
           "completedDate": "2025-01-08",
           "tat": 1,
           "tclTat": 3,
@@ -732,7 +727,7 @@
           "project": "ORCO POC",
           "activity": "Survey Customer",
           "assignedDate": "28-07-2025",
-          "permDate": "2025-01-08",
+          "permDate": "2025-08-01",
           "completedDate": "2025-01-08",
           "tat": 1,
           "tclTat": 3,
@@ -748,8 +743,8 @@
           "siteName": "EBANBANGAON011",
           "project": "Non Performing BS Optimization Ph-10A",
           "activity": "Migration",
-          "assignedDate": "2025-02-08",
-          "permDate": "2025-03-08",
+          "assignedDate": "2025-08-02",
+          "permDate": "2025-08-03",
           "completedDate": "2025-03-08",
           "tat": 1,
           "tclTat": 5,
@@ -765,8 +760,8 @@
           "siteName": "Pisca more",
           "project": "UBR BH Augmentation FY25_26",
           "activity": "UBR Installation",
-          "assignedDate": "2025-02-08",
-          "permDate": "2025-03-08",
+          "assignedDate": "2025-08-02",
+          "permDate": "2025-08-03",
           "completedDate": "2025-04-08",
           "tat": 1,
           "tclTat": 5,
@@ -782,8 +777,8 @@
           "siteName": "Jubilant Foodworks Limited",
           "project": "CX4 to Conventional BH FY 25",
           "activity": "Cx2 Survey",
-          "assignedDate": "2025-04-08",
-          "permDate": "2025-04-08",
+          "assignedDate": "2025-08-04",
+          "permDate": "2025-08-04",
           "completedDate": "17-12-2025",
           "tat": 1,
           "tclTat": 3,
@@ -800,7 +795,7 @@
           "project": "CX4 to Conventional BH FY 25",
           "activity": "Converter installation + VIVA BH Survey",
           "assignedDate": "27-07-2025",
-          "permDate": "2025-04-08",
+          "permDate": "2025-08-04",
           "completedDate": "2025-05-08",
           "tat": 1,
           "tclTat": 5,
@@ -817,7 +812,7 @@
           "project": "RF platform migration: Cambium 100 to 45",
           "activity": "BTS installation",
           "assignedDate": "28-07-2025",
-          "permDate": "2025-03-08",
+          "permDate": "2025-08-03",
           "completedDate": "2025-05-08",
           "tat": 2,
           "tclTat": 5,
@@ -834,7 +829,7 @@
           "project": "RF platform migration: Cambium 100 to 45",
           "activity": "BTS installation",
           "assignedDate": "28-07-2025",
-          "permDate": "2025-03-08",
+          "permDate": "2025-08-03",
           "completedDate": "2025-05-08",
           "tat": 2,
           "tclTat": 5,
@@ -851,7 +846,7 @@
           "project": "UBR BH Augmentation FY25_26",
           "activity": "UBR Installation",
           "assignedDate": "28-08-2025",
-          "permDate": "2025-05-08",
+          "permDate": "2025-08-05",
           "completedDate": "2025-07-08",
           "tat": 2,
           "tclTat": 5,
@@ -901,7 +896,7 @@
           "siteName": "Sugauli_Motihari",
           "project": "TTL rollback project",
           "activity": "BTS dismantling",
-          "assignedDate": "2025-07-08",
+          "assignedDate": "2025-08-07",
           "permDate": "2025-12-08",
           "completedDate": "2025-12-08",
           "tat": 1,
@@ -1003,7 +998,7 @@
           "siteName": "STATE BANK OF INDIA",
           "project": "RF platform migration: Cambium 100 to 45",
           "activity": "Customer Installation",
-          "assignedDate": "2025-04-09",
+          "assignedDate": "2025-09-04",
           "permDate": "2025-05-09",
           "completedDate": "2025-05-09",
           "tat": 1,
@@ -1122,7 +1117,7 @@
           "siteName": "PUNJAB NATIONAL BANK",
           "project": "ZTS Relocation FY 24",
           "activity": "PMP Survey",
-          "assignedDate": "2025-11-09",
+          "assignedDate": "2025-09-11",
           "permDate": "2025-11-11",
           "completedDate": "2025-11-11",
           "tat": 1,
@@ -1207,7 +1202,7 @@
           "siteName": "Bharti AXA Life Insurance Company Limited",
           "project": "PTP to PMP Conversion 5",
           "activity": "Customer Installation",
-          "assignedDate": "2025-10-12",
+          "assignedDate": "2025-12-10",
           "permDate": "15-12-2025",
           "completedDate": "17-12-2025",
           "tat": 2,
@@ -1649,7 +1644,7 @@
           "siteName": "Bank of India",
           "project": "PTP to PMP Conversion 5",
           "activity": "Customer Survey",
-          "assignedDate": "2025-03-12",
+          "assignedDate": "2025-12-03",
           "permDate": "",
           "completedDate": "",
           "tat": "N/A",
@@ -1666,7 +1661,7 @@
           "siteName": "Tata Motors Limited",
           "project": "PTP to PMP Conversion 5",
           "activity": "Customer Survey",
-          "assignedDate": "2025-03-12",
+          "assignedDate": "2025-12-03",
           "permDate": "2025-11-12",
           "completedDate": "2025-12-12",
           "tat": 1,
@@ -1683,7 +1678,7 @@
           "siteName": "Amway India Enterprises Private Limited",
           "project": "PTP to PMP Conversion 5",
           "activity": "Customer Survey",
-          "assignedDate": "2025-03-12",
+          "assignedDate": "2025-12-03",
           "permDate": "2025-04-12",
           "completedDate": "2025-05-12",
           "tat": 1,
@@ -1700,7 +1695,7 @@
           "siteName": "Maruti Suzuki India Ltd",
           "project": "PTP to PMP Conversion 5",
           "activity": "Customer Survey",
-          "assignedDate": "2025-03-12",
+          "assignedDate": "2025-12-03",
           "permDate": "",
           "completedDate": "",
           "tat": "N/A",
@@ -1717,7 +1712,7 @@
           "siteName": "Jagatsinghpur",
           "project": "CX4 to Conventional BH FY 26",
           "activity": "BTS Survey",
-          "assignedDate": "2025-08-12",
+          "assignedDate": "2025-12-08",
           "permDate": "2025-09-12",
           "completedDate": "2025-12-12",
           "tat": 3,
@@ -1734,7 +1729,7 @@
           "siteName": "TCS PASSPORT SEVA PROJECT",
           "project": "CX4 to Conventional BH FY 26",
           "activity": "Customer Survey",
-          "assignedDate": "2025-08-12",
+          "assignedDate": "2025-12-08",
           "permDate": "2025-09-12",
           "completedDate": "2025-12-12",
           "tat": 3,
@@ -1802,7 +1797,7 @@
           "siteName": "BOLANGIR_02_GSM(Rajendra Para)",
           "project": "L1-L2 Improvement- 40 Sites",
           "activity": "RAP Site Installation Activity",
-          "assignedDate": "2025-11-12",
+          "assignedDate": "2025-12-11",
           "permDate": "24-12-2025",
           "completedDate": "24-12-2025",
           "tat": 1,
@@ -1819,7 +1814,7 @@
           "siteName": "Madhubani O1",
           "project": "L1-L2 Improvement- 40 Sites",
           "activity": "RAP Site Installation Activity",
-          "assignedDate": "2025-12-11",
+          "assignedDate": "2025-11-12",
           "permDate": "23-12-2025",
           "completedDate": "23-12-2025",
           "tat": 1,
@@ -3196,8 +3191,8 @@
           "siteName": "Rahamganj",
           "project": "ZTS Relocation FY26 Ph-2",
           "activity": "UBR Installation",
-          "assignedDate": "2026-06-01",
-          "permDate": "2026-06-04",
+          "assignedDate": "2026-01-06",
+          "permDate": "2026-04-06",
           "completedDate": "2026-06-06",
           "tat": 2,
           "tclTat": 5,
@@ -4970,7 +4965,7 @@
           "tat": 3,
           "tclTat": 5,
           "status": "Issue/Stuck",
-          "remarks": "Safety Issue",
+          "remarks": "Safety Issue, issue resolved",
           "state": "Odisha",
           "region": "East",
           "vendor": "PNS Telecom",
@@ -5037,7 +5032,7 @@
           "completedDate": "2020-01-09",
           "tat": 4,
           "tclTat": 5,
-          "status": "AT WIP",
+          "status": "Fully Completed",
           "remarks": "",
           "state": "Bihar",
           "region": "East",
@@ -5065,13 +5060,13 @@
           "siteId": "BIHBEG1767",
           "siteName": "LOHIYA NAGAR",
           "project": "Emergency Relocation",
-          "activity": "Swctor Installation",
+          "activity": "Sector Installation",
           "assignedDate": "27-08-2026",
           "permDate": "2026-08-09",
-          "completedDate": "2026-09-10",
-          "tat": 2,
+          "completedDate": "2026-10-21",
+          "tat": 6,
           "tclTat": 5,
-          "status": "AT WIP",
+          "status": "Fully Completed",
           "remarks": "",
           "state": "Bihar",
           "region": "East",
@@ -5094,6 +5089,40 @@
           "region": "East",
           "vendor": "PNS Telecom",
           "_rawRowNum": 282
+        },
+        {
+          "siteId": "091JHAN0300A0234983",
+          "siteName": "HDFC Bank Limited",
+          "project": "O2NET Project FY27 wireless",
+          "activity": "Customer Migration",
+          "assignedDate": "2026-09-09",
+          "permDate": "2026-08-09",
+          "completedDate": "2026-08-09",
+          "tat": 1,
+          "tclTat": 3,
+          "status": "Issue/Stuck",
+          "remarks": "Discussion approved WO(1migration, 1MV) Back end issue migration not completed.",
+          "state": "Odisha",
+          "region": "East",
+          "vendor": "PNS Telecom",
+          "_rawRowNum": 283
+        },
+        {
+          "siteId": "091JHAN0300A0234983",
+          "siteName": "HDFC Bank Limited",
+          "project": "O2NET Project FY27 wireless",
+          "activity": "Customer Migration",
+          "assignedDate": "17-09-2026",
+          "permDate": "18-09-2026",
+          "completedDate": "18-09-2026",
+          "tat": 1,
+          "tclTat": 3,
+          "status": "Fully Completed",
+          "remarks": "Discussion approved WO(1migration, 1MV) Back end issue migration not completed.",
+          "state": "Odisha",
+          "region": "East",
+          "vendor": "PNS Telecom",
+          "_rawRowNum": 284
         }
       ]
     },
@@ -5101,20 +5130,20 @@
       "vendorKey": "saesha",
       "vendorName": "Saesha Power",
       "totalRecords": 738,
-      "completed": 647,
+      "completed": 648,
       "wip": 2,
-      "pending": 91,
-      "avgPnsTat": "4.22",
+      "pending": 90,
+      "avgPnsTat": "4.21",
       "medianTat": "2.00",
       "avgTargetTat": "5.25",
-      "inTatCount": 499,
+      "inTatCount": 500,
       "outsideTatCount": 147,
-      "slaPercent": "77.2%",
+      "slaPercent": "77.3%",
       "julyUpdateRegularity": "Regular updates logged in July (82 entries)",
       "stateDist": {
-        "West Bengal": 220,
+        "West Bengal": 221,
         "Bihar": 43,
-        "Orissa": 222,
+        "Orissa": 221,
         "Assam": 102,
         "Jharkhand": 123,
         "Meghalaya": 2,
@@ -5132,12 +5161,12 @@
         {
           "name": "Customer Survey",
           "count": 114,
-          "tat": "1.75"
+          "tat": "1.58"
         },
         {
           "name": "BTS Installation",
           "count": 76,
-          "tat": "7.69"
+          "tat": "7.59"
         },
         {
           "name": "BTS Survey",
@@ -5147,12 +5176,12 @@
         {
           "name": "Customer Installation",
           "count": 46,
-          "tat": "1.37"
+          "tat": "1.28"
         },
         {
           "name": "Customer Migration",
           "count": 45,
-          "tat": "0.43"
+          "tat": "0.40"
         },
         {
           "name": "UBR BH Survey",
@@ -5196,8 +5225,8 @@
         },
         {
           "name": "UBR Dismental",
-          "count": 15,
-          "tat": "5.40"
+          "count": 14,
+          "tat": "5.79"
         },
         {
           "name": "Switch Installation",
@@ -5211,8 +5240,8 @@
         },
         {
           "name": "PE",
-          "count": 9,
-          "tat": "0.33"
+          "count": 10,
+          "tat": "0.40"
         },
         {
           "name": "Customer Dismental",
@@ -5222,7 +5251,7 @@
         {
           "name": "Customer Dismentle",
           "count": 4,
-          "tat": "1.00"
+          "tat": "0.25"
         },
         {
           "name": "WAN survey",
@@ -5377,9 +5406,9 @@
           "loc": "WB"
         }
       ],
-      "daysSinceUpdate": 4,
-      "complianceStatus": "Needs Attention",
-      "lastUpdatedDate": "2026-09-14",
+      "daysSinceUpdate": 2,
+      "complianceStatus": "Monitor",
+      "lastUpdatedDate": "2026-09-20",
       "rawRecords": [
         {
           "siteId": "WEBQBH0483",
@@ -17299,23 +17328,6 @@
           "_rawRowNum": 702
         },
         {
-          "siteId": "IN-2036029",
-          "siteName": "Rajgangpur",
-          "project": "under CX4 BH Con. BH Migr 17 BS FY26,",
-          "activity": "UBR Dismental",
-          "assignedDate": "2026-08-21",
-          "permDate": "",
-          "completedDate": "",
-          "tat": 0,
-          "tclTat": 5,
-          "status": "Pending/YTS",
-          "remarks": "",
-          "state": "Orissa",
-          "region": "East",
-          "vendor": "Saesha Power",
-          "_rawRowNum": 703
-        },
-        {
           "siteId": "ASMQGW0004",
           "siteName": "Lokhra Chariali",
           "project": "Low Potential BS & Sector Dismantling 70",
@@ -17330,7 +17342,7 @@
           "state": "Assam",
           "region": "NESA",
           "vendor": "Saesha Power",
-          "_rawRowNum": 704
+          "_rawRowNum": 703
         },
         {
           "siteId": "ASMQGW0010",
@@ -17347,7 +17359,7 @@
           "state": "Assam",
           "region": "NESA",
           "vendor": "Saesha Power",
-          "_rawRowNum": 705
+          "_rawRowNum": 704
         },
         {
           "siteId": "WEBHOW0256",
@@ -17364,7 +17376,7 @@
           "state": "West Bengal",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 706
+          "_rawRowNum": 705
         },
         {
           "siteId": "WEBHOW0256",
@@ -17381,7 +17393,7 @@
           "state": "West Bengal",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 707
+          "_rawRowNum": 706
         },
         {
           "siteId": "WEBSOU0836",
@@ -17398,7 +17410,7 @@
           "state": "West Bengal",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 708
+          "_rawRowNum": 707
         },
         {
           "siteId": "WEBSOU0836",
@@ -17415,7 +17427,7 @@
           "state": "West Bengal",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 709
+          "_rawRowNum": 708
         },
         {
           "siteId": "BR/PL/AT/11782",
@@ -17432,13 +17444,30 @@
           "state": "Jharkhand",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 710
+          "_rawRowNum": 709
         },
         {
           "siteId": "091GUWA623013971065",
           "siteName": "Axis Bank Limited",
           "project": "P2P to PMP Phase 6",
           "activity": "Customer Installation",
+          "assignedDate": "2026-08-31",
+          "permDate": "2026-08-31",
+          "completedDate": "2026-09-01",
+          "tat": 1,
+          "tclTat": 5,
+          "status": "Fully Completed",
+          "remarks": "",
+          "state": "Assam",
+          "region": "NESA",
+          "vendor": "Saesha Power",
+          "_rawRowNum": 710
+        },
+        {
+          "siteId": "091GUWA623013971065",
+          "siteName": "Axis Bank Limited",
+          "project": "P2P to PMP Phase 6",
+          "activity": "Customer Migration",
           "assignedDate": "2026-08-31",
           "permDate": "2026-08-31",
           "completedDate": "2026-09-01",
@@ -17455,23 +17484,6 @@
           "siteId": "091GUWA623013971065",
           "siteName": "Axis Bank Limited",
           "project": "P2P to PMP Phase 6",
-          "activity": "Customer Migration",
-          "assignedDate": "2026-08-31",
-          "permDate": "2026-08-31",
-          "completedDate": "2026-09-01",
-          "tat": 1,
-          "tclTat": 5,
-          "status": "Fully Completed",
-          "remarks": "",
-          "state": "Assam",
-          "region": "NESA",
-          "vendor": "Saesha Power",
-          "_rawRowNum": 712
-        },
-        {
-          "siteId": "091GUWA623013971065",
-          "siteName": "Axis Bank Limited",
-          "project": "P2P to PMP Phase 6",
           "activity": "Customer Dismentle",
           "assignedDate": "2026-08-31",
           "permDate": "2026-08-31",
@@ -17483,7 +17495,7 @@
           "state": "Assam",
           "region": "NESA",
           "vendor": "Saesha Power",
-          "_rawRowNum": 713
+          "_rawRowNum": 712
         },
         {
           "siteId": "WEBSOU0820",
@@ -17500,7 +17512,7 @@
           "state": "West Bengal",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 714
+          "_rawRowNum": 713
         },
         {
           "siteId": "IN-2000956",
@@ -17517,7 +17529,7 @@
           "state": "Jharkhand",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 715
+          "_rawRowNum": 714
         },
         {
           "siteId": "AS/AS/AI/0796",
@@ -17534,7 +17546,7 @@
           "state": "Jharkhand",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 716
+          "_rawRowNum": 715
         },
         {
           "siteId": "JHARAN0224",
@@ -17551,7 +17563,7 @@
           "state": "Jharkhand",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 717
+          "_rawRowNum": 716
         },
         {
           "siteId": "BR/RA/RL/10458",
@@ -17568,7 +17580,7 @@
           "state": "Jharkhand",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 718
+          "_rawRowNum": 717
         },
         {
           "siteId": "IN-2014307",
@@ -17578,14 +17590,14 @@
           "assignedDate": "2026-09-14",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
           "state": "West Bengal",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 719
+          "_rawRowNum": 718
         },
         {
           "siteId": "091TEZP6230A0215338",
@@ -17595,14 +17607,14 @@
           "assignedDate": "2026-09-10",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
           "state": "Assam",
           "region": "NESA",
           "vendor": "Saesha Power",
-          "_rawRowNum": 720
+          "_rawRowNum": 719
         },
         {
           "siteId": "091TEZP623007619197",
@@ -17612,14 +17624,14 @@
           "assignedDate": "2026-09-10",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
           "state": "Assam",
           "region": "NESA",
           "vendor": "Saesha Power",
-          "_rawRowNum": 721
+          "_rawRowNum": 720
         },
         {
           "siteId": "091TEZP623036784927",
@@ -17629,14 +17641,14 @@
           "assignedDate": "2026-09-10",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
           "state": "Assam",
           "region": "NESA",
           "vendor": "Saesha Power",
-          "_rawRowNum": 722
+          "_rawRowNum": 721
         },
         {
           "siteId": "091TEZP6230A0142002",
@@ -17646,14 +17658,14 @@
           "assignedDate": "2026-09-10",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
           "state": "Assam",
           "region": "NESA",
           "vendor": "Saesha Power",
-          "_rawRowNum": 723
+          "_rawRowNum": 722
         },
         {
           "siteId": "091SONI0300A0355190",
@@ -17663,14 +17675,14 @@
           "assignedDate": "2026-09-10",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
           "state": "Assam",
           "region": "NESA",
           "vendor": "Saesha Power",
-          "_rawRowNum": 724
+          "_rawRowNum": 723
         },
         {
           "siteId": "091SONI6230A0219268",
@@ -17680,14 +17692,14 @@
           "assignedDate": "2026-09-10",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
           "state": "Assam",
           "region": "NESA",
           "vendor": "Saesha Power",
-          "_rawRowNum": 725
+          "_rawRowNum": 724
         },
         {
           "siteId": "091BALA6230A0215272",
@@ -17697,14 +17709,14 @@
           "assignedDate": "2026-09-10",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
           "state": "Orissa",
           "region": "East",
           "vendor": "Saesha Power",
-          "_rawRowNum": 726
+          "_rawRowNum": 725
         },
         {
           "siteId": "091BALA623038112668",
@@ -17714,7 +17726,24 @@
           "assignedDate": "2026-09-10",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
+          "tclTat": 5,
+          "status": "Pending/YTS",
+          "remarks": "",
+          "state": "Orissa",
+          "region": "East",
+          "vendor": "Saesha Power",
+          "_rawRowNum": 726
+        },
+        {
+          "siteId": "091JAGA623037541548",
+          "siteName": "TCS PASSPORT SEVA PROJECT",
+          "project": "CX4 to Conventional BH FY 26",
+          "activity": "Customer Survey",
+          "assignedDate": "2026-08-22",
+          "permDate": "",
+          "completedDate": "",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17724,14 +17753,14 @@
           "_rawRowNum": 727
         },
         {
-          "siteId": "091JAGA623037541548",
-          "siteName": "TCS PASSPORT SEVA PROJECT",
+          "siteId": "091JAGA6230A0029431",
+          "siteName": "DCB Bank Limited",
           "project": "CX4 to Conventional BH FY 26",
           "activity": "Customer Survey",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17741,14 +17770,14 @@
           "_rawRowNum": 728
         },
         {
-          "siteId": "091JAGA6230A0029431",
-          "siteName": "DCB Bank Limited",
+          "siteId": "091CUTT623034701768",
+          "siteName": "UNION BANK OF INDIA- erstwhile CB",
           "project": "CX4 to Conventional BH FY 26",
           "activity": "Customer Survey",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17758,14 +17787,14 @@
           "_rawRowNum": 729
         },
         {
-          "siteId": "091CUTT623034701768",
-          "siteName": "UNION BANK OF INDIA- erstwhile CB",
+          "siteId": "091JAGA623037541548",
+          "siteName": "TCS PASSPORT SEVA PROJECT",
           "project": "CX4 to Conventional BH FY 26",
-          "activity": "Customer Survey",
+          "activity": "Customer Installation",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17775,14 +17804,14 @@
           "_rawRowNum": 730
         },
         {
-          "siteId": "091JAGA623037541548",
-          "siteName": "TCS PASSPORT SEVA PROJECT",
+          "siteId": "091JAGA6230A0029431",
+          "siteName": "DCB Bank Limited",
           "project": "CX4 to Conventional BH FY 26",
           "activity": "Customer Installation",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17792,14 +17821,14 @@
           "_rawRowNum": 731
         },
         {
-          "siteId": "091JAGA6230A0029431",
-          "siteName": "DCB Bank Limited",
+          "siteId": "091CUTT623034701768",
+          "siteName": "UNION BANK OF INDIA- erstwhile CB",
           "project": "CX4 to Conventional BH FY 26",
           "activity": "Customer Installation",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17809,14 +17838,14 @@
           "_rawRowNum": 732
         },
         {
-          "siteId": "091CUTT623034701768",
-          "siteName": "UNION BANK OF INDIA- erstwhile CB",
+          "siteId": "091JAGA623037541548",
+          "siteName": "TCS PASSPORT SEVA PROJECT",
           "project": "CX4 to Conventional BH FY 26",
-          "activity": "Customer Installation",
+          "activity": "Customer Migration",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17826,14 +17855,14 @@
           "_rawRowNum": 733
         },
         {
-          "siteId": "091JAGA623037541548",
-          "siteName": "TCS PASSPORT SEVA PROJECT",
+          "siteId": "091JAGA6230A0029431",
+          "siteName": "DCB Bank Limited",
           "project": "CX4 to Conventional BH FY 26",
           "activity": "Customer Migration",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17843,14 +17872,14 @@
           "_rawRowNum": 734
         },
         {
-          "siteId": "091JAGA6230A0029431",
-          "siteName": "DCB Bank Limited",
+          "siteId": "091CUTT623034701768",
+          "siteName": "UNION BANK OF INDIA- erstwhile CB",
           "project": "CX4 to Conventional BH FY 26",
           "activity": "Customer Migration",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17860,14 +17889,14 @@
           "_rawRowNum": 735
         },
         {
-          "siteId": "091CUTT623034701768",
-          "siteName": "UNION BANK OF INDIA- erstwhile CB",
+          "siteId": "091JAGA623037541548",
+          "siteName": "TCS PASSPORT SEVA PROJECT",
           "project": "CX4 to Conventional BH FY 26",
-          "activity": "Customer Migration",
+          "activity": "Customer Dismentle",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17877,14 +17906,14 @@
           "_rawRowNum": 736
         },
         {
-          "siteId": "091JAGA623037541548",
-          "siteName": "TCS PASSPORT SEVA PROJECT",
+          "siteId": "091JAGA6230A0029431",
+          "siteName": "DCB Bank Limited",
           "project": "CX4 to Conventional BH FY 26",
           "activity": "Customer Dismentle",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17894,14 +17923,14 @@
           "_rawRowNum": 737
         },
         {
-          "siteId": "091JAGA6230A0029431",
-          "siteName": "DCB Bank Limited",
+          "siteId": "091CUTT623034701768",
+          "siteName": "UNION BANK OF INDIA- erstwhile CB",
           "project": "CX4 to Conventional BH FY 26",
           "activity": "Customer Dismentle",
           "assignedDate": "2026-08-22",
           "permDate": "",
           "completedDate": "",
-          "tat": "N/A",
+          "tat": 0,
           "tclTat": 5,
           "status": "Pending/YTS",
           "remarks": "",
@@ -17911,18 +17940,18 @@
           "_rawRowNum": 738
         },
         {
-          "siteId": "091CUTT623034701768",
-          "siteName": "UNION BANK OF INDIA- erstwhile CB",
-          "project": "CX4 to Conventional BH FY 26",
-          "activity": "Customer Dismentle",
-          "assignedDate": "2026-08-22",
-          "permDate": "",
-          "completedDate": "",
-          "tat": "N/A",
+          "siteId": "WEBNOR0615",
+          "siteName": "RAJARHAT",
+          "project": "BH Optimization PH-11B",
+          "activity": "PE",
+          "assignedDate": "2026-08-19",
+          "permDate": "2026-09-19",
+          "completedDate": "2026-09-20",
+          "tat": 1,
           "tclTat": 5,
-          "status": "Pending/YTS",
+          "status": "Fully Completed",
           "remarks": "",
-          "state": "Orissa",
+          "state": "West Bengal",
           "region": "East",
           "vendor": "Saesha Power",
           "_rawRowNum": 739
@@ -18196,7 +18225,7 @@
           "loc": "Hazaribag"
         }
       ],
-      "daysSinceUpdate": 85,
+      "daysSinceUpdate": 89,
       "complianceStatus": "Critical",
       "lastUpdatedDate": "2026-06-25",
       "rawRecords": [
@@ -20098,7 +20127,7 @@
           "loc": "Orissa"
         }
       ],
-      "daysSinceUpdate": 11,
+      "daysSinceUpdate": 15,
       "complianceStatus": "Critical",
       "lastUpdatedDate": "2026-09-07",
       "rawRecords": [
@@ -22449,9 +22478,9 @@
     {
       "month": "2025-03",
       "avgTat": "5.10",
-      "totalSurveys": 22,
+      "totalSurveys": 20,
       "completed": 20,
-      "completionRate": "90.9%",
+      "completionRate": "100.0%",
       "trend": "Stable",
       "percentChange": "-1.7"
     },
@@ -22530,9 +22559,9 @@
     {
       "month": "2025-12",
       "avgTat": "8.88",
-      "totalSurveys": 50,
+      "totalSurveys": 52,
       "completed": 48,
-      "completionRate": "96.0%",
+      "completionRate": "92.3%",
       "trend": "Deteriorating",
       "percentChange": "107.6"
     },
@@ -22601,26 +22630,26 @@
     },
     {
       "month": "2026-08",
-      "avgTat": "1.54",
+      "avgTat": "1.35",
       "totalSurveys": 95,
-      "completed": 74,
-      "completionRate": "77.9%",
+      "completed": 75,
+      "completionRate": "78.9%",
       "trend": "Improving",
-      "percentChange": "-3.8"
+      "percentChange": "-15.4"
     },
     {
       "month": "2026-09",
-      "avgTat": "7.76",
+      "avgTat": "6.53",
       "totalSurveys": 59,
       "completed": 48,
       "completionRate": "81.4%",
       "trend": "Deteriorating",
-      "percentChange": "404.7"
+      "percentChange": "383.7"
     }
   ],
   "dqc": {
     "score": "92.2",
-    "issuesCount": 488,
+    "issuesCount": 491,
     "alerts": [
       {
         "siteId": "IN-1086788",
@@ -22977,35 +23006,17 @@
   "pendingAging": {
     "buckets": {
       "0-2 Days": 0,
-      "3-5 Days": 1,
+      "3-5 Days": 0,
       "6-7 Days": 0,
-      "8-15 Days": 9,
-      "> 15 Days": 109
+      "8-15 Days": 10,
+      "> 15 Days": 108
     },
     "critical": [
-      {
-        "siteId": "091HAZA623036194122",
-        "siteName": "Bank of India",
-        "vendor": "PNS Telecom",
-        "age": 555,
-        "activity": "Customer Survey",
-        "status": "Pending/YTS",
-        "assignedDate": "2025-03-12"
-      },
-      {
-        "siteId": "091SAHA623033872882",
-        "siteName": "Maruti Suzuki India Ltd",
-        "vendor": "PNS Telecom",
-        "age": 555,
-        "activity": "Customer Survey",
-        "status": "Pending/YTS",
-        "assignedDate": "2025-03-12"
-      },
       {
         "siteId": "ORIBAR0053_to ORIBAR1160",
         "siteName": "Maharaja_OR01530_Nagenpalli Bargarh",
         "vendor": "RIPL",
-        "age": 415,
+        "age": 419,
         "activity": "UBR BH  installation",
         "status": "HOLD BY TCL",
         "assignedDate": "2025-07-30"
@@ -23014,7 +23025,7 @@
         "siteId": "091MUZA623030330799",
         "siteName": "Berger Paints India Limited",
         "vendor": "Saesha Power",
-        "age": 393,
+        "age": 397,
         "activity": "Customer Migration",
         "status": "Dropped",
         "assignedDate": "2025-08-21"
@@ -23023,7 +23034,7 @@
         "siteId": "091VAIS623032727523",
         "siteName": "Central Bank Of India",
         "vendor": "Saesha Power",
-        "age": 393,
+        "age": 397,
         "activity": "Customer Migration",
         "status": "Dropped",
         "assignedDate": "2025-08-21"
@@ -23032,7 +23043,7 @@
         "siteId": "091ASAN0300A0080825",
         "siteName": "CUMMINS TECHNOLOGIES INDIA PRIVATE LIMITED",
         "vendor": "Saesha Power",
-        "age": 361,
+        "age": 365,
         "activity": "Customer Dismantle",
         "status": "Issue/Stuck",
         "assignedDate": "2025-09-22"
@@ -23041,7 +23052,7 @@
         "siteId": "091DALT6230A0060187",
         "siteName": "Bharti AXA Life Insurance Company Limited",
         "vendor": "PNS Telecom",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Survey",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23050,7 +23061,7 @@
         "siteId": "091RANC623035558828",
         "siteName": "HINDUSTAN PETROLEUM CORPORATION LTD",
         "vendor": "PNS Telecom",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Survey",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23059,7 +23070,7 @@
         "siteId": "091BHUB623016624633",
         "siteName": "Crompton Greaves Consumer Electricals Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Survey",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23068,7 +23079,7 @@
         "siteId": "091BHUB623016624633",
         "siteName": "Crompton Greaves Consumer Electricals Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Installation",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23077,7 +23088,7 @@
         "siteId": "091BHUB623016624633",
         "siteName": "Crompton Greaves Consumer Electricals Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Migration",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23086,7 +23097,7 @@
         "siteId": "091GUWA030037188982",
         "siteName": "Tata Starbucks Private Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Survey",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23095,7 +23106,7 @@
         "siteId": "091GUWA030037188982",
         "siteName": "Tata Starbucks Private Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Installation",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23104,7 +23115,7 @@
         "siteId": "091GUWA030037188982",
         "siteName": "Tata Starbucks Private Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Migration",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23113,7 +23124,7 @@
         "siteId": "091GUWA030037324054",
         "siteName": "TVS Credit Services limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Survey",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23122,7 +23133,7 @@
         "siteId": "091GUWA030037324054",
         "siteName": "TVS Credit Services limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Installation",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23131,7 +23142,7 @@
         "siteId": "091GUWA030037324054",
         "siteName": "TVS Credit Services limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Migration",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23140,7 +23151,7 @@
         "siteId": "091KOLK623037110879",
         "siteName": "Glenmark Pharmaceuticals Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Survey",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23149,7 +23160,7 @@
         "siteId": "091KOLK623037110879",
         "siteName": "Glenmark Pharmaceuticals Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Installation",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23158,7 +23169,7 @@
         "siteId": "091KOLK623037110879",
         "siteName": "Glenmark Pharmaceuticals Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Migration",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23167,7 +23178,7 @@
         "siteId": "091KOLK623011525989",
         "siteName": "HDFC LIFE INSURANCE COMPANY LIMITED",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Survey",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23176,7 +23187,7 @@
         "siteId": "091KOLK623011525989",
         "siteName": "HDFC LIFE INSURANCE COMPANY LIMITED",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Installation",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23185,7 +23196,7 @@
         "siteId": "091KOLK623011525989",
         "siteName": "HDFC LIFE INSURANCE COMPANY LIMITED",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Migration",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23194,7 +23205,7 @@
         "siteId": "091KOLK623011898101",
         "siteName": "Kotak Mahindra Bank Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Survey",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23203,7 +23214,7 @@
         "siteId": "091KOLK623011898101",
         "siteName": "Kotak Mahindra Bank Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Installation",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23212,7 +23223,7 @@
         "siteId": "091KOLK623011898101",
         "siteName": "Kotak Mahindra Bank Limited",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Migration",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23221,7 +23232,7 @@
         "siteId": "091GUWA623030566912",
         "siteName": "Maruti Suzuki India Ltd",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Survey",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23230,7 +23241,7 @@
         "siteId": "091GUWA623030566912",
         "siteName": "Maruti Suzuki India Ltd",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Installation",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23239,7 +23250,7 @@
         "siteId": "091GUWA623030566912",
         "siteName": "Maruti Suzuki India Ltd",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Migration",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
@@ -23248,8 +23259,26 @@
         "siteId": "091GUWA623036789028",
         "siteName": "Ministry of Finance-Dept of Revenue",
         "vendor": "Saesha Power",
-        "age": 343,
+        "age": 347,
         "activity": "Customer Survey",
+        "status": "Dropped",
+        "assignedDate": "2025-10-10"
+      },
+      {
+        "siteId": "091GUWA623036789028",
+        "siteName": "Ministry of Finance-Dept of Revenue",
+        "vendor": "Saesha Power",
+        "age": 347,
+        "activity": "Customer Installation",
+        "status": "Dropped",
+        "assignedDate": "2025-10-10"
+      },
+      {
+        "siteId": "091GUWA623036789028",
+        "siteName": "Ministry of Finance-Dept of Revenue",
+        "vendor": "Saesha Power",
+        "age": 347,
+        "activity": "Customer Migration",
         "status": "Dropped",
         "assignedDate": "2025-10-10"
       }
@@ -23262,7 +23291,7 @@
       "project": "RF Capacity augmentation 65 BS 100 to 45",
       "activity": "BTS dismantling",
       "assignedDate": "2025-07-07",
-      "permDate": "2025-08-07",
+      "permDate": "2025-07-08",
       "completedDate": "2025-10-07",
       "tat": 2,
       "tclTat": 5,
@@ -23279,7 +23308,7 @@
       "project": "RF Capacity augmentation 65 BS 100 to 45",
       "activity": "BTS dismantling",
       "assignedDate": "2025-07-07",
-      "permDate": "2025-09-07",
+      "permDate": "2025-07-09",
       "completedDate": "2025-11-07",
       "tat": 2,
       "tclTat": 5,
@@ -23296,7 +23325,7 @@
       "project": "Low Potential Sector dismantling – 349 Sectors",
       "activity": "BTS dismantling",
       "assignedDate": "16-07-2025",
-      "permDate": "2025-09-07",
+      "permDate": "2025-07-09",
       "completedDate": "2025-11-07",
       "tat": 2,
       "tclTat": 5,
@@ -23312,8 +23341,8 @@
       "siteName": "Salt Lake BG Block",
       "project": "Emergency Relocation",
       "activity": "BTS dismantling",
-      "assignedDate": "2025-10-07",
-      "permDate": "2025-11-07",
+      "assignedDate": "2025-07-10",
+      "permDate": "2025-07-11",
       "completedDate": "2025-12-07",
       "tat": 1,
       "tclTat": 5,
@@ -23330,7 +23359,7 @@
       "project": "TTL Roll back",
       "activity": "BTS dismantling",
       "assignedDate": "2025-07-07",
-      "permDate": "2025-11-07",
+      "permDate": "2025-07-11",
       "completedDate": "2025-12-07",
       "tat": 1,
       "tclTat": 5,
@@ -23381,7 +23410,7 @@
       "project": "TTL Roll back",
       "activity": "P2P link dismantling",
       "assignedDate": "2025-07-07",
-      "permDate": "2025-11-07",
+      "permDate": "2025-07-11",
       "completedDate": "2025-12-07",
       "tat": 1,
       "tclTat": 5,
@@ -23397,8 +23426,8 @@
       "siteName": "R.P.S COLONY",
       "project": "L1-L2 improvement FY24 Ph-2, 80 sites",
       "activity": "BTS installation",
-      "assignedDate": "2025-10-07",
-      "permDate": "2025-11-07",
+      "assignedDate": "2025-07-10",
+      "permDate": "2025-07-11",
       "completedDate": "2025-12-07",
       "tat": 1,
       "tclTat": 5,
@@ -23415,7 +23444,7 @@
       "project": "ORCO POC",
       "activity": "BTS installation",
       "assignedDate": "2025-07-07",
-      "permDate": "2025-12-07",
+      "permDate": "2025-07-12",
       "completedDate": "14-07-2025",
       "tat": 2,
       "tclTat": 5,
@@ -23465,7 +23494,7 @@
       "siteName": "Kaliaganj",
       "project": "Low Potential Sector dismantling – 349 Sectors",
       "activity": "BTS dismantling",
-      "assignedDate": "2025-03-07",
+      "assignedDate": "2025-07-03",
       "permDate": "15-07-2025",
       "completedDate": "17-07-2025",
       "tat": 2,
@@ -23585,7 +23614,7 @@
       "project": "BS Augment: UBR Backhaul to Direct FY24",
       "activity": "Customer PMP Installation",
       "assignedDate": "16-06-2025",
-      "permDate": "2025-09-08",
+      "permDate": "2025-08-09",
       "completedDate": "14-08-2025",
       "tat": 4,
       "tclTat": 5,
@@ -23653,7 +23682,7 @@
       "project": "ORCO POC",
       "activity": "Survey Customer",
       "assignedDate": "28-07-2025",
-      "permDate": "2025-01-08",
+      "permDate": "2025-08-01",
       "completedDate": "2025-01-08",
       "tat": 1,
       "tclTat": 3,
@@ -23670,7 +23699,7 @@
       "project": "ORCO POC",
       "activity": "Survey Customer",
       "assignedDate": "28-07-2025",
-      "permDate": "2025-01-08",
+      "permDate": "2025-08-01",
       "completedDate": "2025-01-08",
       "tat": 1,
       "tclTat": 3,
@@ -23686,8 +23715,8 @@
       "siteName": "EBANBANGAON011",
       "project": "Non Performing BS Optimization Ph-10A",
       "activity": "Migration",
-      "assignedDate": "2025-02-08",
-      "permDate": "2025-03-08",
+      "assignedDate": "2025-08-02",
+      "permDate": "2025-08-03",
       "completedDate": "2025-03-08",
       "tat": 1,
       "tclTat": 5,
@@ -23703,8 +23732,8 @@
       "siteName": "Pisca more",
       "project": "UBR BH Augmentation FY25_26",
       "activity": "UBR Installation",
-      "assignedDate": "2025-02-08",
-      "permDate": "2025-03-08",
+      "assignedDate": "2025-08-02",
+      "permDate": "2025-08-03",
       "completedDate": "2025-04-08",
       "tat": 1,
       "tclTat": 5,
@@ -23720,8 +23749,8 @@
       "siteName": "Jubilant Foodworks Limited",
       "project": "CX4 to Conventional BH FY 25",
       "activity": "Cx2 Survey",
-      "assignedDate": "2025-04-08",
-      "permDate": "2025-04-08",
+      "assignedDate": "2025-08-04",
+      "permDate": "2025-08-04",
       "completedDate": "17-12-2025",
       "tat": 1,
       "tclTat": 3,
@@ -23738,7 +23767,7 @@
       "project": "CX4 to Conventional BH FY 25",
       "activity": "Converter installation + VIVA BH Survey",
       "assignedDate": "27-07-2025",
-      "permDate": "2025-04-08",
+      "permDate": "2025-08-04",
       "completedDate": "2025-05-08",
       "tat": 1,
       "tclTat": 5,
@@ -23755,7 +23784,7 @@
       "project": "RF platform migration: Cambium 100 to 45",
       "activity": "BTS installation",
       "assignedDate": "28-07-2025",
-      "permDate": "2025-03-08",
+      "permDate": "2025-08-03",
       "completedDate": "2025-05-08",
       "tat": 2,
       "tclTat": 5,
@@ -23772,7 +23801,7 @@
       "project": "RF platform migration: Cambium 100 to 45",
       "activity": "BTS installation",
       "assignedDate": "28-07-2025",
-      "permDate": "2025-03-08",
+      "permDate": "2025-08-03",
       "completedDate": "2025-05-08",
       "tat": 2,
       "tclTat": 5,
@@ -23789,7 +23818,7 @@
       "project": "UBR BH Augmentation FY25_26",
       "activity": "UBR Installation",
       "assignedDate": "28-08-2025",
-      "permDate": "2025-05-08",
+      "permDate": "2025-08-05",
       "completedDate": "2025-07-08",
       "tat": 2,
       "tclTat": 5,
@@ -23839,7 +23868,7 @@
       "siteName": "Sugauli_Motihari",
       "project": "TTL rollback project",
       "activity": "BTS dismantling",
-      "assignedDate": "2025-07-08",
+      "assignedDate": "2025-08-07",
       "permDate": "2025-12-08",
       "completedDate": "2025-12-08",
       "tat": 1,
@@ -23941,7 +23970,7 @@
       "siteName": "STATE BANK OF INDIA",
       "project": "RF platform migration: Cambium 100 to 45",
       "activity": "Customer Installation",
-      "assignedDate": "2025-04-09",
+      "assignedDate": "2025-09-04",
       "permDate": "2025-05-09",
       "completedDate": "2025-05-09",
       "tat": 1,
@@ -24060,7 +24089,7 @@
       "siteName": "PUNJAB NATIONAL BANK",
       "project": "ZTS Relocation FY 24",
       "activity": "PMP Survey",
-      "assignedDate": "2025-11-09",
+      "assignedDate": "2025-09-11",
       "permDate": "2025-11-11",
       "completedDate": "2025-11-11",
       "tat": 1,
@@ -24145,7 +24174,7 @@
       "siteName": "Bharti AXA Life Insurance Company Limited",
       "project": "PTP to PMP Conversion 5",
       "activity": "Customer Installation",
-      "assignedDate": "2025-10-12",
+      "assignedDate": "2025-12-10",
       "permDate": "15-12-2025",
       "completedDate": "17-12-2025",
       "tat": 2,
@@ -24587,7 +24616,7 @@
       "siteName": "Bank of India",
       "project": "PTP to PMP Conversion 5",
       "activity": "Customer Survey",
-      "assignedDate": "2025-03-12",
+      "assignedDate": "2025-12-03",
       "permDate": "",
       "completedDate": "",
       "tat": "N/A",
@@ -24604,7 +24633,7 @@
       "siteName": "Tata Motors Limited",
       "project": "PTP to PMP Conversion 5",
       "activity": "Customer Survey",
-      "assignedDate": "2025-03-12",
+      "assignedDate": "2025-12-03",
       "permDate": "2025-11-12",
       "completedDate": "2025-12-12",
       "tat": 1,
@@ -24621,7 +24650,7 @@
       "siteName": "Amway India Enterprises Private Limited",
       "project": "PTP to PMP Conversion 5",
       "activity": "Customer Survey",
-      "assignedDate": "2025-03-12",
+      "assignedDate": "2025-12-03",
       "permDate": "2025-04-12",
       "completedDate": "2025-05-12",
       "tat": 1,
@@ -24638,7 +24667,7 @@
       "siteName": "Maruti Suzuki India Ltd",
       "project": "PTP to PMP Conversion 5",
       "activity": "Customer Survey",
-      "assignedDate": "2025-03-12",
+      "assignedDate": "2025-12-03",
       "permDate": "",
       "completedDate": "",
       "tat": "N/A",
@@ -24655,7 +24684,7 @@
       "siteName": "Jagatsinghpur",
       "project": "CX4 to Conventional BH FY 26",
       "activity": "BTS Survey",
-      "assignedDate": "2025-08-12",
+      "assignedDate": "2025-12-08",
       "permDate": "2025-09-12",
       "completedDate": "2025-12-12",
       "tat": 3,
@@ -24672,7 +24701,7 @@
       "siteName": "TCS PASSPORT SEVA PROJECT",
       "project": "CX4 to Conventional BH FY 26",
       "activity": "Customer Survey",
-      "assignedDate": "2025-08-12",
+      "assignedDate": "2025-12-08",
       "permDate": "2025-09-12",
       "completedDate": "2025-12-12",
       "tat": 3,
@@ -24740,7 +24769,7 @@
       "siteName": "BOLANGIR_02_GSM(Rajendra Para)",
       "project": "L1-L2 Improvement- 40 Sites",
       "activity": "RAP Site Installation Activity",
-      "assignedDate": "2025-11-12",
+      "assignedDate": "2025-12-11",
       "permDate": "24-12-2025",
       "completedDate": "24-12-2025",
       "tat": 1,
@@ -24757,7 +24786,7 @@
       "siteName": "Madhubani O1",
       "project": "L1-L2 Improvement- 40 Sites",
       "activity": "RAP Site Installation Activity",
-      "assignedDate": "2025-12-11",
+      "assignedDate": "2025-11-12",
       "permDate": "23-12-2025",
       "completedDate": "23-12-2025",
       "tat": 1,
@@ -26134,8 +26163,8 @@
       "siteName": "Rahamganj",
       "project": "ZTS Relocation FY26 Ph-2",
       "activity": "UBR Installation",
-      "assignedDate": "2026-06-01",
-      "permDate": "2026-06-04",
+      "assignedDate": "2026-01-06",
+      "permDate": "2026-04-06",
       "completedDate": "2026-06-06",
       "tat": 2,
       "tclTat": 5,
@@ -27908,7 +27937,7 @@
       "tat": 3,
       "tclTat": 5,
       "status": "Issue/Stuck",
-      "remarks": "Safety Issue",
+      "remarks": "Safety Issue, issue resolved",
       "state": "Odisha",
       "region": "East",
       "vendor": "PNS Telecom",
@@ -27975,7 +28004,7 @@
       "completedDate": "2020-01-09",
       "tat": 4,
       "tclTat": 5,
-      "status": "AT WIP",
+      "status": "Fully Completed",
       "remarks": "",
       "state": "Bihar",
       "region": "East",
@@ -28003,13 +28032,13 @@
       "siteId": "BIHBEG1767",
       "siteName": "LOHIYA NAGAR",
       "project": "Emergency Relocation",
-      "activity": "Swctor Installation",
+      "activity": "Sector Installation",
       "assignedDate": "27-08-2026",
       "permDate": "2026-08-09",
-      "completedDate": "2026-09-10",
-      "tat": 2,
+      "completedDate": "2026-10-21",
+      "tat": 6,
       "tclTat": 5,
-      "status": "AT WIP",
+      "status": "Fully Completed",
       "remarks": "",
       "state": "Bihar",
       "region": "East",
@@ -28032,6 +28061,40 @@
       "region": "East",
       "vendor": "PNS Telecom",
       "_rawRowNum": 282
+    },
+    {
+      "siteId": "091JHAN0300A0234983",
+      "siteName": "HDFC Bank Limited",
+      "project": "O2NET Project FY27 wireless",
+      "activity": "Customer Migration",
+      "assignedDate": "2026-09-09",
+      "permDate": "2026-08-09",
+      "completedDate": "2026-08-09",
+      "tat": 1,
+      "tclTat": 3,
+      "status": "Issue/Stuck",
+      "remarks": "Discussion approved WO(1migration, 1MV) Back end issue migration not completed.",
+      "state": "Odisha",
+      "region": "East",
+      "vendor": "PNS Telecom",
+      "_rawRowNum": 283
+    },
+    {
+      "siteId": "091JHAN0300A0234983",
+      "siteName": "HDFC Bank Limited",
+      "project": "O2NET Project FY27 wireless",
+      "activity": "Customer Migration",
+      "assignedDate": "17-09-2026",
+      "permDate": "18-09-2026",
+      "completedDate": "18-09-2026",
+      "tat": 1,
+      "tclTat": 3,
+      "status": "Fully Completed",
+      "remarks": "Discussion approved WO(1migration, 1MV) Back end issue migration not completed.",
+      "state": "Odisha",
+      "region": "East",
+      "vendor": "PNS Telecom",
+      "_rawRowNum": 284
     },
     {
       "siteId": "WEBQBH0483",
@@ -39951,23 +40014,6 @@
       "_rawRowNum": 702
     },
     {
-      "siteId": "IN-2036029",
-      "siteName": "Rajgangpur",
-      "project": "under CX4 BH Con. BH Migr 17 BS FY26,",
-      "activity": "UBR Dismental",
-      "assignedDate": "2026-08-21",
-      "permDate": "",
-      "completedDate": "",
-      "tat": 0,
-      "tclTat": 5,
-      "status": "Pending/YTS",
-      "remarks": "",
-      "state": "Orissa",
-      "region": "East",
-      "vendor": "Saesha Power",
-      "_rawRowNum": 703
-    },
-    {
       "siteId": "ASMQGW0004",
       "siteName": "Lokhra Chariali",
       "project": "Low Potential BS & Sector Dismantling 70",
@@ -39982,7 +40028,7 @@
       "state": "Assam",
       "region": "NESA",
       "vendor": "Saesha Power",
-      "_rawRowNum": 704
+      "_rawRowNum": 703
     },
     {
       "siteId": "ASMQGW0010",
@@ -39999,7 +40045,7 @@
       "state": "Assam",
       "region": "NESA",
       "vendor": "Saesha Power",
-      "_rawRowNum": 705
+      "_rawRowNum": 704
     },
     {
       "siteId": "WEBHOW0256",
@@ -40016,7 +40062,7 @@
       "state": "West Bengal",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 706
+      "_rawRowNum": 705
     },
     {
       "siteId": "WEBHOW0256",
@@ -40033,7 +40079,7 @@
       "state": "West Bengal",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 707
+      "_rawRowNum": 706
     },
     {
       "siteId": "WEBSOU0836",
@@ -40050,7 +40096,7 @@
       "state": "West Bengal",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 708
+      "_rawRowNum": 707
     },
     {
       "siteId": "WEBSOU0836",
@@ -40067,7 +40113,7 @@
       "state": "West Bengal",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 709
+      "_rawRowNum": 708
     },
     {
       "siteId": "BR/PL/AT/11782",
@@ -40084,13 +40130,30 @@
       "state": "Jharkhand",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 710
+      "_rawRowNum": 709
     },
     {
       "siteId": "091GUWA623013971065",
       "siteName": "Axis Bank Limited",
       "project": "P2P to PMP Phase 6",
       "activity": "Customer Installation",
+      "assignedDate": "2026-08-31",
+      "permDate": "2026-08-31",
+      "completedDate": "2026-09-01",
+      "tat": 1,
+      "tclTat": 5,
+      "status": "Fully Completed",
+      "remarks": "",
+      "state": "Assam",
+      "region": "NESA",
+      "vendor": "Saesha Power",
+      "_rawRowNum": 710
+    },
+    {
+      "siteId": "091GUWA623013971065",
+      "siteName": "Axis Bank Limited",
+      "project": "P2P to PMP Phase 6",
+      "activity": "Customer Migration",
       "assignedDate": "2026-08-31",
       "permDate": "2026-08-31",
       "completedDate": "2026-09-01",
@@ -40107,23 +40170,6 @@
       "siteId": "091GUWA623013971065",
       "siteName": "Axis Bank Limited",
       "project": "P2P to PMP Phase 6",
-      "activity": "Customer Migration",
-      "assignedDate": "2026-08-31",
-      "permDate": "2026-08-31",
-      "completedDate": "2026-09-01",
-      "tat": 1,
-      "tclTat": 5,
-      "status": "Fully Completed",
-      "remarks": "",
-      "state": "Assam",
-      "region": "NESA",
-      "vendor": "Saesha Power",
-      "_rawRowNum": 712
-    },
-    {
-      "siteId": "091GUWA623013971065",
-      "siteName": "Axis Bank Limited",
-      "project": "P2P to PMP Phase 6",
       "activity": "Customer Dismentle",
       "assignedDate": "2026-08-31",
       "permDate": "2026-08-31",
@@ -40135,7 +40181,7 @@
       "state": "Assam",
       "region": "NESA",
       "vendor": "Saesha Power",
-      "_rawRowNum": 713
+      "_rawRowNum": 712
     },
     {
       "siteId": "WEBSOU0820",
@@ -40152,7 +40198,7 @@
       "state": "West Bengal",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 714
+      "_rawRowNum": 713
     },
     {
       "siteId": "IN-2000956",
@@ -40169,7 +40215,7 @@
       "state": "Jharkhand",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 715
+      "_rawRowNum": 714
     },
     {
       "siteId": "AS/AS/AI/0796",
@@ -40186,7 +40232,7 @@
       "state": "Jharkhand",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 716
+      "_rawRowNum": 715
     },
     {
       "siteId": "JHARAN0224",
@@ -40203,7 +40249,7 @@
       "state": "Jharkhand",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 717
+      "_rawRowNum": 716
     },
     {
       "siteId": "BR/RA/RL/10458",
@@ -40220,7 +40266,7 @@
       "state": "Jharkhand",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 718
+      "_rawRowNum": 717
     },
     {
       "siteId": "IN-2014307",
@@ -40230,14 +40276,14 @@
       "assignedDate": "2026-09-14",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
       "state": "West Bengal",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 719
+      "_rawRowNum": 718
     },
     {
       "siteId": "091TEZP6230A0215338",
@@ -40247,14 +40293,14 @@
       "assignedDate": "2026-09-10",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
       "state": "Assam",
       "region": "NESA",
       "vendor": "Saesha Power",
-      "_rawRowNum": 720
+      "_rawRowNum": 719
     },
     {
       "siteId": "091TEZP623007619197",
@@ -40264,14 +40310,14 @@
       "assignedDate": "2026-09-10",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
       "state": "Assam",
       "region": "NESA",
       "vendor": "Saesha Power",
-      "_rawRowNum": 721
+      "_rawRowNum": 720
     },
     {
       "siteId": "091TEZP623036784927",
@@ -40281,14 +40327,14 @@
       "assignedDate": "2026-09-10",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
       "state": "Assam",
       "region": "NESA",
       "vendor": "Saesha Power",
-      "_rawRowNum": 722
+      "_rawRowNum": 721
     },
     {
       "siteId": "091TEZP6230A0142002",
@@ -40298,14 +40344,14 @@
       "assignedDate": "2026-09-10",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
       "state": "Assam",
       "region": "NESA",
       "vendor": "Saesha Power",
-      "_rawRowNum": 723
+      "_rawRowNum": 722
     },
     {
       "siteId": "091SONI0300A0355190",
@@ -40315,14 +40361,14 @@
       "assignedDate": "2026-09-10",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
       "state": "Assam",
       "region": "NESA",
       "vendor": "Saesha Power",
-      "_rawRowNum": 724
+      "_rawRowNum": 723
     },
     {
       "siteId": "091SONI6230A0219268",
@@ -40332,14 +40378,14 @@
       "assignedDate": "2026-09-10",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
       "state": "Assam",
       "region": "NESA",
       "vendor": "Saesha Power",
-      "_rawRowNum": 725
+      "_rawRowNum": 724
     },
     {
       "siteId": "091BALA6230A0215272",
@@ -40349,14 +40395,14 @@
       "assignedDate": "2026-09-10",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
       "state": "Orissa",
       "region": "East",
       "vendor": "Saesha Power",
-      "_rawRowNum": 726
+      "_rawRowNum": 725
     },
     {
       "siteId": "091BALA623038112668",
@@ -40366,7 +40412,24 @@
       "assignedDate": "2026-09-10",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
+      "tclTat": 5,
+      "status": "Pending/YTS",
+      "remarks": "",
+      "state": "Orissa",
+      "region": "East",
+      "vendor": "Saesha Power",
+      "_rawRowNum": 726
+    },
+    {
+      "siteId": "091JAGA623037541548",
+      "siteName": "TCS PASSPORT SEVA PROJECT",
+      "project": "CX4 to Conventional BH FY 26",
+      "activity": "Customer Survey",
+      "assignedDate": "2026-08-22",
+      "permDate": "",
+      "completedDate": "",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40376,14 +40439,14 @@
       "_rawRowNum": 727
     },
     {
-      "siteId": "091JAGA623037541548",
-      "siteName": "TCS PASSPORT SEVA PROJECT",
+      "siteId": "091JAGA6230A0029431",
+      "siteName": "DCB Bank Limited",
       "project": "CX4 to Conventional BH FY 26",
       "activity": "Customer Survey",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40393,14 +40456,14 @@
       "_rawRowNum": 728
     },
     {
-      "siteId": "091JAGA6230A0029431",
-      "siteName": "DCB Bank Limited",
+      "siteId": "091CUTT623034701768",
+      "siteName": "UNION BANK OF INDIA- erstwhile CB",
       "project": "CX4 to Conventional BH FY 26",
       "activity": "Customer Survey",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40410,14 +40473,14 @@
       "_rawRowNum": 729
     },
     {
-      "siteId": "091CUTT623034701768",
-      "siteName": "UNION BANK OF INDIA- erstwhile CB",
+      "siteId": "091JAGA623037541548",
+      "siteName": "TCS PASSPORT SEVA PROJECT",
       "project": "CX4 to Conventional BH FY 26",
-      "activity": "Customer Survey",
+      "activity": "Customer Installation",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40427,14 +40490,14 @@
       "_rawRowNum": 730
     },
     {
-      "siteId": "091JAGA623037541548",
-      "siteName": "TCS PASSPORT SEVA PROJECT",
+      "siteId": "091JAGA6230A0029431",
+      "siteName": "DCB Bank Limited",
       "project": "CX4 to Conventional BH FY 26",
       "activity": "Customer Installation",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40444,14 +40507,14 @@
       "_rawRowNum": 731
     },
     {
-      "siteId": "091JAGA6230A0029431",
-      "siteName": "DCB Bank Limited",
+      "siteId": "091CUTT623034701768",
+      "siteName": "UNION BANK OF INDIA- erstwhile CB",
       "project": "CX4 to Conventional BH FY 26",
       "activity": "Customer Installation",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40461,14 +40524,14 @@
       "_rawRowNum": 732
     },
     {
-      "siteId": "091CUTT623034701768",
-      "siteName": "UNION BANK OF INDIA- erstwhile CB",
+      "siteId": "091JAGA623037541548",
+      "siteName": "TCS PASSPORT SEVA PROJECT",
       "project": "CX4 to Conventional BH FY 26",
-      "activity": "Customer Installation",
+      "activity": "Customer Migration",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40478,14 +40541,14 @@
       "_rawRowNum": 733
     },
     {
-      "siteId": "091JAGA623037541548",
-      "siteName": "TCS PASSPORT SEVA PROJECT",
+      "siteId": "091JAGA6230A0029431",
+      "siteName": "DCB Bank Limited",
       "project": "CX4 to Conventional BH FY 26",
       "activity": "Customer Migration",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40495,14 +40558,14 @@
       "_rawRowNum": 734
     },
     {
-      "siteId": "091JAGA6230A0029431",
-      "siteName": "DCB Bank Limited",
+      "siteId": "091CUTT623034701768",
+      "siteName": "UNION BANK OF INDIA- erstwhile CB",
       "project": "CX4 to Conventional BH FY 26",
       "activity": "Customer Migration",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40512,14 +40575,14 @@
       "_rawRowNum": 735
     },
     {
-      "siteId": "091CUTT623034701768",
-      "siteName": "UNION BANK OF INDIA- erstwhile CB",
+      "siteId": "091JAGA623037541548",
+      "siteName": "TCS PASSPORT SEVA PROJECT",
       "project": "CX4 to Conventional BH FY 26",
-      "activity": "Customer Migration",
+      "activity": "Customer Dismentle",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40529,14 +40592,14 @@
       "_rawRowNum": 736
     },
     {
-      "siteId": "091JAGA623037541548",
-      "siteName": "TCS PASSPORT SEVA PROJECT",
+      "siteId": "091JAGA6230A0029431",
+      "siteName": "DCB Bank Limited",
       "project": "CX4 to Conventional BH FY 26",
       "activity": "Customer Dismentle",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40546,14 +40609,14 @@
       "_rawRowNum": 737
     },
     {
-      "siteId": "091JAGA6230A0029431",
-      "siteName": "DCB Bank Limited",
+      "siteId": "091CUTT623034701768",
+      "siteName": "UNION BANK OF INDIA- erstwhile CB",
       "project": "CX4 to Conventional BH FY 26",
       "activity": "Customer Dismentle",
       "assignedDate": "2026-08-22",
       "permDate": "",
       "completedDate": "",
-      "tat": "N/A",
+      "tat": 0,
       "tclTat": 5,
       "status": "Pending/YTS",
       "remarks": "",
@@ -40563,18 +40626,18 @@
       "_rawRowNum": 738
     },
     {
-      "siteId": "091CUTT623034701768",
-      "siteName": "UNION BANK OF INDIA- erstwhile CB",
-      "project": "CX4 to Conventional BH FY 26",
-      "activity": "Customer Dismentle",
-      "assignedDate": "2026-08-22",
-      "permDate": "",
-      "completedDate": "",
-      "tat": "N/A",
+      "siteId": "WEBNOR0615",
+      "siteName": "RAJARHAT",
+      "project": "BH Optimization PH-11B",
+      "activity": "PE",
+      "assignedDate": "2026-08-19",
+      "permDate": "2026-09-19",
+      "completedDate": "2026-09-20",
+      "tat": 1,
       "tclTat": 5,
-      "status": "Pending/YTS",
+      "status": "Fully Completed",
       "remarks": "",
-      "state": "Orissa",
+      "state": "West Bengal",
       "region": "East",
       "vendor": "Saesha Power",
       "_rawRowNum": 739
