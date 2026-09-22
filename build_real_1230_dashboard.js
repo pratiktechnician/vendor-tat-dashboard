@@ -103,8 +103,10 @@ function processVendor(vName, vendorRecords) {
       tat: r.tat !== null ? r.tat : 'N/A',
       tcl: r.tclTat !== null ? r.tclTat : 5,
       status: r.tat !== null && r.tat <= (r.tclTat || 5) ? 'In TAT' : 'Outside TAT',
+      rawStatus: r.status || '',
       remarks: r.remarks || 'Standard Operation',
       assignedDate: r.assignedDate,
+      completedDate: r.completedDate || '',
       vendor: r.vendor,
       state: r.state
     }))
