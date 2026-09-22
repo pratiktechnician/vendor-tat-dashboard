@@ -14,10 +14,29 @@ if (fs.existsSync('all_3000_records.json')) {
 console.log(`Loaded ${liveRecords.length} live records from data.json`);
 console.log(`Loaded ${historicalRecords.length} historical baseline records from all_3000_records.json`);
 
+function getWoPendingStatusHelper(record) {
+  if (!record) return 'not_released';
+  const woLower = (record.rawWoStatus || '').toString().toLowerCase().trim();
+  const rawLower = (record.rawStatus || record.status || '').toString().toLowerCase().trim();
+  const hasCompDate = !!(record.completedDate && record.completedDate !== '' && record.completedDate !== '—');
+
+  if (woLower === 'not release' || woLower === 'not released' || woLower === 'pending' || woLower === 'not received') {
+    return 'not_released';
+  }
+  if (woLower === 'release' || woLower === 'released' || woLower === 'not required' || woLower === 'dropped' || woLower === 'received') {
+    return 'released';
+  }
+
+  if (hasCompDate || rawLower.includes('complete') || rawLower.includes('done') || rawLower.includes('migrat') || rawLower.includes('pe done')) {
+    return 'released';
+  }
+
+  return 'not_released';
+}
+
 function computeVendorStats(vendorKey, vendorName, vendorRecords) {
   const totalRecords = vendorRecords.length;
   let completed = 0;
-  let wip = 0;
   let pending = 0;
   let inTatCount = 0;
   let outsideTatCount = 0;
@@ -28,13 +47,10 @@ function computeVendorStats(vendorKey, vendorName, vendorRecords) {
   const actMap = {};
 
   vendorRecords.forEach(r => {
-    const st = (r.status || r.rawStatus || '').toLowerCase();
-    const woSt = (r.rawWoStatus || '').toLowerCase();
+    const st = getWoPendingStatusHelper(r);
 
-    if (st.includes('completed') || st.includes('done') || r.completedDate || woSt.includes('release') || woSt.includes('received')) {
+    if (st === 'released') {
       completed++;
-    } else if (st.includes('wip') || st.includes('progress') || woSt.includes('wip')) {
-      wip++;
     } else {
       pending++;
     }
@@ -83,7 +99,7 @@ function computeVendorStats(vendorKey, vendorName, vendorRecords) {
     vendorName,
     totalRecords,
     completed,
-    wip,
+    wip: 0,
     pending,
     avgPnsTat: avgTat,
     avgTargetTat: '4.90 Days',
@@ -123,13 +139,13 @@ const db = {
   'Malfonic': computeVendorStats('Malfonic', 'Malfonic', liveRecords.filter(r => (r.vendor || '').toLowerCase().includes('malfonic')))
 };
 
-console.log('Database computed:');
-console.log(`- Live All: ${db.all.totalRecords} sites`);
+console.log('Database computed (Exact Binary Released vs Not Released):');
+console.log(`- Live All: ${db.all.totalRecords} sites (${db.all.completed} Released, ${db.all.pending} Not Released)`);
 console.log(`- Historical Old Data: ${db.historical.totalRecords} sites`);
-console.log(`- PNS: ${db['PNS Telecom'].totalRecords} sites`);
-console.log(`- Saesha: ${db['Saesha Power'].totalRecords} sites`);
-console.log(`- RIPL: ${db['RIPL'].totalRecords} sites`);
-console.log(`- Malfonic: ${db['Malfonic'].totalRecords} sites`);
+console.log(`- PNS: ${db['PNS Telecom'].totalRecords} sites (${db['PNS Telecom'].completed} Released, ${db['PNS Telecom'].pending} Not Released)`);
+console.log(`- Saesha: ${db['Saesha Power'].totalRecords} sites (${db['Saesha Power'].completed} Released, ${db['Saesha Power'].pending} Not Released)`);
+console.log(`- RIPL: ${db['RIPL'].totalRecords} sites (${db['RIPL'].completed} Released, ${db['RIPL'].pending} Not Released)`);
+console.log(`- Malfonic: ${db['Malfonic'].totalRecords} sites (${db['Malfonic'].completed} Released, ${db['Malfonic'].pending} Not Released)`);
 
 let html = fs.readFileSync('index.html', 'utf8');
 
@@ -246,30 +262,7 @@ if (html.includes('<select class="vendor-switcher-dropdown"')) {
   html = html.replace(/<select class="vendor-switcher-dropdown"[\s\S]*?<\/select>/, headerDropdownSnippet.trim());
 }
 
-// Ensure WO Chart HTML canvas exists inside wo-dashboard-section if not present
-if (!html.includes('id="chart-wo-status"')) {
-  const chartCanvasSnippet = `
-        <!-- PICTORIAL DASHBOARD CHART -->
-        <div class="card" style="margin-bottom:20px; background:var(--glass-bg, rgba(15,19,28,0.85)); border:1px solid var(--border-color, rgba(255,255,255,0.08)); border-radius:16px; padding:20px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
-            <div>
-              <div style="font-family:var(--font-heading); font-size:1.05rem; font-weight:700; color:#fff;">📊 Vendor Work Order Status Pictorial Breakdown</div>
-              <div style="font-size:0.78rem; color:var(--text-muted);">Interactive visual comparison of WO Released (Received) vs WIP vs Not Released across all vendor sheets</div>
-            </div>
-            <div style="display:flex; gap:8px;">
-              <button id="wo-chart-btn-bar" onclick="setWoChartType('bar')" style="background:var(--primary, #6366f1); border:1px solid var(--primary); color:#fff; padding:6px 14px; border-radius:6px; font-size:0.75rem; cursor:pointer; font-weight:600;">📊 Stacked Bar Chart</button>
-              <button id="wo-chart-btn-doughnut" onclick="setWoChartType('doughnut')" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:var(--text-muted); padding:6px 14px; border-radius:6px; font-size:0.75rem; cursor:pointer; font-weight:600;">🍩 Donut Chart</button>
-            </div>
-          </div>
-          <div style="position:relative; height:290px; width:100%;">
-            <canvas id="chart-wo-status"></canvas>
-          </div>
-        </div>
-`;
-  html = html.replace('<div class="wo-section-header">', `${chartCanvasSnippet}\n        <div class="wo-section-header">`);
-}
-
-// Build the full complete JavaScript code with historical mode support
+// Build the full complete JavaScript code with BINARY WO STATUS (Released vs Not Released)
 const completeScriptContent = `
     const database = ${JSON.stringify(db)};
     let currentVendor = 'all';
@@ -401,7 +394,7 @@ const completeScriptContent = `
       }
 
       const compSubEl = document.getElementById('kpi-completed-sub');
-      if (compSubEl) compSubEl.innerHTML = \`<span>\${(data.completed || 0).toLocaleString()} Completed</span>\`;
+      if (compSubEl) compSubEl.innerHTML = \`<span>\${(data.completed || 0).toLocaleString()} Released / Received</span>\`;
 
       const avgTatEl = document.getElementById('kpi-avg-tat');
       if (avgTatEl) avgTatEl.innerText = data.avgPnsTat || '0 Days';
@@ -567,17 +560,17 @@ const completeScriptContent = `
     }
 
     // =========================================================================
-    // WORK ORDER (WO) PICTORIAL DASHBOARD ENGINE
+    // WORK ORDER (WO) PICTORIAL DASHBOARD ENGINE - STRICT BINARY RELEASED / NOT RELEASED
     // =========================================================================
     function getCurrentSystemDate() {
       return new Date(2026, 8, 14);
     }
 
+    // Binary Classification: ONLY 'released' OR 'not_released'
     function getWoPendingStatus(record) {
       if (!record) return 'not_released';
       const woLower = (record.rawWoStatus || '').toString().toLowerCase().trim();
       const rawLower = (record.rawStatus || record.status || '').toString().toLowerCase().trim();
-      const remLower = (record.remarks || '').toString().toLowerCase().trim();
       const hasCompDate = !!(record.completedDate && record.completedDate !== '' && record.completedDate !== '—');
 
       if (woLower === 'not release' || woLower === 'not released' || woLower === 'pending' || woLower === 'not received') {
@@ -586,15 +579,9 @@ const completeScriptContent = `
       if (woLower === 'release' || woLower === 'released' || woLower === 'not required' || woLower === 'dropped' || woLower === 'received') {
         return 'released';
       }
-      if (woLower === 'wip' || woLower === 'hold' || woLower === 'yts') {
-        return 'wip';
-      }
 
       if (hasCompDate || rawLower.includes('complete') || rawLower.includes('done') || rawLower.includes('migrat') || rawLower.includes('pe done')) {
         return 'released';
-      }
-      if (rawLower.includes('wip') || rawLower.includes('progress') || rawLower.includes('yts') || remLower.includes('wip')) {
-        return 'wip';
       }
 
       return 'not_released';
@@ -696,7 +683,7 @@ const completeScriptContent = `
       const vendorNames = ['PNS Telecom', 'Saesha Power', 'RIPL', 'Malfonic'];
       const vendorGroups = {};
       vendorNames.forEach(v => {
-        vendorGroups[v] = { total: 0, released: 0, wip: 0, not_released: 0, records: [] };
+        vendorGroups[v] = { total: 0, released: 0, not_released: 0, records: [] };
       });
 
       records.forEach(r => {
@@ -706,7 +693,7 @@ const completeScriptContent = `
         else if (v.toLowerCase().includes('ripl')) v = 'RIPL';
         else if (v.toLowerCase().includes('malfonic')) v = 'Malfonic';
 
-        if (!vendorGroups[v]) vendorGroups[v] = { total: 0, released: 0, wip: 0, not_released: 0, records: [] };
+        if (!vendorGroups[v]) vendorGroups[v] = { total: 0, released: 0, not_released: 0, records: [] };
         vendorGroups[v].total++;
         const st = getWoPendingStatus(r);
         vendorGroups[v][st]++;
@@ -715,23 +702,22 @@ const completeScriptContent = `
 
       const totalAll = filtered.length;
       const totalReleased = filtered.filter(r => getWoPendingStatus(r) === 'released').length;
-      const totalWip = filtered.filter(r => getWoPendingStatus(r) === 'wip').length;
       const totalNotReleased = filtered.filter(r => getWoPendingStatus(r) === 'not_released').length;
 
+      // Render ONLY Released and Not Released Summary Pills (WIP removed completely)
       const pillsContainer = document.getElementById('wo-summary-pills');
       if (pillsContainer) {
         pillsContainer.innerHTML = \`
           <div class="wo-summary-pill \${statusFilter === 'all' ? 'active' : ''}" onclick="selectWoStatusPill('all')"><span>Total Work Orders</span><span>\${totalAll}</span></div>
           <div class="wo-summary-pill \${statusFilter === 'released' || statusFilter === 'completed' ? 'active' : ''}" onclick="selectWoStatusPill('released')"><span>🟢 WO Released / Received</span><span style="color:#34d399;">\${totalReleased}</span></div>
-          <div class="wo-summary-pill \${statusFilter === 'wip' ? 'active' : ''}" onclick="selectWoStatusPill('wip')"><span>🟡 WIP / In Progress</span><span style="color:#fbbf24;">\${totalWip}</span></div>
           <div class="wo-summary-pill \${statusFilter === 'not_released' || statusFilter === 'pending' ? 'active' : ''}" onclick="selectWoStatusPill('pending')"><span>🔴 WO Not Released / Pending</span><span style="color:#f87171;">\${totalNotReleased}</span></div>
         \`;
       }
 
+      // Render ONLY Released and Not Released Chart (WIP removed completely)
       const chartCtx = document.getElementById('chart-wo-status');
       if (chartCtx) {
         const releasedCounts = vendorNames.map(v => vendorGroups[v] ? vendorGroups[v].released : 0);
-        const wipCounts = vendorNames.map(v => vendorGroups[v] ? vendorGroups[v].wip : 0);
         const notReleasedCounts = vendorNames.map(v => vendorGroups[v] ? vendorGroups[v].not_released : 0);
 
         if (chartWoStatus) {
@@ -742,10 +728,10 @@ const completeScriptContent = `
           chartWoStatus = new Chart(chartCtx, {
             type: 'doughnut',
             data: {
-              labels: ['🟢 WO Released / Received', '🟡 WIP / In Progress', '🔴 WO Not Released / Pending'],
+              labels: ['🟢 WO Released / Received', '🔴 WO Not Released / Pending'],
               datasets: [{
-                data: [totalReleased, totalWip, totalNotReleased],
-                backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
+                data: [totalReleased, totalNotReleased],
+                backgroundColor: ['#10b981', '#ef4444'],
                 borderWidth: 2,
                 borderColor: '#0f131c'
               }]
@@ -780,12 +766,6 @@ const completeScriptContent = `
                   borderRadius: 6
                 },
                 {
-                  label: '🟡 WIP / In Progress',
-                  data: wipCounts,
-                  backgroundColor: '#f59e0b',
-                  borderRadius: 6
-                },
-                {
                   label: '🔴 WO Not Released / Pending',
                   data: notReleasedCounts,
                   backgroundColor: '#ef4444',
@@ -808,7 +788,7 @@ const completeScriptContent = `
                 if (elements && elements.length > 0) {
                   const el = elements[0];
                   const clickedVendor = vendorNames[el.index];
-                  const statusMap = ['released', 'wip', 'pending'];
+                  const statusMap = ['released', 'pending'];
                   const clickedStatus = statusMap[el.datasetIndex];
 
                   selectWoVendorCard(clickedVendor);
@@ -820,6 +800,7 @@ const completeScriptContent = `
         }
       }
 
+      // Render per-vendor cards showing ONLY Released and Not Released (WIP removed)
       const cardsGrid = document.getElementById('wo-vendor-cards');
       if (cardsGrid) {
         const vendorMeta = {
@@ -841,7 +822,6 @@ const completeScriptContent = `
               <div class="wo-big-label" style="color:#64748b;">Total Orders</div>
               <div style="margin-top:10px;">
                 <div class="wo-stat-row"><span class="wo-stat-label">🟢 Released / Received</span><span class="wo-stat-value completed">\${stats.released}</span></div>
-                <div class="wo-stat-row"><span class="wo-stat-label">🟡 WIP / In Progress</span><span class="wo-stat-value wip">\${stats.wip}</span></div>
                 <div class="wo-stat-row"><span class="wo-stat-label">🔴 Not Released / Pending</span><span class="wo-stat-value pending">\${stats.not_released}</span></div>
               </div>
               <div class="wo-progress-bar"><div class="wo-progress-fill" style="width:\${releasePct}%"></div></div>
@@ -852,6 +832,7 @@ const completeScriptContent = `
         cardsGrid.innerHTML = cardsHtml || '<div style="color:#94a3b8;">No vendor data.</div>';
       }
 
+      // Render table rows showing ONLY Released vs Not Released badge
       const tbody = document.getElementById('wo-detail-tbody');
       if (tbody) {
         let tableRecords = [];
@@ -868,8 +849,6 @@ const completeScriptContent = `
             tableRecords = tableRecords.filter(r => r.woReleaseStatus === 'not_released');
           } else if (statusFilter === 'released' || statusFilter === 'completed') {
             tableRecords = tableRecords.filter(r => r.woReleaseStatus === 'released');
-          } else if (statusFilter === 'wip') {
-            tableRecords = tableRecords.filter(r => r.woReleaseStatus === 'wip');
           }
         }
 
@@ -903,9 +882,7 @@ const completeScriptContent = `
           const st = r.woReleaseStatus;
           const woBadge = st === 'released'
             ? '<span class="wo-badge no">🟢 Released / Received</span>'
-            : st === 'wip'
-              ? '<span class="wo-badge wip">🟡 WIP</span>'
-              : '<span class="wo-badge yes">🔴 Not Released</span>';
+            : '<span class="wo-badge yes">🔴 Not Released</span>';
 
           const age = r.assignedDate ? Math.max(0, Math.floor((today - new Date(r.assignedDate)) / 86400000)) : 2;
           const ageColor = age > 15 ? '#f87171' : age > 7 ? '#fbbf24' : '#94a3b8';
@@ -938,7 +915,7 @@ const completeScriptContent = `
     ];
 
     async function syncLiveGoogleSheetsInBrowser() {
-      if (currentVendor === 'historical') return; // Don't overwrite historical dataset when explicitly viewing old data
+      if (currentVendor === 'historical') return;
 
       const indicator = document.getElementById('live-indicator');
       try {
@@ -1078,7 +1055,7 @@ const scriptEnd = html.lastIndexOf(closeScriptTag);
 if (scriptStart !== -1 && scriptEnd !== -1) {
   html = html.substring(0, scriptStart + openScriptTag.length) + '\n' + completeScriptContent.trim() + '\n  ' + html.substring(scriptEnd);
   fs.writeFileSync('index.html', html, 'utf8');
-  console.log('✅ Cleanly updated index.html with Historical Baseline (Old Data) section at beginning of dashboard!');
+  console.log('✅ Cleanly updated index.html with Binary Released vs Not Released numbers ONLY!');
 } else {
   console.error('❌ Could not find <script> tags in index.html');
 }
