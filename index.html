@@ -1014,6 +1014,21 @@
 
       <div class="team-grid" id="team-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 16px;"></div>
     </div>
+
+        <!-- Vendor Roster Filter Dropdown -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <select id="team-vendor-filter" onchange="filterTeamByVendor(this.value)" style="background:#0d1117; border:1px solid #30363d; color:#e2e8f0; padding:6px 12px; border-radius:8px; font-size:0.78rem; cursor:pointer; font-weight:600;">
+            <option value="all">🏢 All Vendors (39 Personnel)</option>
+            <option value="PNS Telecom">📡 PNS Telecom (7 Personnel)</option>
+            <option value="Saesha Power">⚡ Saesha Power (9 Personnel)</option>
+            <option value="RIPL">🔧 RIPL (16 Personnel)</option>
+            <option value="Malfonic">📶 Malfonic (7 Personnel)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="team-grid" id="team-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 16px;"></div>
+    </div>
       <div class="team-grid" id="team-container"></div>
     </div>
 
@@ -1068,6 +1083,10 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
     let filteredTableData = [];
     let currentPage = 1;
     const itemsPerPage = 10;
+
+    let woFilteredTableData = [];
+    let woCurrentPage = 1;
+    const woItemsPerPage = 15;
 
     let chartActivities = null;
     let chartSla = null;
@@ -1177,6 +1196,10 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
       const teamSelect = document.getElementById('team-vendor-filter');
       if (teamSelect) teamSelect.value = vendorKey === 'historical' ? 'all' : vendorKey;
 
+      const woVendorSelect = document.getElementById('wo-vendor-filter');
+      if (woVendorSelect) woVendorSelect.value = vendorKey === 'historical' ? 'all' : vendorKey;
+
+      woCurrentPage = 1;
       updateDashboard();
       if (typeof renderWoDashboard === 'function') renderWoDashboard();
     }
@@ -1440,6 +1463,7 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
       if (select) {
         select.value = select.value === statusVal ? 'all' : statusVal;
       }
+      woCurrentPage = 1;
       renderWoDashboard();
     }
 
@@ -1451,6 +1475,7 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
         select.value = newVal;
         if (headerSelect) headerSelect.value = newVal === 'PNS Telecom' ? 'pns' : newVal === 'Saesha Power' ? 'saesha' : newVal === 'RIPL' ? 'ripl' : newVal === 'Malfonic' ? 'malfonic' : newVal;
       }
+      woCurrentPage = 1;
       renderWoDashboard();
     }
 
@@ -1462,6 +1487,7 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
       if (mainVendorSelect) mainVendorSelect.value = vendorVal;
 
       switchVendor(vendorVal);
+      woCurrentPage = 1;
       renderWoDashboard();
     }
 
@@ -1472,10 +1498,21 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
       if (document.getElementById('wo-activity-filter')) document.getElementById('wo-activity-filter').value = 'all';
       if (document.getElementById('wo-status-filter')) document.getElementById('wo-status-filter').value = 'all';
       if (document.getElementById('wo-ageing-filter')) document.getElementById('wo-ageing-filter').value = 'all';
+      woCurrentPage = 1;
       renderWoDashboard();
     }
 
-    function renderWoDashboard() {
+    function changeWoPage(dir) {
+      const totalPages = Math.ceil(woFilteredTableData.length / woItemsPerPage) || 1;
+      woCurrentPage += dir;
+      if (woCurrentPage < 1) woCurrentPage = 1;
+      if (woCurrentPage > totalPages) woCurrentPage = totalPages;
+      renderWoDashboard(true);
+    }
+
+    function renderWoDashboard(keepPage = false) {
+      if (!keepPage) woCurrentPage = 1;
+
       const dataObj = (database && database[currentVendor]) ? database[currentVendor] : (database ? database.all : null);
       const records = (dataObj && dataObj.rawRecords) ? dataObj.rawRecords : [];
       if (!records || records.length === 0) return;
@@ -1537,6 +1574,7 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
       const totalReleased = filtered.filter(r => getWoPendingStatus(r) === 'released').length;
       const totalNotReleased = filtered.filter(r => getWoPendingStatus(r) === 'not_released').length;
 
+      // Render Summary Pills
       const pillsContainer = document.getElementById('wo-summary-pills');
       if (pillsContainer) {
         pillsContainer.innerHTML = `
@@ -1546,6 +1584,7 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
         `;
       }
 
+      // Render Charts
       const chartCtx = document.getElementById('chart-wo-status');
       if (chartCtx) {
         const releasedCounts = vendorNames.map(v => vendorGroups[v] ? vendorGroups[v].released : 0);
@@ -1631,6 +1670,7 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
         }
       }
 
+      // Render per-vendor cards
       const cardsGrid = document.getElementById('wo-vendor-cards');
       if (cardsGrid) {
         const vendorMeta = {
@@ -1662,6 +1702,7 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
         cardsGrid.innerHTML = cardsHtml || '<div style="color:#94a3b8;">No vendor data.</div>';
       }
 
+      // Render Site-Wise Table with Clean Ageing / Completion and Pagination
       const tbody = document.getElementById('wo-detail-tbody');
       if (tbody) {
         let tableRecords = [];
@@ -1704,17 +1745,26 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
           );
         }
 
-        const MAX_ROWS = 150;
-        const shown = tableRecords.slice(0, MAX_ROWS);
+        woFilteredTableData = tableRecords;
+        const totalRows = woFilteredTableData.length;
+        const totalPages = Math.ceil(totalRows / woItemsPerPage) || 1;
+        if (woCurrentPage > totalPages) woCurrentPage = totalPages;
 
-        tbody.innerHTML = shown.map(r => {
+        const startIdx = (woCurrentPage - 1) * woItemsPerPage;
+        const pageRecords = woFilteredTableData.slice(startIdx, startIdx + woItemsPerPage);
+
+        tbody.innerHTML = pageRecords.map(r => {
           const st = r.woReleaseStatus;
           const woBadge = st === 'released'
             ? '<span class="wo-badge no">🟢 Released / Received</span>'
             : '<span class="wo-badge yes">🔴 Not Released</span>';
 
-          const age = r.assignedDate ? Math.max(0, Math.floor((today - new Date(r.assignedDate)) / 86400000)) : 2;
-          const ageColor = age > 15 ? '#f87171' : age > 7 ? '#fbbf24' : '#94a3b8';
+          const hasCompDate = !!(r.completedDate && r.completedDate !== '' && r.completedDate !== '—');
+          const displayAge = st === 'released'
+            ? (hasCompDate ? `Completed (${r.completedDate})` : '🟢 Released (0d pending)')
+            : (r.assignedDate ? `${Math.min(30, Math.max(1, Math.floor((today - new Date(r.assignedDate)) / (86400000 * 15))))}d pending` : '🔴 Pending');
+
+          const ageColor = st === 'released' ? '#34d399' : '#f87171';
 
           return `<tr>
             <td style="font-weight:600;color:#e2e8f0;">${r.siteId || '—'}</td>
@@ -1724,12 +1774,22 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
             <td>${r.assignedDate || '—'}</td>
             <td>${woBadge}</td>
             <td style="font-size:0.72rem; color:#94a3b8;">${r.rawWoStatus || r.rawStatus || r.status || '—'}</td>
-            <td style="font-weight:700; color:${ageColor};">${age}d</td>
+            <td style="font-weight:600; color:${ageColor}; font-size:0.75rem;">${displayAge}</td>
           </tr>`;
         }).join('');
 
         const footer = document.getElementById('wo-table-footer');
-        if (footer) footer.innerText = `Showing ${shown.length} of ${tableRecords.length} records`;
+        if (footer) {
+          footer.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; width:100%;">
+              <div>Page ${woCurrentPage} of ${totalPages} (${totalRows.toLocaleString()} Records Total)</div>
+              <div style="display:flex; gap:8px;">
+                <button onclick="changeWoPage(-1)" style="background:#1f2937; border:1px solid #374151; color:#e2e8f0; padding:4px 12px; border-radius:6px; font-size:0.72rem; cursor:pointer; font-weight:600;" ${woCurrentPage <= 1 ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>Previous</button>
+                <button onclick="changeWoPage(1)" style="background:#1f2937; border:1px solid #374151; color:#e2e8f0; padding:4px 12px; border-radius:6px; font-size:0.72rem; cursor:pointer; font-weight:600;" ${woCurrentPage >= totalPages ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>Next</button>
+              </div>
+            </div>
+          `;
+        }
       }
     }
 
@@ -1816,7 +1876,7 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
           database.all.rawRecords = allFetched;
           if (currentVendor !== 'historical') {
             updateDashboard();
-            if (typeof renderWoDashboard === 'function') renderWoDashboard();
+            if (typeof renderWoDashboard === 'function') renderWoDashboard(true);
           }
           if (indicator) indicator.innerHTML = `<span class="pulse-dot green"></span> Live Sheets Connected (${allFetched.length.toLocaleString()} Sites)`;
         }
@@ -1906,7 +1966,7 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
         <!-- Detailed Status Table -->
         <div class="wo-table-card">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
-            <div class="wo-table-title" style="margin-bottom:0;">📄 Site-Level WO Pending Detail</div>
+            <div class="wo-table-title" id="wo-section-main-title" style="margin-bottom:0;">📄 Site-Wise Work Order (WO) Status Details (Released vs Not Released)</div>
             
             <!-- Complete Interactive Filter Controls Bar -->
             <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">

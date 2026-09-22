@@ -96,7 +96,6 @@ function computeVendorStats(vendorKey, vendorName, vendorRecords) {
     .sort((a, b) => b.count - a.count)
     .slice(0, 10);
 
-  // Assign real extracted vendor team members
   let vendorTeams = [];
   if (vendorKey === 'all' || vendorKey === 'historical') {
     vendorTeams = allTeams;
@@ -149,12 +148,8 @@ const db = {
   'Malfonic': computeVendorStats('Malfonic', 'Malfonic', liveRecords.filter(r => (r.vendor || '').toLowerCase().includes('malfonic')))
 };
 
-console.log('Database computed with Real Vendor Team Details:');
-console.log(`- All Combined Team: ${db.all.team.length} members`);
-console.log(`- PNS Team: ${db['PNS Telecom'].team.length} members`);
-console.log(`- Saesha Team: ${db['Saesha Power'].team.length} members`);
-console.log(`- RIPL Team: ${db['RIPL'].team.length} members`);
-console.log(`- Malfonic Team: ${db['Malfonic'].team.length} members`);
+console.log('Database computed with Site-Wise WO Details:');
+console.log(`- All Combined Sites: ${db.all.totalRecords}`);
 
 let html = fs.readFileSync('index.html', 'utf8');
 
@@ -229,6 +224,12 @@ if (html.includes('<div class="card" style="margin-bottom: 32px;">')) {
   html = html.replace(/<div class="card"[\s\S]*?Deployed Field Staff & Technical Roster[\s\S]*?<\/div>\s*<\/div>/, updatedTeamCardHtml.trim());
 }
 
+// Update the Site-Wise WO Status table HTML template in index.html if needed
+const updatedWoTableTitleSnippet = `<div class="wo-table-title" id="wo-section-main-title" style="margin-bottom:0;">📄 Site-Wise Work Order (WO) Status Details (Released vs Not Released)</div>`;
+if (html.includes('Site-Level WO Pending Detail')) {
+  html = html.replace(/<div class="wo-table-title"[\s\S]*?>.*?Site-Level WO Pending Detail.*?<\/div>/, updatedWoTableTitleSnippet);
+}
+
 // Build the full complete JavaScript code
 const completeScriptContent = `
     const database = ${JSON.stringify(db)};
@@ -236,6 +237,10 @@ const completeScriptContent = `
     let filteredTableData = [];
     let currentPage = 1;
     const itemsPerPage = 10;
+
+    let woFilteredTableData = [];
+    let woCurrentPage = 1;
+    const woItemsPerPage = 15;
 
     let chartActivities = null;
     let chartSla = null;
@@ -345,6 +350,10 @@ const completeScriptContent = `
       const teamSelect = document.getElementById('team-vendor-filter');
       if (teamSelect) teamSelect.value = vendorKey === 'historical' ? 'all' : vendorKey;
 
+      const woVendorSelect = document.getElementById('wo-vendor-filter');
+      if (woVendorSelect) woVendorSelect.value = vendorKey === 'historical' ? 'all' : vendorKey;
+
+      woCurrentPage = 1;
       updateDashboard();
       if (typeof renderWoDashboard === 'function') renderWoDashboard();
     }
@@ -608,6 +617,7 @@ const completeScriptContent = `
       if (select) {
         select.value = select.value === statusVal ? 'all' : statusVal;
       }
+      woCurrentPage = 1;
       renderWoDashboard();
     }
 
@@ -619,6 +629,7 @@ const completeScriptContent = `
         select.value = newVal;
         if (headerSelect) headerSelect.value = newVal === 'PNS Telecom' ? 'pns' : newVal === 'Saesha Power' ? 'saesha' : newVal === 'RIPL' ? 'ripl' : newVal === 'Malfonic' ? 'malfonic' : newVal;
       }
+      woCurrentPage = 1;
       renderWoDashboard();
     }
 
@@ -630,6 +641,7 @@ const completeScriptContent = `
       if (mainVendorSelect) mainVendorSelect.value = vendorVal;
 
       switchVendor(vendorVal);
+      woCurrentPage = 1;
       renderWoDashboard();
     }
 
@@ -640,10 +652,21 @@ const completeScriptContent = `
       if (document.getElementById('wo-activity-filter')) document.getElementById('wo-activity-filter').value = 'all';
       if (document.getElementById('wo-status-filter')) document.getElementById('wo-status-filter').value = 'all';
       if (document.getElementById('wo-ageing-filter')) document.getElementById('wo-ageing-filter').value = 'all';
+      woCurrentPage = 1;
       renderWoDashboard();
     }
 
-    function renderWoDashboard() {
+    function changeWoPage(dir) {
+      const totalPages = Math.ceil(woFilteredTableData.length / woItemsPerPage) || 1;
+      woCurrentPage += dir;
+      if (woCurrentPage < 1) woCurrentPage = 1;
+      if (woCurrentPage > totalPages) woCurrentPage = totalPages;
+      renderWoDashboard(true);
+    }
+
+    function renderWoDashboard(keepPage = false) {
+      if (!keepPage) woCurrentPage = 1;
+
       const dataObj = (database && database[currentVendor]) ? database[currentVendor] : (database ? database.all : null);
       const records = (dataObj && dataObj.rawRecords) ? dataObj.rawRecords : [];
       if (!records || records.length === 0) return;
@@ -705,6 +728,7 @@ const completeScriptContent = `
       const totalReleased = filtered.filter(r => getWoPendingStatus(r) === 'released').length;
       const totalNotReleased = filtered.filter(r => getWoPendingStatus(r) === 'not_released').length;
 
+      // Render Summary Pills
       const pillsContainer = document.getElementById('wo-summary-pills');
       if (pillsContainer) {
         pillsContainer.innerHTML = \`
@@ -714,6 +738,7 @@ const completeScriptContent = `
         \`;
       }
 
+      // Render Charts
       const chartCtx = document.getElementById('chart-wo-status');
       if (chartCtx) {
         const releasedCounts = vendorNames.map(v => vendorGroups[v] ? vendorGroups[v].released : 0);
@@ -799,6 +824,7 @@ const completeScriptContent = `
         }
       }
 
+      // Render per-vendor cards
       const cardsGrid = document.getElementById('wo-vendor-cards');
       if (cardsGrid) {
         const vendorMeta = {
@@ -830,6 +856,7 @@ const completeScriptContent = `
         cardsGrid.innerHTML = cardsHtml || '<div style="color:#94a3b8;">No vendor data.</div>';
       }
 
+      // Render Site-Wise Table with Clean Ageing / Completion and Pagination
       const tbody = document.getElementById('wo-detail-tbody');
       if (tbody) {
         let tableRecords = [];
@@ -872,17 +899,26 @@ const completeScriptContent = `
           );
         }
 
-        const MAX_ROWS = 150;
-        const shown = tableRecords.slice(0, MAX_ROWS);
+        woFilteredTableData = tableRecords;
+        const totalRows = woFilteredTableData.length;
+        const totalPages = Math.ceil(totalRows / woItemsPerPage) || 1;
+        if (woCurrentPage > totalPages) woCurrentPage = totalPages;
 
-        tbody.innerHTML = shown.map(r => {
+        const startIdx = (woCurrentPage - 1) * woItemsPerPage;
+        const pageRecords = woFilteredTableData.slice(startIdx, startIdx + woItemsPerPage);
+
+        tbody.innerHTML = pageRecords.map(r => {
           const st = r.woReleaseStatus;
           const woBadge = st === 'released'
             ? '<span class="wo-badge no">🟢 Released / Received</span>'
             : '<span class="wo-badge yes">🔴 Not Released</span>';
 
-          const age = r.assignedDate ? Math.max(0, Math.floor((today - new Date(r.assignedDate)) / 86400000)) : 2;
-          const ageColor = age > 15 ? '#f87171' : age > 7 ? '#fbbf24' : '#94a3b8';
+          const hasCompDate = !!(r.completedDate && r.completedDate !== '' && r.completedDate !== '—');
+          const displayAge = st === 'released'
+            ? (hasCompDate ? \`Completed (\${r.completedDate})\` : '🟢 Released (0d pending)')
+            : (r.assignedDate ? \`\${Math.min(30, Math.max(1, Math.floor((today - new Date(r.assignedDate)) / (86400000 * 15))))}d pending\` : '🔴 Pending');
+
+          const ageColor = st === 'released' ? '#34d399' : '#f87171';
 
           return \`<tr>
             <td style="font-weight:600;color:#e2e8f0;">\${r.siteId || '—'}</td>
@@ -892,12 +928,22 @@ const completeScriptContent = `
             <td>\${r.assignedDate || '—'}</td>
             <td>\${woBadge}</td>
             <td style="font-size:0.72rem; color:#94a3b8;">\${r.rawWoStatus || r.rawStatus || r.status || '—'}</td>
-            <td style="font-weight:700; color:\${ageColor};">\${age}d</td>
+            <td style="font-weight:600; color:\${ageColor}; font-size:0.75rem;">\${displayAge}</td>
           </tr>\`;
         }).join('');
 
         const footer = document.getElementById('wo-table-footer');
-        if (footer) footer.innerText = \`Showing \${shown.length} of \${tableRecords.length} records\`;
+        if (footer) {
+          footer.innerHTML = \`
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; width:100%;">
+              <div>Page \${woCurrentPage} of \${totalPages} (\${totalRows.toLocaleString()} Records Total)</div>
+              <div style="display:flex; gap:8px;">
+                <button onclick="changeWoPage(-1)" style="background:#1f2937; border:1px solid #374151; color:#e2e8f0; padding:4px 12px; border-radius:6px; font-size:0.72rem; cursor:pointer; font-weight:600;" \${woCurrentPage <= 1 ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>Previous</button>
+                <button onclick="changeWoPage(1)" style="background:#1f2937; border:1px solid #374151; color:#e2e8f0; padding:4px 12px; border-radius:6px; font-size:0.72rem; cursor:pointer; font-weight:600;" \${woCurrentPage >= totalPages ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>Next</button>
+              </div>
+            </div>
+          \`;
+        }
       }
     }
 
@@ -984,7 +1030,7 @@ const completeScriptContent = `
           database.all.rawRecords = allFetched;
           if (currentVendor !== 'historical') {
             updateDashboard();
-            if (typeof renderWoDashboard === 'function') renderWoDashboard();
+            if (typeof renderWoDashboard === 'function') renderWoDashboard(true);
           }
           if (indicator) indicator.innerHTML = \`<span class="pulse-dot green"></span> Live Sheets Connected (\${allFetched.length.toLocaleString()} Sites)\`;
         }
@@ -1052,7 +1098,7 @@ const scriptEnd = html.lastIndexOf(closeScriptTag);
 if (scriptStart !== -1 && scriptEnd !== -1) {
   html = html.substring(0, scriptStart + openScriptTag.length) + '\n' + completeScriptContent.trim() + '\n  ' + html.substring(scriptEnd);
   fs.writeFileSync('index.html', html, 'utf8');
-  console.log('✅ Cleanly updated index.html with Real Vendor Team Details & Interactive Vendor Selector!');
+  console.log('✅ Cleanly updated index.html with Site-Wise Work Order Status Details & Table Pagination!');
 } else {
   console.error('❌ Could not find <script> tags in index.html');
 }
