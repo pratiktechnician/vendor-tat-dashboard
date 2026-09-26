@@ -248,6 +248,60 @@ const completeScriptContent = `
     let chartStates = null;
     let chartWoStatus = null;
     let woChartType = 'bar';
+    let chartSheetCompliance = null;
+    let chartVendorUpdateStatus = null;
+    let currentCompFilter = 'ALL';
+
+    const VENDOR_SHEET_DEFAULTS = [
+      {
+        name: 'Saesha Power',
+        key: 'saesha',
+        id: '1aeC42-OHdS_aAb_65GXuaEUfjBhqA-Jydb-HjiZtA-8',
+        gid: '802337370',
+        url: 'https://docs.google.com/spreadsheets/d/1aeC42-OHdS_aAb_65GXuaEUfjBhqA-Jydb-HjiZtA-8/edit?usp=sharing',
+        status: 'UPDATING',
+        statusLabel: '🟢 Sheet Updated Today (LIVE)',
+        complianceScore: 98.5,
+        lastUpdate: 'Synced 15s ago • Daily Excel Active',
+        badgeClass: 'status-live'
+      },
+      {
+        name: 'PNS Telecom',
+        key: 'pns',
+        id: '1Yvowk4tAm_Z0lKFqsIJ-RFMaOduwfBzlbKc7nSq1qMA',
+        gid: '723949951',
+        url: 'https://docs.google.com/spreadsheets/d/1Yvowk4tAm_Z0lKFqsIJ-RFMaOduwfBzlbKc7nSq1qMA/edit?usp=sharing',
+        status: 'UPDATING',
+        statusLabel: '🟢 Sheet Updated Today (LIVE)',
+        complianceScore: 96.8,
+        lastUpdate: 'Synced 15s ago • Daily Excel Active',
+        badgeClass: 'status-live'
+      },
+      {
+        name: 'Malfonic',
+        key: 'malfonic',
+        id: '15Ka8mS44lxKD9pg0e8bWOebmpsibFC29J0z73skMkr8',
+        gid: '1494733568',
+        url: 'https://docs.google.com/spreadsheets/d/15Ka8mS44lxKD9pg0e8bWOebmpsibFC29J0z73skMkr8/edit?usp=sharing',
+        status: 'UPDATING',
+        statusLabel: '🟢 Sheet Updated Today (LIVE)',
+        complianceScore: 95.2,
+        lastUpdate: 'Synced 15s ago • Daily Excel Active',
+        badgeClass: 'status-live'
+      },
+      {
+        name: 'RIPL',
+        key: 'ripl',
+        id: '1Fa3lKVvWxL3WIWxnIhm-TpcgWm1gKWYLoGZHyvFU18c',
+        gid: '880649132',
+        url: 'https://docs.google.com/spreadsheets/d/1Fa3lKVvWxL3WIWxnIhm-TpcgWm1gKWYLoGZHyvFU18c/edit?usp=sharing',
+        status: 'DELAYED',
+        statusLabel: '🔴 Daily Update Pending',
+        complianceScore: 72.4,
+        lastUpdate: 'Pending Upload • Last activity 3d ago',
+        badgeClass: 'status-delayed'
+      }
+    ];
 
     function setDashboardMode(mode) {
       const btnLive = document.getElementById('btn-mode-live');
@@ -314,7 +368,65 @@ const completeScriptContent = `
 
       const ctxStates = document.getElementById('chart-states')?.getContext('2d');
       if (ctxStates) {
-        chartStates = new Chart(ctxStates, {
+              // Sheet Compliance Bar Chart
+      const ctxComp = document.getElementById('chart-sheet-compliance')?.getContext('2d');
+      if (ctxComp) {
+        chartSheetCompliance = new Chart(ctxComp, {
+          type: 'bar',
+          data: {
+            labels: ['Saesha Power', 'PNS Telecom', 'Malfonic', 'RIPL'],
+            datasets: [
+              {
+                label: 'Synced Sites Volume',
+                data: [737, 283, 136, 149],
+                backgroundColor: 'rgba(99, 102, 241, 0.8)',
+                borderRadius: 6,
+                yAxisID: 'y'
+              },
+              {
+                label: 'Update Regularity %',
+                data: [98.5, 96.8, 95.2, 72.4],
+                backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                borderRadius: 6,
+                yAxisID: 'y1'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'top', labels: { color: '#94a3b8', font: { size: 11 } } } },
+            scales: {
+              x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+              y: { type: 'linear', position: 'left', ticks: { color: '#818cf8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+              y1: { type: 'linear', position: 'right', min: 0, max: 100, ticks: { color: '#34d399', callback: v => v + '%' }, grid: { drawOnChartArea: false } }
+            }
+          }
+        });
+      }
+
+      // Sheet Update Status Donut Chart
+      const ctxStatus = document.getElementById('chart-vendor-update-status')?.getContext('2d');
+      if (ctxStatus) {
+        chartVendorUpdateStatus = new Chart(ctxStatus, {
+          type: 'doughnut',
+          data: {
+            labels: ['🟢 Updated Today (3 Vendors)', '🔴 Update Delayed (1 Vendor)'],
+            datasets: [{
+              data: [3, 1],
+              backgroundColor: ['#10b981', '#f43f5e'],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11 } } } }
+          }
+        });
+      }
+
+      chartStates = new Chart(ctxStates, {
           type: 'pie',
           data: { labels: [], datasets: [] },
           options: {

@@ -785,6 +785,23 @@
       box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
     }
 
+  /* EXCEL SHEET LIVE UPDATE & COMPLIANCE SECTION STYLES */
+.compliance-section { background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 18px; padding: 24px; margin-top: 32px; margin-bottom: 32px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4); backdrop-filter: blur(12px); }
+.compliance-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 16px; }
+.compliance-title { font-size: 1.25rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
+.compliance-filter-btn { padding: 6px 14px; border-radius: 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #94a3b8; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
+.compliance-filter-btn:hover, .compliance-filter-btn.active { background: #6366f1; color: #fff; border-color: #6366f1; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35); }
+.live-status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
+.live-status-pill.green { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+.vendor-sheet-card { background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px; position: relative; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+.vendor-sheet-card:hover { transform: translateY(-4px); border-color: rgba(99, 102, 241, 0.5); box-shadow: 0 12px 28px rgba(0,0,0,0.4); }
+.vendor-sheet-card.status-live { border-top: 4px solid #10b981; }
+.vendor-sheet-card.status-delayed { border-top: 4px solid #f43f5e; background: rgba(244, 63, 94, 0.05); }
+.vendor-sheet-card.selected { border: 2px solid #6366f1 !important; box-shadow: 0 0 20px rgba(99, 102, 241, 0.4) !important; }
+.sheet-progress-bg { width: 100%; height: 7px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; overflow: hidden; margin-top: 8px; }
+.sheet-progress-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
+.sheet-link-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: #fff; background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); text-decoration: none; transition: all 0.2s ease; }
+.sheet-link-btn:hover { background: #6366f1; border-color: #6366f1; color: #fff; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -1029,6 +1046,66 @@
 
       <div class="team-grid" id="team-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 16px;"></div>
     </div>
+
+        <!-- Vendor Roster Filter Dropdown -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <select id="team-vendor-filter" onchange="filterTeamByVendor(this.value)" style="background:#0d1117; border:1px solid #30363d; color:#e2e8f0; padding:6px 12px; border-radius:8px; font-size:0.78rem; cursor:pointer; font-weight:600;">
+            <option value="all">🏢 All Vendors (39 Personnel)</option>
+            <option value="PNS Telecom">📡 PNS Telecom (7 Personnel)</option>
+            <option value="Saesha Power">⚡ Saesha Power (9 Personnel)</option>
+            <option value="RIPL">🔧 RIPL (16 Personnel)</option>
+            <option value="Malfonic">📶 Malfonic (7 Personnel)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="team-grid" id="team-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 16px;"></div>
+    </div>
+
+        <!-- Vendor Roster Filter Dropdown -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <select id="team-vendor-filter" onchange="filterTeamByVendor(this.value)" style="background:#0d1117; border:1px solid #30363d; color:#e2e8f0; padding:6px 12px; border-radius:8px; font-size:0.78rem; cursor:pointer; font-weight:600;">
+            <option value="all">🏢 All Vendors (39 Personnel)</option>
+            <option value="PNS Telecom">📡 PNS Telecom (7 Personnel)</option>
+            <option value="Saesha Power">⚡ Saesha Power (9 Personnel)</option>
+            <option value="RIPL">🔧 RIPL (16 Personnel)</option>
+            <option value="Malfonic">📶 Malfonic (7 Personnel)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="team-grid" id="team-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 16px;"></div>
+    </div>
+
+        <!-- Vendor Roster Filter Dropdown -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <select id="team-vendor-filter" onchange="filterTeamByVendor(this.value)" style="background:#0d1117; border:1px solid #30363d; color:#e2e8f0; padding:6px 12px; border-radius:8px; font-size:0.78rem; cursor:pointer; font-weight:600;">
+            <option value="all">🏢 All Vendors (39 Personnel)</option>
+            <option value="PNS Telecom">📡 PNS Telecom (7 Personnel)</option>
+            <option value="Saesha Power">⚡ Saesha Power (9 Personnel)</option>
+            <option value="RIPL">🔧 RIPL (16 Personnel)</option>
+            <option value="Malfonic">📶 Malfonic (7 Personnel)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="team-grid" id="team-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 16px;"></div>
+    </div>
+
+        <!-- Vendor Roster Filter Dropdown -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <select id="team-vendor-filter" onchange="filterTeamByVendor(this.value)" style="background:#0d1117; border:1px solid #30363d; color:#e2e8f0; padding:6px 12px; border-radius:8px; font-size:0.78rem; cursor:pointer; font-weight:600;">
+            <option value="all">🏢 All Vendors (39 Personnel)</option>
+            <option value="PNS Telecom">📡 PNS Telecom (7 Personnel)</option>
+            <option value="Saesha Power">⚡ Saesha Power (9 Personnel)</option>
+            <option value="RIPL">🔧 RIPL (16 Personnel)</option>
+            <option value="Malfonic">📶 Malfonic (7 Personnel)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="team-grid" id="team-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 16px;"></div>
+    </div>
       <div class="team-grid" id="team-container"></div>
     </div>
 
@@ -1094,6 +1171,60 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
     let chartStates = null;
     let chartWoStatus = null;
     let woChartType = 'bar';
+    let chartSheetCompliance = null;
+    let chartVendorUpdateStatus = null;
+    let currentCompFilter = 'ALL';
+
+    const VENDOR_SHEET_DEFAULTS = [
+      {
+        name: 'Saesha Power',
+        key: 'saesha',
+        id: '1aeC42-OHdS_aAb_65GXuaEUfjBhqA-Jydb-HjiZtA-8',
+        gid: '802337370',
+        url: 'https://docs.google.com/spreadsheets/d/1aeC42-OHdS_aAb_65GXuaEUfjBhqA-Jydb-HjiZtA-8/edit?usp=sharing',
+        status: 'UPDATING',
+        statusLabel: '🟢 Sheet Updated Today (LIVE)',
+        complianceScore: 98.5,
+        lastUpdate: 'Synced 15s ago • Daily Excel Active',
+        badgeClass: 'status-live'
+      },
+      {
+        name: 'PNS Telecom',
+        key: 'pns',
+        id: '1Yvowk4tAm_Z0lKFqsIJ-RFMaOduwfBzlbKc7nSq1qMA',
+        gid: '723949951',
+        url: 'https://docs.google.com/spreadsheets/d/1Yvowk4tAm_Z0lKFqsIJ-RFMaOduwfBzlbKc7nSq1qMA/edit?usp=sharing',
+        status: 'UPDATING',
+        statusLabel: '🟢 Sheet Updated Today (LIVE)',
+        complianceScore: 96.8,
+        lastUpdate: 'Synced 15s ago • Daily Excel Active',
+        badgeClass: 'status-live'
+      },
+      {
+        name: 'Malfonic',
+        key: 'malfonic',
+        id: '15Ka8mS44lxKD9pg0e8bWOebmpsibFC29J0z73skMkr8',
+        gid: '1494733568',
+        url: 'https://docs.google.com/spreadsheets/d/15Ka8mS44lxKD9pg0e8bWOebmpsibFC29J0z73skMkr8/edit?usp=sharing',
+        status: 'UPDATING',
+        statusLabel: '🟢 Sheet Updated Today (LIVE)',
+        complianceScore: 95.2,
+        lastUpdate: 'Synced 15s ago • Daily Excel Active',
+        badgeClass: 'status-live'
+      },
+      {
+        name: 'RIPL',
+        key: 'ripl',
+        id: '1Fa3lKVvWxL3WIWxnIhm-TpcgWm1gKWYLoGZHyvFU18c',
+        gid: '880649132',
+        url: 'https://docs.google.com/spreadsheets/d/1Fa3lKVvWxL3WIWxnIhm-TpcgWm1gKWYLoGZHyvFU18c/edit?usp=sharing',
+        status: 'DELAYED',
+        statusLabel: '🔴 Daily Update Pending',
+        complianceScore: 72.4,
+        lastUpdate: 'Pending Upload • Last activity 3d ago',
+        badgeClass: 'status-delayed'
+      }
+    ];
 
     function setDashboardMode(mode) {
       const btnLive = document.getElementById('btn-mode-live');
@@ -1160,7 +1291,65 @@ const database = {"all":{"vendorKey":"all","vendorName":"All Vendors Combined (L
 
       const ctxStates = document.getElementById('chart-states')?.getContext('2d');
       if (ctxStates) {
-        chartStates = new Chart(ctxStates, {
+              // Sheet Compliance Bar Chart
+      const ctxComp = document.getElementById('chart-sheet-compliance')?.getContext('2d');
+      if (ctxComp) {
+        chartSheetCompliance = new Chart(ctxComp, {
+          type: 'bar',
+          data: {
+            labels: ['Saesha Power', 'PNS Telecom', 'Malfonic', 'RIPL'],
+            datasets: [
+              {
+                label: 'Synced Sites Volume',
+                data: [737, 283, 136, 149],
+                backgroundColor: 'rgba(99, 102, 241, 0.8)',
+                borderRadius: 6,
+                yAxisID: 'y'
+              },
+              {
+                label: 'Update Regularity %',
+                data: [98.5, 96.8, 95.2, 72.4],
+                backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                borderRadius: 6,
+                yAxisID: 'y1'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'top', labels: { color: '#94a3b8', font: { size: 11 } } } },
+            scales: {
+              x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+              y: { type: 'linear', position: 'left', ticks: { color: '#818cf8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+              y1: { type: 'linear', position: 'right', min: 0, max: 100, ticks: { color: '#34d399', callback: v => v + '%' }, grid: { drawOnChartArea: false } }
+            }
+          }
+        });
+      }
+
+      // Sheet Update Status Donut Chart
+      const ctxStatus = document.getElementById('chart-vendor-update-status')?.getContext('2d');
+      if (ctxStatus) {
+        chartVendorUpdateStatus = new Chart(ctxStatus, {
+          type: 'doughnut',
+          data: {
+            labels: ['🟢 Updated Today (3 Vendors)', '🔴 Update Delayed (1 Vendor)'],
+            datasets: [{
+              data: [3, 1],
+              backgroundColor: ['#10b981', '#f43f5e'],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11 } } } }
+          }
+        });
+      }
+
+      chartStates = new Chart(ctxStates, {
           type: 'pie',
           data: { labels: [], datasets: [] },
           options: {
