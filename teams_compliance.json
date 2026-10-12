@@ -2,98 +2,78 @@
   {
     "vendor": "PNS Telecom",
     "name": "Pintu Kumar",
-    "role": "Field Enginner",
+    "role": "Field Engineer",
     "location": "Bihar",
+    "city": "Patna",
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
-    "recordsLogged": "279 Sites Total",
+    "recordsLogged": "283 Sites Total",
     "missedDays": 0
   },
   {
     "vendor": "PNS Telecom",
     "name": "Aman Kumar",
     "role": "Technician",
-    "location": "Patna",
+    "location": "Bihar",
+    "city": "Patna",
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
-    "recordsLogged": "279 Sites Total",
+    "recordsLogged": "283 Sites Total",
     "missedDays": 0
   },
   {
     "vendor": "PNS Telecom",
-    "name": "FE Name",
-    "role": "Designation",
-    "location": "Location",
-    "status": "🟢 Updating Daily",
-    "lastUpdate": "Active Daily Updates",
-    "recordsLogged": "279 Sites Total"
-  },
-  {
-    "vendor": "PNS Telecom",
     "name": "Ajay Kumar Shaw",
-    "role": "Field Enginner",
+    "role": "Field Engineer",
     "location": "West Bengal",
+    "city": "Kolkata",
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
-    "recordsLogged": "279 Sites Total",
+    "recordsLogged": "283 Sites Total",
     "missedDays": 0
   },
   {
     "vendor": "PNS Telecom",
     "name": "Anil Chowdhury",
-    "role": "Field Enginner",
-    "location": "Kolkata",
+    "role": "Field Engineer",
+    "location": "West Bengal",
+    "city": "Kolkata",
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
-    "recordsLogged": "279 Sites Total",
+    "recordsLogged": "283 Sites Total",
     "missedDays": 0
-  },
-  {
-    "vendor": "PNS Telecom",
-    "name": "FE Name",
-    "role": "Designation",
-    "location": "Location",
-    "status": "🟢 Updating Daily",
-    "lastUpdate": "Active Daily Updates",
-    "recordsLogged": "279 Sites Total"
   },
   {
     "vendor": "PNS Telecom",
     "name": "Manoj Kumar",
-    "role": "Field Enginner",
+    "role": "Field Engineer",
     "location": "Jharkhand",
+    "city": "Ranchi",
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
-    "recordsLogged": "279 Sites Total",
+    "recordsLogged": "283 Sites Total",
     "missedDays": 0
-  },
-  {
-    "vendor": "PNS Telecom",
-    "name": "FE Name",
-    "role": "Designation",
-    "location": "Location",
-    "status": "🟢 Updating Daily",
-    "lastUpdate": "Active Daily Updates",
-    "recordsLogged": "279 Sites Total"
   },
   {
     "vendor": "PNS Telecom",
     "name": "Rahul Ranjan Behera",
-    "role": "Field Enginner",
+    "role": "Field Engineer",
     "location": "Odisha",
+    "city": "Cuttack",
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
-    "recordsLogged": "279 Sites Total",
+    "recordsLogged": "283 Sites Total",
     "missedDays": 0
   },
   {
     "vendor": "PNS Telecom",
-    "name": "Rakesh Rature",
+    "name": "Biswajit Bhoi",
     "role": "Technician",
-    "location": "Cuttack",
+    "location": "Odisha",
+    "city": "Cuttack",
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
-    "recordsLogged": "279 Sites Total",
+    "recordsLogged": "283 Sites Total",
     "missedDays": 0
   },
   {
@@ -104,7 +84,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "716 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "NESA"
   },
   {
     "vendor": "Saesha Power",
@@ -114,7 +95,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "716 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "NESA"
   },
   {
     "vendor": "Saesha Power",
@@ -124,7 +106,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "716 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "Bihar"
   },
   {
     "vendor": "Saesha Power",
@@ -134,7 +117,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "716 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "Bihar"
   },
   {
     "vendor": "Saesha Power",
@@ -144,7 +128,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "716 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "Jharkhand"
   },
   {
     "vendor": "Saesha Power",
@@ -154,7 +139,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "716 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "Jharkhand"
   },
   {
     "vendor": "Saesha Power",
@@ -164,7 +150,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "716 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "WB"
   },
   {
     "vendor": "Saesha Power",
@@ -174,7 +161,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "716 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "WB"
   },
   {
     "vendor": "Saesha Power",
@@ -184,7 +172,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "716 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "WB"
   },
   {
     "vendor": "RIPL",
@@ -194,7 +183,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "Patna"
   },
   {
     "vendor": "RIPL",
@@ -204,7 +194,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "Kolkata"
   },
   {
     "vendor": "RIPL",
@@ -214,7 +205,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "Kolkata"
   },
   {
     "vendor": "RIPL",
@@ -224,7 +216,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "Bhubaneswar"
   },
   {
     "vendor": "RIPL",
@@ -234,7 +227,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "GUWAHATI"
   },
   {
     "vendor": "RIPL",
@@ -244,7 +238,8 @@
     "status": "🔴 Not Updating (3 Days Missed)",
     "lastUpdate": "3 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 3
+    "missedDays": 3,
+    "city": "Dhanbad"
   },
   {
     "vendor": "RIPL",
@@ -254,7 +249,8 @@
     "status": "🔴 Not Updating (4 Days Missed)",
     "lastUpdate": "4 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 4
+    "missedDays": 4,
+    "city": "Rourkela"
   },
   {
     "vendor": "RIPL",
@@ -264,7 +260,8 @@
     "status": "🔴 Not Updating (3 Days Missed)",
     "lastUpdate": "3 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 3
+    "missedDays": 3,
+    "city": "Brahmapur"
   },
   {
     "vendor": "RIPL",
@@ -274,7 +271,8 @@
     "status": "🔴 Not Updating (5 Days Missed)",
     "lastUpdate": "5 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 5
+    "missedDays": 5,
+    "city": "Kendujhar"
   },
   {
     "vendor": "RIPL",
@@ -284,7 +282,8 @@
     "status": "🔴 Not Updating (3 Days Missed)",
     "lastUpdate": "3 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 3
+    "missedDays": 3,
+    "city": "Patna"
   },
   {
     "vendor": "RIPL",
@@ -294,7 +293,8 @@
     "status": "🔴 Not Updating (4 Days Missed)",
     "lastUpdate": "4 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 4
+    "missedDays": 4,
+    "city": "Kolkata"
   },
   {
     "vendor": "RIPL",
@@ -304,7 +304,8 @@
     "status": "🔴 Not Updating (3 Days Missed)",
     "lastUpdate": "3 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 3
+    "missedDays": 3,
+    "city": "Kolkata"
   },
   {
     "vendor": "RIPL",
@@ -314,7 +315,8 @@
     "status": "🔴 Not Updating (4 Days Missed)",
     "lastUpdate": "4 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 4
+    "missedDays": 4,
+    "city": "BBSR"
   },
   {
     "vendor": "RIPL",
@@ -324,7 +326,8 @@
     "status": "🔴 Not Updating (5 Days Missed)",
     "lastUpdate": "5 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 5
+    "missedDays": 5,
+    "city": "BBSR"
   },
   {
     "vendor": "RIPL",
@@ -334,7 +337,8 @@
     "status": "🔴 Not Updating (3 Days Missed)",
     "lastUpdate": "3 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 3
+    "missedDays": 3,
+    "city": "Hazaribag"
   },
   {
     "vendor": "RIPL",
@@ -344,7 +348,8 @@
     "status": "🔴 Not Updating (4 Days Missed)",
     "lastUpdate": "4 Days Missed • Pending Log",
     "recordsLogged": "101 Sites Total",
-    "missedDays": 4
+    "missedDays": 4,
+    "city": "Hazaribag"
   },
   {
     "vendor": "Malfonic",
@@ -354,7 +359,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "135 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "East"
   },
   {
     "vendor": "Malfonic",
@@ -364,7 +370,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "135 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "East"
   },
   {
     "vendor": "Malfonic",
@@ -374,7 +381,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "135 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "East"
   },
   {
     "vendor": "Malfonic",
@@ -384,7 +392,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "135 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "East"
   },
   {
     "vendor": "Malfonic",
@@ -394,7 +403,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "135 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "East"
   },
   {
     "vendor": "Malfonic",
@@ -404,7 +414,8 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "135 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "East"
   },
   {
     "vendor": "Malfonic",
@@ -414,6 +425,7 @@
     "status": "🟢 Updating Daily (0 Days Missed)",
     "lastUpdate": "0 Days Missed • Active Daily Updates",
     "recordsLogged": "135 Sites Total",
-    "missedDays": 0
+    "missedDays": 0,
+    "city": "East"
   }
 ]
