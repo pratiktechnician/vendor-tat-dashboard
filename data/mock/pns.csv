@@ -1,0 +1,292 @@
+SL No,Site ID,Site Name,Project Name,TCL Standard TAT (Days),Site Assigned Date,Permission receive date,Activity Name,Completed Date,PNS TAT (in Days),Installatio WIP,Remark’s.,Next Planning Date,FO Team TAT (in Days),Work Order Status
+1,BIHPAT0269,Fatuwah-01,RF Capacity augmentation 65 BS 100 to 45,5,7/7/2025,7/8/2025,BTS dismantling,10-07-2025,2,Fully Completed,,NA,,Released
+2,BIHPAT0282,Maner-01,RF Capacity augmentation 65 BS 100 to 45,5,7/7/2025,7/9/2025,BTS dismantling,11-07-2025,2,Fully Completed,,NA,,Released
+3,WEBQKL0070,Kaji Para (kalikapur),Low Potential Sector dismantling – 349 Sectors,5,16-07-2025,7/9/2025,BTS dismantling,11-07-2025,2,Fully Completed,,NA,,Released
+4,IN-1087991,Salt Lake BG Block,Emergency Relocation,5,7/10/2025,7/11/2025,BTS dismantling,12-07-2025,1,Fully Completed,,NA,,Released
+5,JHAQJS0017,BISTAMPUR,TTL Roll back,5,7/7/2025,7/11/2025,BTS dismantling,12-07-2025,1,Fully Completed,,NA,,Released
+6,IN-2037549,Karnamstret_Odf,"L1-L2 improvement FY24 Ph-2, 80 sites",3,14-06-2025,17-06-2025,BTS survey,12-07-2025,24,Fully Completed,,NA,,Released
+7,TROR0035,Jeypur,"L1-L2 improvement FY24 Ph-2, 80 sites",3,14-06-2025,17-06-2025,UBR BH survey,12-07-2025,24,Fully Completed,,NA,,Released
+8,JHAQJS0134,RADWIN_West Chaibasa-01,TTL Roll back,5,7/7/2025,7/11/2025,P2P link dismantling,12-07-2025,1,Fully Completed,,NA,,Released
+9,INBR007112,R.P.S COLONY,"L1-L2 improvement FY24 Ph-2, 80 sites",5,7/10/2025,7/11/2025,BTS installation,12-07-2025,1,Fully Completed,,NA,,Released
+10,WEBNOR0611,Khardah,ORCO POC,5,7/7/2025,7/12/2025,BTS installation,14-07-2025,2,Fully Completed,,NA,,Released
+11,JHADHA0048,Mugma,Low Potential Sector dismantling – 349 Sectors,5,16-07-2025,16-07-2025,BTS dismantling,17-07-2025,1,Fully Completed,,NA,,Released
+12,JHADHA0431,Govindpur (Dhanbad),Low Potential Sector dismantling – 349 Sectors,5,16-07-2025,16-07-2025,BTS dismantling,17-07-2025,1,Fully Completed,,NA,,Released
+13,WEBNOR0731,Kaliaganj,Low Potential Sector dismantling – 349 Sectors,5,7/3/2025,15-07-2025,BTS dismantling,17-07-2025,2,Fully Completed,,NA,,Released
+14,IN-1086788,RANINAGAR,L1-L2 Improvement- 40 Sites,3,18-07-2025,20-07-2025,BTS Survey,21-06-2025,1,Fully Completed,,NA,,Released
+15,WEBNOR0692,Barasat High Court,Low Potential Sector dismantling – 349 Sectors,5,21-07-2025,22-07-2025,BTS dismantling,25-07-2025,3,Fully Completed,,NA,,Released
+16,WEBBIR0038,BOLPUR_004,Low Potential Sector dismantling – 349 Sectors,5,21-07-2025,22-07-2025,BTS dismantling,25-07-2025,3,Fully Completed,,NA,,Released
+17,ORIKAL0213,Dharamgarh_Block Chowk,Low Potential BS dismantling 50 BS,5,21-07-2025,13-08-2025,BTS dismantling,16-08-2025,3,Fully Completed,,NA,,Released
+18,091HOOG623036115077,Indian Bank,BS Augment: UBR Backhaul to Direct FY24,5,16-06-2025,18-08-2025,Customer PMP Installation,22-08-2025,3,Fully Completed,,NA,,Released
+19,091DANK0300A0113758,MORE RETAIL PRIVATE LIMITED,BS Augment: UBR Backhaul to Direct FY24,5,16-06-2025,25-08-2025,Customer PMP Installation,25-08-2025,1,Fully Completed,Installation completed but device replacement required // Please provide device,NA,,Released
+20,091KOLK623037957470,APOLLO HEALTHCO LIMITED,BS Augment: UBR Backhaul to Direct FY24,5,16-06-2025,8/9/2025,Customer PMP Installation,14-08-2025,4,Fully Completed,,NA,,Released
+21,091KOLK030036733975,Ingram Micro India Private Limited,BS Augment: UBR Backhaul to Direct FY24,5,16-06-2025,24-06-2025,Customer P2P Installation,01-09-2025,33,Fully Completed,"Device replacement is required at both ends, but the planning is on hold due to waterlogging issues.",WIP,,Released
+22,INBR005143,JAIL CHOWK,Non Performing BS Optimization FY 24,3,21-07-2025,21-07-2025,Converter installation + VIVA BH Survey,22-07-2025,1,Fully Completed,,NA,,Released
+23,BIHSUP0381,Supaul-02,BS Augment: UBR Backhaul to Direct FY 24,3,21-07-2025,22-07-2025,Converter installation + VIVA BH Survey,23-07-2025,1,Fully Completed,,NA,,Released
+24,091HOOG623013586123,IDBI BANK LTD,ORCO POC,3,28-07-2025,8/1/2025,Survey Customer,01-08-2025,1,Fully Completed,,NA,,Released
+25,091HOOG030037240796,Jubilant Foodworks Limited,ORCO POC,3,28-07-2025,8/1/2025,Survey Customer,01-08-2025,1,Fully Completed,,NA,,Released
+26,IN-1064376,EBANBANGAON011,Non Performing BS Optimization Ph-10A,,8/2/2025,8/3/2025,Migration,03-08-2025,1,Fully Completed,,NA,,Released
+27,JHARAN0235,Pisca more,UBR BH Augmentation FY25_26,5,8/2/2025,8/3/2025,UBR Installation,04-08-2025,1,Fully Completed,"Installation completed but UBR BH alignment pending duo to Honey Bee issue, AT completed but device foulty, Required BW is Not Releasedd",NA,,Released
+28,091KOLK030035997332,Jubilant Foodworks Limited,CX4 to Conventional BH FY 25,3,8/4/2025,8/4/2025,Cx2 Survey,17-12-2025,1,Fully Completed,,NA,,Released
+29,7518,SITAMARHI,CX4 to Conventional BH FY 25,5,27-07-2025,8/4/2025,Converter installation + VIVA BH Survey,05-08-2025,1,Fully Completed,,NA,,Released
+30,JHARAN0553,UW_BIHAR_1690_Hatma_Ranchi,RF platform migration: Cambium 100 to 45,5,28-07-2025,8/3/2025,BTS installation,05-08-2025,2,Fully Completed,,NA,,Released
+31,JHADHA0287,Dhanbad-10,RF platform migration: Cambium 100 to 45,5,28-07-2025,8/3/2025,BTS installation,05-08-2025,2,Fully Completed,,NA,,Released
+32,BIHPAT1066,UW_BIHAR_1581_ASHOKRAJ PATH,UBR BH Augmentation FY25_26,5,28-08-2025,8/5/2025,UBR Installation,07-08-2025,2,Fully Completed,Installation completed //alingment pending,NA,,Released
+33,IN-2037549,Karnamstret_Odf,"L1-L2 improvement FY24 Ph-2, 80 sites",5,30-072025,,BTS installation,,,Dropped,The site has been dropped.,WIP,,Released
+34,IN-1038105,HEMSHREE APPARTMENT,"L1-L2 improvement FY24 Ph-2, 80 sites",5,30-072025,14-08-2025,BTS installation,28-08-2025,13,Fully Completed,"The FE was busy with the Dankuni North customer, and on Saturday, DT activity (Ramrajatala and Jagacha UBR alignment activities) & Sunday ticket was not available.",NA,,Released
+35,BIHEAS0117,Sugauli_Motihari,TTL rollback project,5,8/7/2025,12-08-2025,BTS dismantling,12-08-2025,1,Fully Completed,,NA,,Released
+36,IN-1063220,ENAWNAWDIP031,T34P-Switch replacement FY25,5,12-08-2025,19-08-2025,Switch Installation,19-08-2025,1,Fully Completed,,NA,,Released
+37,OR/CU/VF/0051,Ranihat,T34P-Switch replacement FY25,5,15-08-2025,25-08-2025,Switch Installation,25-08-2025,1,Fully Completed,,NA,,Released
+38,BIHPAT1042,Exhibition Road,RF Capacity augmentation 65 BS 100 to 45,5,27-08-2025,29-08-2025,BTS installation,30-08-2025,2,Fully Completed,,NA,,Released
+39,BIHQGA0116,New Dhiliya,CX4 to Conventional BH FY 25,5,29-08-2025,30-08-2025,Converter installation + VIVA BH Survey,01-09-2025,1,Fully Completed,,NA,,Released
+40,ID-1000888,Sasaram,CX4 to Conventional BH FY 25,5,29-08-2025,30-08-2025,Converter installation + VIVA BH Survey,01-09-2025,1,Fully Completed,,NA,,Released
+41,091DHAN623014602843,STATE BANK OF INDIA,RF platform migration: Cambium 100 to 45,5,9/4/2025,05-09-2025,Customer Installation,05-09-2025,1,Fully Completed,,NA,,Released
+42,ORIKHU0254,BBSR_BIGBAZAR,UBR BH Augmentation FY25_26,5,12-09-2025,14-05-2025,UBR Installation,14-05-2025,1,Fully Completed,,NA,,Released
+43,091SIWA623032577554,ICICI Bank Limited,Platform Migration-Ph4 PTP To PMP,5,22-09-2025,14-10-2025,Customer Dismantle,16-10-2025,2,Fully Completed,Delay due to permission issue.,NA,,Released
+44,091PATN623035909459,Franklin Templeton Asset Management (India) Private Limited,Platform Migration-Ph4 PTP To PMP,5,22-09-2025,24-09-2025,Customer Dismantle,26-09-2025,2,Fully Completed,Delay due to permission issue.,NA,,Released
+45,091CHHA623017545879,ICICI Bank Limited,Platform Migration-Ph4 PTP To PMP,5,22-09-2025,24-09-2025,Customer Dismantle,25-09-2025,4,Fully Completed,Delay due to permission issue.,NA,,Released
+46,091PATN623036070071,BANK OF BARODA,Platform Migration-Ph4 PTP To PMP,5,22-09-2025,24-09-2025,Customer Dismantle,26-09-2025,2,Fully Completed,Delay due to permission issue.,NA,,Released
+47,091JAMT623036114082,Indian Bank,ZTS Relocation FY 24,5,10/10/2025,15-10-2025,Survey + Installation,16-10-2025,1,Fully Completed,,NA,,Released
+48,091KOLK623035555916,PUNJAB NATIONAL BANK,ZTS Relocation FY 24,5,9/11/2025,11-Nov-25,PMP Survey,11-11-2025,1,Fully Completed,,NA,,Released
+49,091ARWA0300A0134863,HDFC Bank Limited,ZTS Relocation FY 24,5,10/10/2025,20-10-2025,Survey + Installation,22-10-2025,2,Fully Completed,LC details required,NA,,Released
+50,091DALT6230A0060187,Bharti AXA Life Insurance Company Limited,PTP to PMP Conversion 5,3,10/10/2025,,Customer Survey,,,Dropped,,NA,,Released
+51,091HAZA6230A0060179,Bharti AXA Life Insurance Company Limited,PTP to PMP Conversion 5,3,10/10/2025,27-11-2025,Customer Survey,29-11-2025,2,Fully Completed,LC details required,NA,,Released
+52,091HAZA6230A0060179,Bharti AXA Life Insurance Company Limited,PTP to PMP Conversion 5,5,01-08-2026,01-10-2026,Survey Task Closed,01-10-2026,2,Fully Completed,LC details required,NA,,Released
+53,091HAZA6230A0060179,Bharti AXA Life Insurance Company Limited,PTP to PMP Conversion 5,5,12/10/2025,15-12-2025,Customer Installation,17-12-2025,2,Fully Completed,LC details required,NA,,Released
+54,091HAZA6230A0060179,Bharti AXA Life Insurance Company Limited,PTP to PMP Conversion 5,5,24-12-2025,24-12-2025,Customer Migration,24-12-2025,1,Fully Completed,LC details required,NA,,Released
+55,091GAYA623032344230,IndusInd Bank Limited,PTP to PMP Conversion 5,3,10-10-2025,11/11/2025,Customer Survey,12-11-2025,1,Fully Completed,LC details required,NA,,Released
+56,091SITA623037548460,TCS (PASSPORT SEVA PROJECT),PTP to PMP Conversion 5,3,10/10/2025,24-11-2025,Customer Survey,26-11-2025,1,Fully Completed,LC details required,NA,,Released
+57,091BEGU623035559423,HINDUSTAN PETROLEUM CORPORATION LTD,PTP to PMP Conversion 5,3,10/10/2025,05-11-2025,Customer Survey,07-11-2025,2,Fully Completed,LC details required,NA,,Released
+58,091BHAG623035736754,STATE BANK OF INDIA,PTP to PMP Conversion 5,3,10/10/2025,11-11-2025,Customer Survey,13-11-2025,2,Migration WIP,Permission require,NA,,Released
+59,091BHAG623032465375,CARE HEALTH INSURANCE LIMITED,PTP to PMP Conversion 5,3,10/10/2025,11-11-2025,Customer Survey,13-11-2025,2,Fully Completed,LC details required,NA,,Released
+60,091PATN623035817290,IDFC FIRST BANK LIMITED,PTP to PMP Conversion 5,3,10/10/2025,14-10-2025,Customer Survey,15-10-2025,1,Fully Completed,The site was completed during direct visit.,NA,,Released
+61,091RANC623035558828,HINDUSTAN PETROLEUM CORPORATION LTD,PTP to PMP Conversion 5,3,10/10/2025,,Customer Survey,,,Dropped,,NA,,Released
+62,091MUSH6230A0041925,Axis Bank Limited,PTP to PMP Conversion 5,3,10/10/2025,16-11-2025,Customer Survey,17-11-2025,2,Installatio WIP,Device required,NA,,Released
+63,091PATN030036880209,L'Oreal C/O Singapore Telecommunications Limited,PTP to PMP Conversion 5,3,10/10/2025,14-10-2025,Customer Survey,15-10-2025,1,Fully Completed,The site was completed during direct visit.,NA,,Released
+64,091AURA623037554260,TCS (PASSPORT SEVA PROJECT),PTP to PMP Conversion 5,3,10-10-2025,23-11-2025,Customer Survey,25-11-2025,2,Fully Completed,LC details required,NA,,Released
+65,091PATN623037274769,TATA Capital Limited,PTP to PMP Conversion 5,3,10-10-2025,14-10-2025,Customer Survey,14-10-2025,1,Fully Completed,The site was completed during direct visit.,NA,,Released
+66,091PATN623034402094,BANK OF BARODA,PTP to PMP Conversion 5,3,10-10-2025,18-11-2025,Customer Survey,19-11-2025,1,Installatio WIP,Device required,NA,,Released
+67,WEBSOU0881,Nurpur_001,BH migration from TTSL to alternate FY25,5,14-10-2025,20/10/2025,BS Dismantle,22/10/2025,2,Fully Completed,,NA,,Released
+68,WEBWES0961,Haldia_004,BH migration from TTSL to alternate FY25,5,14-10-2025,20/10/2025,BS Dismantle,21/10/2025,1,Fully Completed,,NA,,Released
+69,WEBSOU0826 to WEBHOW0256,Ranihat Amta to Rajdanga Andul,BS Augment: UBR Backhaul to Direct FY24,5,28-10-2025,4-11-2025,UBR Dismantle,5-11-2025,1,Fully Completed,,NA,,Released
+70,WEBNOR0611,Khardah,ORCO POC,5,01-11-2025,3-11-2025,BS Dismantle,3-11-2025,1,Fully Completed,Taks WIP,NA,,Released
+71,JHAHAZ0165,Hazaribagh Nawabganj,Capacity Augmentation - UBR-Q2 FY 24,5,13-11-2025,27-11-2025,BS Dismantle,29-11-2025,2,Fully Completed,,NA,,Released
+72,BIHSUP0381,Supaul-02,Capacity Augmentation - UBR-Q2 FY 24,5,13-11-2025,26-11-2025,BS Dismantle,29-11-2025,3,Fully Completed,,NA,,Released
+73,WEBBAN0012,Bankura_002,BS Augment: UBR Backhaul to Direct FY24,5,13-11-2025,14-11-2025,BS Dismantle,14-11-2025,1,Fully Completed,,NA,,Released
+74,IN-1022958,BISHNUPUR,BS Augment: UBR Backhaul to Direct FY24,5,13-11-2025,19-12-2025,BS Dismantle,19-12-2025,1,Fully Completed,,NA,,Released
+75,091DHAN6230A0006492,Trent Limited,PTP to PMP Conversion 5,3,13-10-2025,14-11-2025,Customer Survey,14-11-2025,2,Installatio WIP,Device required,NA,,Released
+76,091DHAN623035499522,FIS Payment Solutions & Services India Private Limited,PTP to PMP Conversion 5,3,13-10-2025,14-11-2025,Customer Survey,14-11-2025,2,Fully Completed,,NA,,Released
+77,BIHVAI0384,Hazipur,Emergency Relocation,5,14-11-2025,16-11-2025,BTS installation,12/06-2025,16,Fully Completed,"Damage device received, CMM received 1st-dec-2025",NA,,Released
+78,091JEHA623005989241,Axis Bank Limited,PTP to PMP Conversion 5,3,03-12-2025,11/12/2025,Customer Survey,12-12-2025,1,Installatio WIP,,NA,,Released
+79,091HAZA623036194122,Bank of India,PTP to PMP Conversion 5,3,12/3/2025,,Customer Survey,,,Pending/YTS,LC required,NA,,Released
+80,091JAMS623032961482,Tata Motors Limited,PTP to PMP Conversion 5,3,12/3/2025,11/12/2025,Customer Survey,12-12-2025,1,Fully Completed,LC required,NA,,Released
+81,091PATN623014935147,Amway India Enterprises Private Limited,PTP to PMP Conversion 5,3,12/3/2025,4/12/2025,Customer Survey,5/12/2025,1,Installatio WIP,Device required,NA,,Released
+82,091SAHA623033872882,Maruti Suzuki India Ltd,PTP to PMP Conversion 5,3,12/3/2025,,Customer Survey,,,Pending/YTS,LC required,NA,,Released
+83,OR/JA/AI/0279,Jagatsinghpur,CX4 to Conventional BH FY 26,3,12/8/2025,9-12-2025,BTS Survey,12-12-2025,3,Fully Completed,,NA,,Released
+84,091JAGA623037541548,TCS PASSPORT SEVA PROJECT,CX4 to Conventional BH FY 26,3,12/8/2025,9-12-2025,Customer Survey,12-12-2025,3,Fully Completed,,NA,,Released
+85,091CUTT623034701768,UNION BANK OF INDIA- erstwhile CB,CX4 to Conventional BH FY 26,3,08-12-2025,9-12-2025,Customer Survey,12-12-2025,3,Fully Completed,,NA,,Released
+86,091JAGA6230A0029431,DCB Bank Limited,CX4 to Conventional BH FY 26,3,08-12-2025,9-12-2025,Customer Survey,12-12-2025,3,Fully Completed,,NA,,Released
+87,VFBRMDH0867,Ward No-7 By Pass Road,L1-L2 Improvement- 40 Sites,3,11-12-2025,,RAP Site Installation Activity,,,Dropped,,NA,,Released
+88,ORIBOL0603,BOLANGIR_02_GSM(Rajendra Para),L1-L2 Improvement- 40 Sites,3,12/11/2025,24-12-2025,RAP Site Installation Activity,24-12-2025,1,RFI Pending,,NA,,Released
+89,BIHMAD0198,Madhubani O1,L1-L2 Improvement- 40 Sites,3,11/12/2025,23-12-2025,RAP Site Installation Activity,23-12-2025,1,Fully Completed,,NA,,Released
+90,BIHJAM0890,UW_BIHAR_1502_Maharajganj-Kalyanpur,L1-L2 Improvement- 40 Sites,3,11-12-2025,23-12-2025,RAP Site Installation Activity,23-12-2025,1,Fully Completed,,NA,,Released
+91,091KOLK030035997332,Jubilant Foodworks Limited,CX4 to Conventional BH FY 25,5,16-12-2025,18-12-2025,Cx2 Installation,18-12-2025,1,Fully Completed,,NA,,Released
+92,WEBEAS1376,Ramnagar,BH Augmentation - FY25_105,3,18-12-2025,19-12-2025,UBR BH alignment,19-12-2025,1,Fully Completed,,NA,,Released
+93,INBR000795,JAGJIWAN PATH,L1-L2 Improvement- 40 Sites,3,23-12-2025,23-12-2025,RAP Site Installation Activity,23-12-2025,1,Fully Completed,,NA,,Released
+94,BIHMAD0198,Madhubani O1,L1-L2 Improvement- 40 Sites,3,11-12-2025,26-12-2025,Switch Installation,26-12-2025,1,Fully Completed,,NA,,Released
+95,BIHJAM0890,UW_BIHAR_1502_Maharajganj-Kalyanpur,L1-L2 Improvement- 40 Sites,3,11-12-2025,29-12-2025,Switch Installation,29-12-2025,1,Fully Completed,,NA,,Released
+96,091JAGA6230A0029431,DCB Bank Limited,CX4 to Conventional BH FY 26,3,08-12-2025,13-12-2025,Customer P2P Survey With device,15-12-2025,2,Fully Completed,,NA,,Released
+97,JHARAN0553,UW_BIHAR_1690_Hatma_Ranchi,UW_BIHAR_1690_Hatma_Ranchi,5,02-01-2026,4-1-2026,Sector Dismantle,1-7-2026,3,Fully Completed,,NA,,Released
+98,091KOLK030035997332,Jubilant Foodworks Limited,CX4 to Conventional BH FY 25,5,07-01-2026,8-1-2026,Additional Visit,01-07-2026,1,Fully Completed,,NA,,Released
+99,091DALK623034374076,UNION BANK OF INDIA- erstwhile CB,CX4 to conventional FY26,5,07-01-2026,8/1/2026,Cx2 Installation,08-01-2026,1,Fully Completed,,NA,,Released
+100,BIHDAR0781,RAHAMGANJ,RF platform migration: Cambium 100 to 45,5,14-01-2026,16-01-2026,Sector Dismantle,19-01-2026,3,Fully Completed,PO Balance Issue,NA,,Released
+101,BIHVAI1078,E_BIH_1783-HAZIPUR-10,Emergency Relocation,5,20-01-2026,21-01-2026,BTS Dismantle,21-01-2026,1,Fully Completed,,NA,,Released
+102,BIHVAI1078 to BIHVAI0384,E_BIH_1783-HAZIPUR-10 to Hazipur,Emergency Relocation,5,21-01-2026,21-01-2026,UBR Dismantle,22-01-2026,2,Fully Completed,,NA,,Released
+103,WEBHOW0260,Liluah Station South,RF Capacity augmentation 65 BS 100 to 45,5,22-01-2026,25/3/2026,BTS Dismantle,28/3/2026,3,Fully Completed,,NA,,Released
+104,WEBHOO0191,Baidyabati,RF Capacity augmentation 65 BS 100 to 45,5,22-01-2026,25/3/2026,BTS Dismantle,27/3/2026,2,Fully Completed,,NA,,Released
+105,091ASAN623007844047,HDFC Securities Limited,Multicast customer migration from PMP to,5,22-01-2026,2-2-2026,Customer Installation,4-2-2026,2,Fully Completed,,NA,,Released
+106,091KOLK623005767629,Tata Motors Finance Solution Limited,Multicast customer migration from PMP to,,22-01-2026,2-2-2026,Customer Installation,3-2-2026,1,Migration WIP,,NA,,Released
+107,3331253686,HDFC Securities Limited,Multicast customer migration from PMP to,,22-01-2026,15-02-2026,Customer Installation,18-02-2026,3,Fully Completed,,NA,,Released
+108,091KOLK030035997332,Jubilant Foodworks Limited,CX4 to Conventional BH FY 25,5,07-01-2026,29-01-2026,Cx2 Dismantle,30-01-2026,1,Fully Completed,,NA,,Released
+109,BIHAUR0811,Club Road,BH migration from TTSL to alternate FY25,3,27-01-2026,27-01-2026,BTS Survey,28-01-2026,1,Fully Completed,,NA,,Released
+110,IN-1132627,CHAKDAH-8,BS Augment: UBR Backhaul to Direct FY24 BS,5,28-01-2026,29-01-2026,BTS Dismantle,29-01-2026,1,Fully Completed,,NA,,Released
+111,BIHSAH0324,Saharsa-1,Top 34 Accounts,5,28-01-2026,30-01-2026,BTS Dismantle,2/3/2026,2,Fully Completed,,NA,,Released
+112,091JHAR6230A0007735,IDFC FIRST BANK LIMITED,ZTS Relocation FY 24,5,28-01-2026,29-01-2026,Customer Installation,29-01-2026,1,Fully Completed,,NA,,Released
+113,091JHAR623030286908,ICICI Prudential Life Insurance Company Limited,ZTS Relocation FY 24,5,28-01-2026,29-01-2026,Customer Installation,29-01-2026,1,Fully Completed,,NA,,Released
+114,091SAMB030038625732,HDB Financial Services Limited,ZTS Relocation FY 24,5,28-01-2026,29-01-2026,Customer Dismantle,29-01-2026,1,Fully Completed,,NA,,Released
+115,WEBHOW0262 to WEBHOW0276,DSK Lane West to Metiaburutz,ZTS Relocation FY 24,5,05-02-2026,2-6-2026,UBR BH Dismantle,2-9-2026,3,Fully Completed,,NA,,Released
+116,WEBNOR0639,Kuntighat,Low Potential TTL BS Dismantling 67,5,05-02-2026,02-06-2026,BTS Dismantle,02-07-2026,1,Fully Completed,,NA,,Released
+117,WEBNOR0639 to IN-1051501,Kuntighat to Tribeni,Low Potential TTL BS Dismantling 67,5,05-02-2026,02-06-2026,UBR BH Dismantle,02-07-2026,1,Fully Completed,IM Site access required,NA,,Released
+118,JHADHA0287,Dhanbad-10,RF platform migration: Cambium 100 to 45,5,09-02-2026,02-10-2026,BTS Dismantle,02-12-2026,2,Fully Completed,,NA,,Released
+119,WEBHOW0260,Liluah Station South,CX4 to Conventional BH FY 25,3,20-02-2026,21-02-2026,BTS Survey,23-02-2026,2,Fully Completed,,NA,,Released
+120,IN-1022944,PALASHI,"L1-L2 improvement FY24 Ph-2, 80 sites",3,23-02-2026,23-02-2026,BTS Survey,24-02-2026,1,Fully Completed,,NA,,Released
+121,BIHMAD0201,Jhanjharpur_02,"L1-L2 improvement FY24 Ph-2, 80 sites",3,25-02-2026,26-02-2026,BTS Survey,26-02-2026,1,Fully Completed,,NA,,Released
+122,BIHMAD0201,Jhanjharpur_02,"L1-L2 improvement FY24 Ph-2, 80 sites",5,18-03-2026,18-03-2026,Switch Installation,18-03-2026,1,Fully Completed,,NA,,Released
+123,WEBNOR0727,Dalkhola_001,ZTS Relocation FY 24,5,26-02-2026,28-02-2026,BTS Dismantle,03-02-2026,3,Fully Completed,,NA,,Released
+124,091DALK623034374076,UNION BANK OF INDIA- erstwhile CB,ZTS Relocation FY 24,5,26-02-2026,28-02-2026,Customer Dismante,03-02-2026,3,Fully Completed,,NA,,Released
+125,BIHAUR0811,Club Road,BH migration from TTSL to alternate FY25,5,03-02-2026,03-03-2026,UBR Installation,03-08-2026,5,Migration WIP,"Device Issue, 2nd time device issue",NA,,Released
+126,WEBHOW0260 to WEBHOW0261,Liluah Station South to Panchanantala,CX4 to Conventional BH FY 25,5,03-12-2026,13-03-2026,UBR Installation,13-03-2026,1,Fully Completed,"Installation Completed, Devoce location chenged",NA,,Released
+127,IN-1022944,PALASHI,"L1-L2 improvement FY24 Ph-2, 80 sites",5,13-03-2026,13-03-2026,Converter installation + VIVA BH Survey,13-03-2026,1,Fully Completed,,NA,,Released
+128,BIHAUR0811,Club Road,BH migration from TTSL to alternate FY25,5,24-03-2026,24-03-2026,Device Repace,27-03-2026,3,Migration WIP,"Device Issue, 2nd time device issue",NA,,Released
+129,WEBMUR0455,Behrampur_007,Emergency Relocation,3,06-04-2026,06-04-2026,BTS Survey+ UBR Survey,04-06-2026,1,Fully Completed,,NA,,Released
+130,WEBMUR0444,Behrampur_09,Emergency Relocation,3,06-04-2026,06-04-2026,BTS Survey+ UBR Survey,04-06-2026,1,Fully Completed,,NA,,Released
+131,IN-1038019,BEHRAMPUR BUS STAND_LIC,Emergency Relocation,3,06-04-2026,06-04-2026,UBR Survey,04-06-2026,1,Fully Completed,,NA,,Released
+132,091MURS623014664588,Bank Of India Limited East,Emergency Relocation,3,06-04-2026,06-04-2026,Customer Survey,04-07-2026,2,Fully Completed,,NA,,Released
+133,091BERH6230A0216847,Directorate of Income Tax (Systems),Emergency Relocation,3,06-04-2026,06-04-2026,Customer Survey,04-06-2026,1,Fully Completed,,NA,,Released
+134,091BERH6230A0042800,HDFC Bank Limited,Emergency Relocation,3,06-04-2026,06-04-2026,Customer Survey,04-07-2026,2,Fully Completed,,NA,,Released
+135,091MURS623008350095,ICICI Bank Limited,Emergency Relocation,3,06-04-2026,06-04-2026,Customer Survey,04-07-2026,2,Fully Completed,,NA,,Released
+136,091MURS0300A0205649,Tata AIG General Insurance Company Limited,Emergency Relocation,3,06-04-2026,06-04-2026,Customer Survey,04-07-2026,2,Fully Completed,,NA,,Released
+137,091MURS623034632666,SBI FUNDS MANAGEMENT LIMITED,Emergency Relocation,3,06-04-2026,06-04-2026,Customer Survey,04-07-2026,2,Fully Completed,,NA,,Released
+138,091BERH623014548591,INDIAN BANK Erstwhile Allahabad Bank,Emergency Relocation,3,06-04-2026,06-04-2026,Customer Survey,04-07-2026,2,Fully Completed,,NA,,Released
+139,091BEHA623034403800,BANK OF BARODA,Emergency Relocation,3,06-04-2026,06-04-2026,Customer Survey,04-07-2026,2,Fully Completed,,NA,,Released
+140,BIHVAI0387,LALGANJ_BH,RF platform migration: Cambium 100 to 450,5,15-04-2026,16-04-2026,BTS Dismantle,17-04-2026,1,Fully Completed,,NA,,Released
+141,091ASAN623007844047,HDFC Securities Limited,Multicast customer migration from PMP to,5,18-04-2026,21-04-2026,Customer Dismantle,21-04-2026,1,Fully Completed,,NA,,Released
+142,3331253686,HDFC Securities Limited,Multicast customer migration from PMP to,5,28-01-2026,29-01-2026,Customer Dismantle,29-01-2026,1,Fully Completed,,NA,,Released
+143,WEBHOO2220,Dankuni North-2,BS Augment: UBR Backhaul to Direct FY24,5,21-04-2026,22-04-2026,BTS Dismantle,23-04-2026,1,Fully Completed,,NA,,Released
+144,WEBHOO2220 to WEBHOO0196,Dankuni North-2 to Uttarpara,BS Augment: UBR Backhaul to Direct FY24,5,21-04-2026,22-04-2026,UBR Dismantle,23-04-2026,1,Fully Completed,,NA,,Released
+145,OR3091,CIVIL TOWNSHIP-3,UBR BH cap aug 48 BS FY26,5,26-04-2026,27-04-2026,UBR Installation,05-02-2026,5,Fully Completed,,NA,,Released
+146,OR3091,CIVIL TOWNSHIP-3,UBR BH cap aug 48 BS FY26,5,26-04-2026,27-04-2026,UBR Alingment,02-06-2026,5,Fully Completed,,NA,,Released
+147,WEBHOO2220,Dankuni North-2,BS Augment: UBR Backhaul to Direct FY24,5,21-04-2026,22-04-2026,Cable Discunnect,23-04-2026,1,Fully Completed,,NA,,Released
+148,OR3091,CIVIL TOWNSHIP-3,UBR BH cap aug 48 BS FY26,5,26-04-2026,27-04-2026,UBR Migration,02-05-2026,5,Fully Completed,,NA,,Released
+149,IN-1235018,Rasapunja Bongram,Just‑In‑Time (JIT) Network Rollout,3,05-05-2026,05-06-2026,BTS Survey,05-06-2026,1,Fully Completed,,NA,,Released
+150,091JEHA623034677044,PUNJAB NATIONAL BANK,Emergency Relocation,5,05-06-2026,05-07-2026,Customer Survey,05-08-2026,1,Fully Completed,,NA,,Released
+151,091JEHA6230A0341237,HDFC Bank Limited,Emergency Relocation,5,05-06-2026,05-07-2026,Customer Survey,05-08-2026,1,Fully Completed,,NA,,Released
+152,091JEHA623037551716,TCS PASSPORT SEVA PROJECT,Emergency Relocation,5,05-06-2026,05-07-2026,Customer Survey,05-08-2026,1,Fully Completed,,NA,,Released
+153,091JEHA6230A0145193,HDFC LIFE INSURANCE COMPANY LIMITED,Emergency Relocation,5,05-06-2026,05-07-2026,Customer Survey,05-08-2026,1,Fully Completed,,NA,,Released
+154,IN-2004474,BIGT10213,Emergency Relocation,5,05-06-2026,05-07-2026,BTS Survey,05-09-2026,2,Fully Completed,,NA,,Released
+155,ID-1001214,JEHANABAD,Emergency Relocation,5,05-06-2026,05-07-2026,BTS Survey,05-08-2026,1,Fully Completed,,NA,,Released
+156,ORIJHA0205,Hotel_Yogendra_Jharsuguda,ZTS Relocation FY 24,5,05-08-2026,25-05-2026,BTS Dismantle,29-05-2026,4,Fully Completed,Access Issue,NA,,Released
+157,ORIJHA0205 to ORIJHA0586,Hotel_Yogendra_Jharsuguda to IncomeTax_GSM,ZTS Relocation FY 24,5,05-08-2026,25-05-2026,UBR Dismantle,29-05-2026,4,Fully Completed,Access Issue,NA,,Released
+158,BIHMUZ0407,MIT Vikas,RF platform migration: Cambium 100 to 45,5,05-11-2026,05-12-2026,BTS Dismantle,14/05/2026,2,Fully Completed,PO WIP,NA,,Released
+159,091MUZA623030330799,Berger Paints India Limited,RF platform migration: Cambium 100 to 45,5,14-05-2026,14-05-2026,Cambium 100 Dismantle,14-05-2026,1,Fully Completed,,NA,,Released
+160,091MUZA623030330799,Berger Paints India Limited,RF platform migration: Cambium 100 to 45,5,14-05-2026,14-05-2026,Cambium 450i Dismantle,14-05-2026,1,Fully Completed,,NA,,Released
+161,BIHQBG0303,Station Road Begusarai,UBR BH cap aug 48 BS FY26,5,17-05-2026,18/05/2026,UBR Installation,20/05/2026,2,Migration WIP,WCC Hold,NA,,Released
+162,BIHDAR0781,Rahamganj,ZTS Relocation FY26 Ph-2,5,01-06-2026,04-06-2026,UBR Survey,06-06-2026,2,Fully Completed,,NA,,Released
+163,WEBHOW0260,Liluah Station South,CX4 to Conventional BH FY 25,5,16/05/2026,17/05/2026,UBR Dismantle,20/05/2026,3,Fully Completed,,NA,,Released
+164,ID-1009670,Arwal,UBR BH capacity augmentation of 50 BS,3,25/05/2026,26/05/2026,UBR LOS Survey,26/05/2026,1,Fully Completed,,NA,,Released
+165,IN-2004857,BIGT10412,CX4 to conventional backhaul PH 3,3,25/05/2026,29-05-2026,BTS Survey,29-05-2026,3,Dropped,Safety issue,NA,,Released
+166,JHARAN0224,Namkum,Emergency Relocation,5,26/25/2026,27/25/2026,UBR Installation,27/25/2026,2,Fully Completed,,NA,,Released
+167,TAJHRAN0087 to JHARAN0224,Tatisilvai to Namkum,Emergency Relocation,5,26-05-2026,27-05-2026,UBR Installation,27-05-2026,1,Fully Completed,,NA,,Released
+168,TAJHRAN0087 to JHARAN0224,Tatisilvai to Namkum,Emergency Relocation,5,27-05-2026,28-05-2026,Switch Installation,28-05-2026,2,Fully Completed,,NA,,Released
+169,VFJHDNB0156,Jharia,Just‑In‑Time (JIT) Network Rollout,3,21-05-2026,28/05/2026,BTS Survey,06-01-2026,1,Fully Completed,,NA,,Released
+170,BIHDAR0781,Rahamganj,ZTS Relocation FY26 Ph-2,5,1/6/2026,4/6/2026,UBR Installation,06-06-2026,2,Migration WIP,,NA,,Released
+171,BIHARA0003,Forbisganj,Just‑In‑Time (JIT) Network Rollout,5,06-02-2026,06-03-2026,Switch Installation,06-06-2026,3,Migration WIP,,,,Released
+172,BR/HA/VO/0591,Kathar Tola,Just‑In‑Time (JIT) Network Rollout,2,06-02-2026,06-03-2026,BTS Survey,06-05-2026,2,Fully Completed,,,,Released
+173,ORIBAR0053,Maharaja,T34P-Switch replacement FY25,5,06-04-2026,10-06-2026,UBR Survey,15-06-2026,5,Fully Completed,,NA,,Released
+174,ORIBAR0053,Maharaja,CX4 to conventional backhaul PH 3,2,06-04-2026,10-06-2026,Switch Installation,15-06-2026,5,Fully Completed,,NA,,Released
+175,WEBHOO0195,SINGUR,CX4 to conventional backhaul PH 3,2,06-04-2026,06-05-2026,UBR LOS Survey,06-08-2026,3,Fully Completed,,NA,,Released
+176,JHALOH0178,Lohardaga,CX4 to conventional backhaul PH 3,2,06-04-2026,06-05-2026,BTS Survey,06-08-2026,3,Issue/Stuck,,NA,,Released
+177,BR/PA/AT/17693,Pakaur (M),CX4 to conventional backhaul PH 3,2,06-04-2026,17-06-2026,BTS Survey,15-06-2026,8,Fully Completed,Work load high,NA,,Released
+178,IN-2036076,ORGT10878,CX4 to conventional backhaul PH 3,2,06-04-2026,17-06-2026,BTS Survey,16-06-2026,8,Fully Completed,Work load high,NA,,Released
+179,IN-2004488,BIGT10220,ZTS Relocation FY26 Ph-2,2,06-04-2026,06-05-2026,BTS Survey,06-08-2026,3,Fully Completed,,NA,,Released
+180,091RANC623036796736,UNION BANK OF INDIA,CX4 to conventional backhaul PH 3,2,06-04-2026,06-05-2026,Customer Survey,06-08-2026,3,Fully Completed,,NA,,Released
+181,091RANC623036213480,Bank of India,CX4 to conventional backhaul PH 3,2,06-04-2026,06-05-2026,Customer Survey,06-08-2026,3,Fully Completed,,NA,,Released
+182,091SITA0300A0404713,BAJAJ LIFE INSURANCE LIMITED,ZTS Relocation FY26 Ph-2,2,06-04-2026,06-05-2026,Customer Survey,06-08-2026,3,Fully Completed,,NA,,Released
+183,091SITA6230A0420537,Ujjiban,ZTS Relocation FY26 Ph-2,2,06-04-2026,06-05-2026,Customer Survey,06-08-2026,3,Fully Completed,,NA,,Released
+184,091DUMR6230A0066627,Axis Bank Limited,ZTS Relocation FY26 Ph-2,2,06-04-2026,06-05-2026,Customer Survey,06-08-2026,3,Fully Completed,,NA,,Released
+185,091SITA6230A0411772,IndusInd,ZTS Relocation FY26 Ph-2,2,06-04-2026,06-05-2026,Customer Survey,06-08-2026,3,Fully Completed,,NA,,Released
+186,091SITA623037548460,TCS (PASSPORT SEVA PROJECT),ZTS Relocation FY26 Ph-2,2,06-04-2026,06-05-2026,Customer Survey,06-08-2026,3,Fully Completed,,NA,,Released
+187,091BATH0300A0071211,Jubilant Foodworks Limited,ZTS Relocation FY26 Ph-2,2,06-04-2026,06-05-2026,Customer Survey,06-08-2026,3,Fully Completed,,NA,,Released
+188,091SITA623016904624,UNION BANK OF INDIA,ZTS Relocation FY26 Ph-2,2,06-04-2026,06-05-2026,Customer Survey,06-08-2026,3,Fully Completed,,NA,,Released
+189,091PAKU6230A0220903,IndusInd Bank Limited,CX4 to conventional backhaul PH 3,2,06-04-2026,13-06-2026,Customer Survey,15-06-2026,5,Fully Completed,,NA,,Released
+190,091PAKU623013716594,STATE BANK OF INDIA,CX4 to conventional backhaul PH 3,2,06-04-2026,06-10-2026,Customer Survey,15-06-2026,5,Fully Completed,,NA,,Released
+191,091CUTT623034701608,UNION BANK OF INDIA- erstwhile CB,CX4 to conventional backhaul PH 3,2,06-04-2026,06-07-2026,Customer Survey,06-07-2026,9,Fully Completed,,NA,,Released
+192,3331211805,Axis Bank Limited,CX4 to conventional backhaul PH 3,2,06-04-2026,06-07-2026,Customer Survey,06-07-2026,9,Fully Completed,,NA,,Released
+193,091JAJP623037541580,TCS PASSPORT SEVA PROJECT,CX4 to conventional backhaul PH 3,2,06-04-2026,06-07-2026,Customer Survey,06-07-2026,9,Fully Completed,,NA,,Released
+194,ORIKHU0857,UW_Orissa_0630_Jatni (Khasmahal),Emergency Relocation,3,06-05-2026,06-08-2026,Customer Survey,15-06-2026,7,Fully Completed,,NA,,Released
+195,091BHUB623032725603,UNION BANK OF INDIA_erstwhile AB,Emergency Relocation,3,06-05-2026,06-08-2026,BTS Syrvey,15-06-2026,7,Fully Completed,,NA,,Released
+196,091KHOR623035953409,Manappuram Finance Limited,Emergency Relocation,3,06-05-2026,06-08-2026,Customer Survey,15-06-2026,7,Fully Completed,,NA,,Released
+197,091KHOR6230A0160300,SBI Life Insurance Company Limited,Emergency Relocation,3,06-05-2026,06-08-2026,Customer Survey,15-06-2026,7,Fully Completed,,NA,,Released
+198,091JATN623036120242,Indian Bank,Emergency Relocation,3,06-05-2026,06-08-2026,Customer Survey,15-06-2026,7,Fully Completed,,NA,,Released
+199,TCLBSNL14112017-051774,KASBA,Non Performing BS Optimization Ph-10A,5,06-05-2026,25-08-2026,BTS Dismantle,25-08-2026,1,Fully Completed,Access Issue // Completed,NA,,Released
+200,IN-1023559,SAKUNTALA_PARK,Emergency Relocation,3,06-05-2026,06-05-2026,BTS Survey,06-06-2026,1,Fully Completed,,NA,,Released
+201,091KOLK623010952524,Axis Bank Limited,Emergency Relocation,3,06-05-2026,06-06-2026,Customer Survey,06-08-2026,2,Fully Completed,,NA,,Released
+202,091KOLK623010859113,INDIAN OVERSEAS BANK,Emergency Relocation,3,06-05-2026,06-06-2026,Customer Survey,06-08-2026,2,Fully Completed,,NA,,Released
+203,091KOLK623033494181,Ipca Laboratories Limited,Emergency Relocation,3,06-05-2026,06-06-2026,Customer Survey,06-08-2026,2,Fully Completed,,NA,,Released
+204,091KOLK623011868015,HDFC Bank Limited,Emergency Relocation,3,06-05-2026,06-06-2026,Customer Survey,06-08-2026,2,Fully Completed,,NA,,Released
+205,091KOLK030038626528,HDB Financial Services Limited,Emergency Relocation,3,06-05-2026,06-06-2026,Customer Survey,06-08-2026,2,Fully Completed,,NA,,Released
+206,BR/LO/VO/0671 to JHALOH0178,KARTIK NAGAR JURIYA to Lohardaga,CX4 to conventional backhaul PH 3,3,25-06-2026,26-06-2026,UBR LOS Survey,27-06-2026,2,Fully Completed,,NA,,Released
+207,BIHPAT1042,Exhibition Road,Low Potential BS & Sector Dismantling 70,5,24-06-2026,24-06-2026,BTS Dismantle,26-06-2026,1,Site Complete Status,,NA,,Released
+208,BHBS000009,AIPL- Rajgir bazaar,T34P-Switch replacement FY25,5,23-06-2026,24-06-2026,Switch Installation,25-06-2026,1,Issue/Stuck,Device Foulty,NA,,Released
+209,OR3091,Civil Township-3,UBR BH cap aug 48 BS FY26,5,23-06-2026,01-05-2026,UBR Dismantle,01-07-2026,12,Fully Completed,PO WIP/ LC Required,NA,,Released
+210,091RANC6230A0005128,Bennett Coleman and Company Limited,P2P to PMP Phase 6,3,25-06-2026,,Customer PMP Survey,,,Pending/YTS,PO WIP/ LC Required,NA,,Not Released
+211,091KOLK0300Z0000005,Bharti AXA Life Insurance Company Limited,P2P to PMP Phase 6,3,25-06-2026,,Customer PMP Survey,,,Pending/YTS,PO WIP/ LC Required,NA,,Not Released
+212,091KOLK623010230734,Export Import Bank of India,P2P to PMP Phase 6,3,25-06-2026,01-06-2026,Customer PMP Survey,01-07-2026,1,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+213,091RANC623037242541,AU SMALL FINANCE BANK LIMITED.,P2P to PMP Phase 6,3,25-06-2026,,Customer PMP Survey,,,Pending/YTS,PO WIP/ LC Required,NA,,Not Released
+214,091RANC623035334133,Cholamandalam MS General Insurance Company Limited,P2P to PMP Phase 6,3,25-06-2026,,Customer PMP Survey,,,Pending/YTS,PO WIP/ LC Required,NA,,Not Released
+215,091PATN623029659429,UNION BANK OF INDIA,P2P to PMP Phase 6,3,25-06-2026,28-06-2026,Customer PMP Survey,29-06-2026,1,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+216,091MOTI6230A0058036,Tata AIA Life Insurance Company Limited,P2P to PMP Phase 6,3,25-06-2026,11-08-2026,Customer PMP Survey,13-08-2026,2,Installatio WIP,PO WIP/ LC Required/ Device required,NA,,Not Released
+217,091RANC6230A0090015,ITC Limited,P2P to PMP Phase 6,3,25-06-2026,,Customer PMP Survey,,,Pending/YTS,PO WIP/ LC Required,NA,,Not Released
+218,091BOLP623037545999,TCS (PASSPORT SEVA PROJECT),P2P to PMP Phase 6,3,25-06-202602-09-2026,02-09-2026,Customer PMP Survey,02-09-2026,1,Installatio WIP,PO WIP/ LC Required \ Device required,NA,,Not Released
+219,091BUXA6230A0064103,Tata AIA Life Insurance Company Limited,P2P to PMP Phase 6,3,25-06-2026,,Customer PMP Survey,,,Pending/YTS,PO WIP/ LC Required,NA,,Not Released
+220,091RAIG623037545807,TCS (PASSPORT SEVA PROJECT),P2P to PMP Phase 6,3,25-06-2026,,Customer PMP Survey,,,Pending/YTS,PO WIP/ LC Required,NA,,Not Released
+221,091PATN623012021478,Yes Bank Limited,P2P to PMP Phase 6,3,25-06-2026,28-06-2026,Customer PMP Survey,30-06-2026,2,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+222,091PATN030037202509,Prama Hikvision India Private Limited,P2P to PMP Phase 6,3,25-06-2026,28-06-2026,Customer PMP Survey,30-06-2026,2,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+223,091DARB6230A0113537,Bajaj Allianz Life Insurance Company Limited,P2P to PMP Phase 6,3,25-06-2026,11-08-2026,Customer PMP Survey,12-08-2026,1,Installatio WIP,PO WIP/ LC Required/ Device required,NA,,Not Released
+224,091HOOG623035555880,PUNJAB NATIONAL BANK,P2P to PMP Phase 6,3,25-06-2026,,Customer PMP Survey,,,Pending/YTS,PO WIP/ LC Required,NA,,Not Released
+225,091JALP623031780021,Bajaj Finance Limited,P2P to PMP Phase 6,3,25-06-2026,,Customer PMP Survey,,,Pending/YTS,PO WIP/ LC Required,NA,,Not Released
+226,BIHQBG0303 to BIHBEG1767,Station Road Begusarai to LOHIYA NAGAR,Emergency Relocation,3,07-03-2026,07-04-2026,UBR LOS Survey,07-07-2026,3,Fully Completed,,NA,,Released
+227,091BEGU623034874635,Bank of Baroda,Emergency Relocation,3,07-03-2026,07-07-2026,Customer PMP Survey,07-07-2026,1,Fully Completed,,NA,,Released
+228,IN-1063021 to WEBMUR0444,KALILAPUR to Behrampur_09,Emergency Relocation,3,07-03-2026,07-06-2026,UBR LOS Survey,09-07-2026,2,Fully Completed,,NA,,Released
+229,IN-1063021 to IN-1038019,KALILAPUR to BEHRAMPUR BUS STAND_LIC,Emergency Relocation,3,07-03-2026,07-06-2026,UBR LOS Survey,09-07-2026,2,Fully Completed,,NA,,Released
+230,IN-1132672 to WEBMUR0444,KARWALA ROAD to Behrampur_09,Emergency Relocation,3,07-03-2026,07-06-2026,UBR LOS Survey,09-07-2026,2,Fully Completed,,NA,,Released
+231,IN-1132672 to IN-1038019,KARWALA ROAD to BEHRAMPUR BUS STAND_LIC,Emergency Relocation,3,07-03-2026,07-06-2026,UBR LOS Survey,09-07-2026,2,Fully Completed,,NA,,Released
+232,IN-2004474,BIGT10213,Emergency Relocation,5,15-06-2026,11-07-2026,Sector Installation,14-07-2026,3,Fully Completed,device received-18-06-2026/ Honey Bee Issue,NA,,Released
+233,IN-2004474,BIGT10213,Emergency Relocation,5,15-06-2026,11-07-2026,Switch Installation,15-07-2026,4,Fully Completed,device received-18-06-2026/ Honey Bee Issue,NA,,Released
+234,WEBMUR0444,Behrampur_09,Emergency Relocation,5,18-07-2026,20-07-2026,BTS installation,31-07-2026,6,Fully Completed,"Installation Done -24-07-2026 , AT done- 29-07-2026",NA,,Released
+235,IN-1038019,BEHRAMPUR BUS STAND_LIC,Emergency Relocation,5,18-07-2026,20-07-2026,UBR Installation,04-08-2026,4,Fully Completed,AT Done -04-08-2026,NA,,Released
+236,BR/PT/AT/11219,Khagaul,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,BTS Survey,04-08-2026,3,Fully Completed,,NA,,Released
+237,BH5076,SALEMPUR,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,BTS Survey,07-08-2026,3,Fully Completed,,NA,,Released
+238,BH5076 to BIHSAR0347,SALEMPUR to Rajendra College More,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,UBR LOS Survey,07-08-2026,3,Fully Completed,,NA,,Released
+239,BR/PT/AT/11219 to BIHPAT0299,SALEMPUR to Rajendra College More,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,UBR LOS Survey,07-08-2026,3,Fully Completed,,NA,,Released
+240,091PATN623015574416,HDFC BANK LIMITED,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,Customer Survey,04-08-2026,3,Fully Completed,,NA,,Released
+241,091PATN623013136286,STATE BANK OF INDIA,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,Customer Survey,04-08-2026,3,Fully Completed,,NA,,Released
+242,091CHHA6230A0420539,Ujjivan Bank,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,Customer Survey,04-08-2026,3,Fully Completed,,NA,,Released
+243,091DANA6230A0215281,Tata AIA Life Insurance Company Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,Customer Survey,04-08-2026,3,Fully Completed,,NA,,Released
+244,091PATN623036134610,HDFC Bank Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,Customer Survey,04-08-2026,3,Fully Completed,,NA,,Released
+245,091PATN6230A0007953,DCB Bank Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,Customer Survey,04-08-2026,3,Fully Completed,,NA,,Released
+246,091PATN623035840778,Sony India Private Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,Customer Survey,04-08-2026,3,Fully Completed,,NA,,Released
+247,091PATN030038256628,ACC Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,Customer Survey,04-08-2026,3,Fully Completed,,NA,,Released
+248,091KHAG0300A0382199,Kotak Mahindra Bank Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,04-08-2026,Customer Survey,04-08-2026,3,Fully Completed,,NA,,Released
+249,091CHHA6230A0385075,BAJAJ LIFE INSURANCE LIMITED,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+250,091SARA623013806682,SBI Life Insurance Company Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+251,091SARA623035691206,JANA SMALL FINANCE BANK LIMITED.,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+252,091CHHA6230A0214624,Tata AIA Life Insurance Company Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+253,091CHHA623033674361,AGEAS FEDERAL LIFE INSURANCECOMPANY LIMITED,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+254,091CHHA623037547433,TCS PASSPORT SEVA PROJECT,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+255,091CHHA0300A0139631,ADITYA BIRLA SUN LIFE INSURANCE COMPANY LIMITED,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+256,091CHHA623017545879,ICICI Bank Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+257,091CHHA0300A0192636,HDB Financial Services Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+258,091SARA030037129281,Jubilant Foodworks Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+259,091CHHA6230A0216994,Directorate of Income Tax Systems,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+260,091CHHA6230Z0000003,Bharti AXA Life Insurance Company Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+261,091CHHA623017215257,PNB METLIFE INDIA INSURANCE COMPANY LIMITED,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+262,091SARA623013207644,State Bank of India,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+263,091NADI623009624775,Axis Bank Limited,High Colo Opex BTS & ZTS relocation,3,03-08-2026,05-08-2026,Customer Survey,09-08-2026,4,Fully Completed,,NA,,Released
+264,091KOLK623005767629,Tata Motors Finance Solution Limited,Multicast customer migration from PMP to,5,02-09-2026,03-09-2026,P2P link dismantling,03-09-2026,1,Fully Completed,,NA,,Not Released
+265,091KOLK623010230734,Export Import Bank of India,P2P to PMP Phase 6,3,25-06-2026,08-20-2026,Customer PMP Survey,08-20-2026,1,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+266,091PATN623029659429,UNION BANK OF INDIA,P2P to PMP Phase 6,3,25-06-2026,30-08-2026,Customer Installation,30-08-2026,1,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+267,091PATN623012021478,Yes Bank Limited,P2P to PMP Phase 6,3,25-06-2026,30-08-2026,Customer Installation,30-08-2026,2,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+268,091PATN030037202509,Prama Hikvision India Private Limited,P2P to PMP Phase 6,3,25-06-2026,30-08-2026,Customer Installation,30-08-2026,2,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+269,091KOLK623010230734,Export Import Bank of India,P2P to PMP Phase 6,3,25-06-2026,08-20-2026,Migartion,08-20-2026,1,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+270,091PATN623029659429,UNION BANK OF INDIA,P2P to PMP Phase 6,3,25-06-2026,30-08-2026,Migartion,31-08-2026,1,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+271,091PATN623012021478,Yes Bank Limited,P2P to PMP Phase 6,3,25-06-2026,30-08-2026,Migartion,31-08-2026,2,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+272,091PATN030037202509,Prama Hikvision India Private Limited,P2P to PMP Phase 6,3,25-06-2026,30-08-2026,Migartion,31-08-2026,2,Fully Completed,PO WIP/ Device Required,NA,,Not Released
+273,WEBMUR0444,Behrampur_09,Emergency Relocation,5,06-08-2026,06-08-2026,UBR Alingment,06-08-2026,1,Fully Completed,,NA,,Released
+274,ID-1009670,Arwal,UBR BH capacity augmentation of 50 BS,5,05-08-2026,07-08-2026,UBR Installation,10-08-2026,3,Issue/Stuck,"Safety Issue, issue resolved",22-09-2026,,Released
+275,WEBHOW0264,RamRajaTala,UBR BH capacity augmentation of 50 BS,1,13--08-2026,08-16-2026,UBR Alingment,08-16-2026,1,Fully Completed,,NA,,Released
+276,WEBNOR0599,Kachrapara,UBR BH capacity augmentation of 50 BS,1,08-19-2026,08-23-2026,UBR BH alignment,08-23-2026,1,Fully Completed,,NA,,Released
+277,WEBNOR0602,Kalyani,UBR BH capacity augmentation of 50 BS,1,08-19-2026,08-23-2026,UBR BH migration,08-23-2026,1,Fully Completed,,NA,,Released
+278,BIHQBG0303,Station Road Begusarai,Emergency Relocation,5,26-08-2026,28-08-2026,UBR Installation,01-09-2020,4,Fully Completed,,NA,,Not Released
+279,BIHBEG1767,LOHIYA NAGAR,Emergency Relocation,5,26-08-2026,28-08-2026,Switch Installation,01-09-2020,4,Fully Completed,,NA,,Not Released
+280,BIHBEG1767,LOHIYA NAGAR,Emergency Relocation,5,27-08-2026,08-09-2026,Sector Installation,10-21-2026,6,Fully Completed,,NA,,Not Released
+281,BIHBEG0023,Begusarai -01,Emergency Relocation,5,26-08-2026,28-08-2026,Sector Dismantle,10-09-2026,2,Fully Completed,,NA,,Not Released
+282,091JHAN0300A0234983,HDFC Bank Limited,O2NET Project FY27 wireless,3,09-09-2026,08-09-2026,Customer Migration,08-09-2026,1,Fully Completed,"Discussion approved WO(1migration, 1MV) Back end issue migration not completed.",NA,,Not Released
+283,091JHAN0300A0234983,HDFC Bank Limited,O2NET Project FY27 wireless,3,17-09-2026,18-09-2026,Customer Migration,18-09-2026,1,Fully Completed,"Discussion approved WO(1migration, 1MV) Back end issue migration not completed.",NA,,Not Released
+284,WEBMUR0462,Behrampur_001( Kashim bazar),Emergency Relocation,5,24-09-2026,25-09-2026,BTS Dismantle,26-09-2026,1,Fully Completed,,NA,,Released
+285,WEBMUR0462,Behrampur_001( Kashim bazar),Emergency Relocation,5,24-09-2026,25-09-2026,UBR Dismantle,26-09-2026,1,Fully Completed,,NA,,Released
+286,IN-2004488,BIGT10220,ZTS Relocation FY26 Ph-2,3,24-09-2026,25-09-2026,Customer Survey,26-09-2026,1,Fully Completed,,NA,,Not Released
+287,IN-2004488,BIGT10220,ZTS Relocation FY26 Ph-2,3,24-09-2026,25-09-2026,Customer Survey,26-09-2026,1,Fully Completed,,NA,,Not Released
+288,IN-2004488,SITAMARHI,ZTS Relocation FY26 Ph-2,5,28-09-2026,05-10-2026,BTS installation,07-10-2026,2,AT WIP,,NA,,Not Released
+289,BR/PA/AT/17693,Pakaur (M),CX4 to conventional backhaul PH 3,5,28-09-2026,29-09-2026,BTS installation,29-09-2026,,AT WIP,,NA,,Not Released
+290,BIHDAR0404,Rajkumar Ganj,ZTS Relocation FY26 Ph-2,5,28-09-2026,29-09-2026,Switch Installation,29-09-2026,1,Fully Completed,,9/29/2026,,Not Released
+289,BR/PA/AT/17693,Pakaur (M),CX4 to conventional backhaul PH 3,5,28-09-2026,29-09-2026,Switch Installation,29-09-2026,1,Fully Completed,,NA,,Not Released

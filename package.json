@@ -1,5 +1,13 @@
 {
-  "dependencies": {
-    "pptxgenjs": "^4.0.1"
+  "name": "telecom-vendor-tat-dashboard",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Live Telecom Vendor Survey & TAT Intelligence Dashboard (Google Sheets -> Vercel API -> dashboard)",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js",
+    "start:mock": "DATA_SOURCE_DIR=data/mock node server.js",
+    "test": "node tests/scenarios.js",
+    "snapshot": "node scripts/export-snapshot.js"
   }
 }

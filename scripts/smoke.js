@@ -1,0 +1,10 @@
+const E=require('../assets/js/engine'),{buildPayload}=require('../lib/datasource');
+(async()=>{const p=await buildPayload();const now=new Date();const R=p.records;
+const months=E.availableMonths(R,now);console.log('months',months.join(' '));
+const k=E.kpis(R,now);console.log('KPI',JSON.stringify(k));
+E.vendorTable(R,p.vendors,now).forEach(v=>console.log(v.rank,v.name,v.total,v.completed,v.pending,v.avgTat&&v.avgTat.toFixed(2),v.slaPct&&v.slaPct.toFixed(1)));
+const ex=E.executiveSummary(R,p.vendors,now);console.log('EXEC',ex.label,ex.prevLabel,ex.observation);
+E.insights(R,p.vendors,now).forEach(i=>console.log(i.type,i.title,'-',i.text));
+const c=E.updateCompliance(p.vendors,now);console.log(E.complianceComment(c));
+const dq=E.dataQuality(R,p.vendors,now);console.log('DQ',dq.score.toFixed(1),dq.issueCount,dq.byType.slice(0,8));
+const a=E.pendingAgeing(R,now);console.log('ageing',JSON.stringify(a.buckets),a.undated,a.critical.length);})();

@@ -1,103 +1,25 @@
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
-
-const supabaseUrl = process.env.SUPABASE_URL || 'https://fnvtruvkmaafvsrjfdkp.supabase.co';
-const supabaseKey = process.env.SUPABASE_KEY || process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZudnRydXZrbWFhZnZzcmpmZGtwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzNjMwOTcsImV4cCI6MjEwNDkzOTA5N30.DmHMy7lb_hNuXv6dEVSK6BnZkAyJD43QwuQ4QCnjr5k';
-
-async function fetchFromSupabase() {
-  if (!supabaseUrl || !supabaseKey) throw new Error('No Supabase credentials');
-
-  let allRows = [];
-  let offset = 0;
-  const limit = 1000;
-  let hasMore = true;
-
-  while (hasMore) {
-    const rows = await new Promise((resolve, reject) => {
-      const url = `${supabaseUrl}/rest/v1/vendor_surveys?select=*`;
-      const req = https.get(url, {
-        headers: {
-          'apikey': supabaseKey,
-          'Authorization': `Bearer ${supabaseKey}`,
-          'Range': `${offset}-${offset + limit - 1}`
-        }
-      }, (res) => {
-        let body = '';
-        res.on('data', chunk => body += chunk);
-        res.on('end', () => {
-          if (res.statusCode >= 200 && res.statusCode < 300) {
-            try {
-              resolve(JSON.parse(body));
-            } catch (e) {
-              reject(e);
-            }
-          } else {
-            reject(new Error(`HTTP ${res.statusCode}: ${body}`));
-          }
-        });
-      });
-      req.on('error', reject);
-    });
-
-    if (rows && rows.length > 0) {
-      allRows = allRows.concat(rows);
-      if (rows.length < limit) {
-        hasMore = false;
-      } else {
-        offset += limit;
-      }
-    } else {
-      hasMore = false;
-    }
-  }
-
-  const rawRecords = allRows.map(r => ({
-    siteId: r.site_id || '',
-    siteName: r.site_name || '',
-    project: r.project || '',
-    activity: r.activity || '',
-    assignedDate: r.assigned_date || '',
-    permDate: r.perm_date || '',
-    completedDate: r.completed_date || '',
-    tat: r.tat,
-    tclTat: r.tcl_tat,
-    status: r.status || '',
-    remarks: r.remarks || '',
-    state: r.state || '',
-    region: r.region || '',
-    vendor: r.vendor || ''
-  }));
-
-  return { rawRecords };
-}
+/* Vercel serverless function:  GET /api/data  ->  normalised vendor-survey JSON */
+const { buildPayload, etagOf } = require('../lib/datasource');
 
 module.exports = async (req, res) => {
+  res.setHeader('Cache-Control', 'no-store, max-age=0');      // always fresh – the browser polls this
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
-
   try {
-    const cloudData = await fetchFromSupabase();
-    if (cloudData && cloudData.rawRecords && cloudData.rawRecords.length > 0) {
-      return res.status(200).json(cloudData);
+    const payload = await buildPayload();
+    const etag = etagOf(payload);
+    res.setHeader('ETag', etag);
+    if (req.headers['if-none-match'] === etag) {
+      // data unchanged – only the sync time moves; tell the client cheaply
+      res.setHeader('X-Generated-At', payload.generatedAt);
+      res.statusCode = 304;
+      return res.end();
     }
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    res.statusCode = 200;
+    res.end(JSON.stringify(payload));
   } catch (err) {
-    console.warn('Supabase fetch warning, using local fallback:', err.message);
-  }
-
-  try {
-    const dataPath = path.join(process.cwd(), 'data.json');
-    if (fs.existsSync(dataPath)) {
-      const content = fs.readFileSync(dataPath, 'utf8');
-      return res.status(200).json(JSON.parse(content));
-    }
-    return res.status(404).json({ error: 'data.json file not found' });
-  } catch (err) {
-    return res.status(500).json({ error: err.message });
+    res.statusCode = 502;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ error: err.message }));
   }
 };
